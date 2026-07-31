@@ -87,8 +87,9 @@ export function HomeHero() {
 
 
         {/* Right ~52% — signature architectural frame */}
-        <Reveal variant="scale" delay={80} className="min-w-0">
-          <div className="relative mx-auto max-w-md lg:max-w-none">
+        <Reveal variant="scale" delay={80} className="min-w-0 lg:pt-[4.5rem]">
+          <div className="relative mx-auto max-w-[20rem] sm:max-w-sm lg:mr-0 lg:ml-auto lg:max-w-[26rem]">
+
             {/* Subtle medical-inspired background detailing */}
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
               <div className="absolute -left-8 bottom-24 hidden size-24 opacity-40 [background-image:radial-gradient(var(--color-primary)_1px,transparent_1px)] [background-size:12px_12px] sm:block" />
