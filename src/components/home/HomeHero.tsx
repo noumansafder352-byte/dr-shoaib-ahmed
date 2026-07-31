@@ -23,11 +23,18 @@ const heroStats = [
   { icon: ShieldCheck, text: "Advanced", label: "ENT Care & Surgery" },
 ] as const;
 
-const appointmentDetails = [
+type AppointmentDetail = {
+  icon: typeof CalendarDays;
+  label: string;
+  value: string;
+  href?: string;
+};
+
+const appointmentDetails: AppointmentDetail[] = [
   { icon: CalendarDays, label: "Consultation Days", value: "Monday – Friday" },
   { icon: Clock, label: "Clinic Hours", value: "4:00 PM – 6:30 PM" },
   { icon: Phone, label: "Call Now", value: contact.phone, href: contact.phoneHref },
-] as const;
+];
 
 /** Home page hero: premium split layout with stats and a floating appointment card. */
 export function HomeHero() {
