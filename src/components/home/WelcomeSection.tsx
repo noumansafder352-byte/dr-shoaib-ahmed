@@ -59,27 +59,24 @@ export function WelcomeSection() {
             </p>
           </div>
 
-          <ul className="mt-10 flex flex-col gap-5 border-t border-border/80 pt-8 sm:flex-row sm:items-center sm:gap-0 sm:divide-x sm:divide-border">
+          <ul className="mt-10 grid overflow-hidden rounded-[18px] border border-border/70 bg-card shadow-soft transition-shadow duration-300 hover:shadow-lift sm:grid-cols-3 sm:divide-x sm:divide-border/70">
             {highlights.map((item) => {
               const Icon = item.icon;
               return (
-                <li
-                  key={item.title}
-                  className="flex min-w-0 items-center gap-2.5 sm:flex-1 sm:justify-center sm:px-4 sm:first:justify-start sm:first:pl-0 sm:last:justify-end sm:last:pr-0"
-                >
-                  <Icon
-                    size={17}
-                    strokeWidth={1.8}
-                    aria-hidden="true"
-                    className="shrink-0 text-primary"
-                  />
-                  <span className="font-heading text-[0.9rem] font-semibold leading-snug text-foreground">
-                    {item.title}
-                  </span>
+                <li key={item.title} className="min-w-0 not-last:border-b not-last:border-border/70 sm:not-last:border-b-0">
+                  <div className="group flex items-center gap-3.5 px-6 py-6 transition-transform duration-300 hover:-translate-y-0.5 sm:flex-col sm:gap-3 sm:px-8 sm:py-8 sm:text-center">
+                    <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-primary/[0.08] text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                      <Icon size={18} strokeWidth={1.8} aria-hidden="true" />
+                    </span>
+                    <span className="font-heading text-[0.9rem] font-semibold leading-snug text-foreground">
+                      {item.title}
+                    </span>
+                  </div>
                 </li>
               );
             })}
           </ul>
+
 
           <div className="mt-10">
             <Button asChild className="group px-7">
