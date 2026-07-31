@@ -1,6 +1,5 @@
 import { Award, HeartHandshake, Syringe, Users } from "lucide-react";
 
-import { Section } from "@/components/layout/Section";
 import { Counter } from "@/components/ui/counter";
 import { Reveal } from "@/components/ui/reveal";
 
@@ -11,41 +10,53 @@ const stats = [
   { icon: Syringe, text: "Advanced", label: "ENT Procedures" },
 ] as const;
 
-/** Horizontal statistics band with animated counters. */
+/**
+ * Floating statistics band. Rendered between the hero and the welcome section so
+ * roughly half of the card overlaps each one.
+ */
 export function StatsSection() {
   return (
-    <Section id="clinic-statistics" className="bg-muted" ariaLabelledBy="stats-heading">
+    <section
+      id="clinic-statistics"
+      aria-labelledby="stats-heading"
+      className="relative z-20 -mt-16 sm:-mt-20 lg:-mt-24"
+    >
       <h2 id="stats-heading" className="sr-only">
         Clinic in numbers
       </h2>
-      <dl className="grid divide-y divide-border rounded-xl border border-border bg-card shadow-soft sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4">
-        {stats.map((stat, index) => (
-          <Reveal
-            key={stat.label}
-            delay={index * 90}
-            className={
-              "border-border p-8 text-center sm:[&:nth-child(n+3)]:border-t lg:[&:nth-child(n+2)]:border-l lg:[&:nth-child(n+3)]:border-t-0"
-            }
-          >
-            <span
-              aria-hidden="true"
-              className="mx-auto grid size-12 place-items-center rounded-full bg-surface text-primary"
-            >
-              <stat.icon size={22} strokeWidth={1.6} />
-            </span>
-            <dd className="mt-4 font-heading text-3xl font-bold text-foreground sm:text-4xl">
-              {"value" in stat ? (
-                <Counter value={stat.value} suffix={stat.suffix} />
-              ) : (
-                stat.text
-              )}
-            </dd>
-            <dt className="mt-2 text-sm font-medium tracking-wide text-muted-foreground">
-              {stat.label}
-            </dt>
-          </Reveal>
-        ))}
-      </dl>
-    </Section>
+      <div className="container-page">
+        <Reveal variant="scale">
+          <dl className="grid grid-cols-1 gap-y-8 rounded-[22px] border border-border bg-card px-6 py-9 shadow-lift sm:grid-cols-2 sm:gap-y-10 sm:px-8 lg:grid-cols-4 lg:gap-y-0 lg:px-4 lg:py-10">
+            {stats.map((stat, index) => (
+              <div
+                key={stat.label}
+                className={`flex min-w-0 flex-col items-center px-4 text-center ${
+                  index > 0
+                    ? "sm:[&:nth-child(2n+1)]:border-l-0 sm:border-l sm:border-border/70 lg:border-l"
+                    : ""
+                }`}
+              >
+                <span
+                  aria-hidden="true"
+                  className="grid size-11 place-items-center rounded-full bg-primary/[0.07] text-primary"
+                >
+                  <stat.icon size={20} strokeWidth={1.7} />
+                </span>
+                <dd className="mt-4 font-heading text-[1.75rem] font-semibold leading-none tracking-tight text-foreground sm:text-[2rem]">
+                  {"value" in stat ? (
+                    <Counter value={stat.value} suffix={stat.suffix} />
+                  ) : (
+                    stat.text
+                  )}
+                </dd>
+                <dt className="mt-2.5 text-[0.8rem] font-medium uppercase tracking-[0.1em] text-muted-foreground">
+                  {stat.label}
+                </dt>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
+      </div>
+    </section>
   );
 }
