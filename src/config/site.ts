@@ -14,8 +14,9 @@ export const site = {
 export const contact = {
   phone: "0335-0330019",
   phoneHref: "tel:+923350330019",
-  email: "info@drshoaibahmed.com",
-  emailHref: "mailto:info@drshoaibahmed.com",
+  email: "official.drshoaibahmed@gmail.com",
+  emailHref: "mailto:official.drshoaibahmed@gmail.com",
+
   hours: "Monday – Friday | 4:00 PM – 6:30 PM",
   hoursShort: "Mon – Fri | 4:00 – 6:30 PM",
   address: "2nd Floor IDC, Saddar, Rawalpindi",
