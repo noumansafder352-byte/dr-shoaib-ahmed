@@ -16,7 +16,9 @@ export function Footer() {
     <footer className="bg-footer text-footer-foreground">
       <div className="container-page grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-10 lg:py-20">
         <div className="min-w-0">
-          <Logo variant="light" />
+          <div className="inline-flex rounded-xl bg-white px-4 py-3">
+            <Logo />
+          </div>
 
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-footer-muted">
             Specialist care for ear, nose, throat, head and neck conditions in Rawalpindi —
