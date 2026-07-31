@@ -1,14 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Award, CalendarCheck, HeartHandshake, Stethoscope } from "lucide-react";
+import { ArrowRight, CalendarCheck } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
-
-const trustPoints = [
-  { icon: Award, label: "30+ Years Experience" },
-  { icon: Stethoscope, label: "Expert ENT Care" },
-  { icon: HeartHandshake, label: "Patient-Centered Treatment" },
-];
 
 /** Final conversion section — layered premium banner above the footer. */
 export function AppointmentCta() {
@@ -31,8 +25,8 @@ export function AppointmentCta() {
         <div className="absolute inset-x-0 top-0 h-px bg-white/25" />
       </div>
 
-      <div className="container-page py-16 sm:py-20 lg:py-24">
-        <div className="grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:items-center lg:gap-16">
+      <div className="container-page py-20 sm:py-24 lg:py-28">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.3fr_1fr] lg:gap-20">
           <Reveal className="min-w-0">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em]">
               <CalendarCheck size={15} strokeWidth={1.8} aria-hidden="true" />
@@ -40,11 +34,11 @@ export function AppointmentCta() {
             </span>
             <h2
               id="appointment-cta-heading"
-              className="mt-6 max-w-[22ch] font-heading text-primary-foreground text-[1.9rem] font-semibold leading-[1.15] tracking-tight sm:text-[2.4rem] lg:text-[2.75rem]"
+              className="mt-8 max-w-[22ch] font-heading text-[2rem] font-semibold leading-[1.15] tracking-tight text-primary-foreground sm:text-[2.5rem] lg:text-[2.9rem]"
             >
               Your Health Deserves Expert ENT Care
             </h2>
-            <p className="mt-6 max-w-[58ch] text-[0.975rem] leading-[1.85] text-primary-foreground/85 sm:text-[1.0625rem]">
+            <p className="mt-8 max-w-[58ch] text-[0.975rem] leading-[1.9] text-primary-foreground/85 sm:text-[1.0625rem]">
               Don&rsquo;t let ear, nose, or throat problems affect your quality of life. Book your
               consultation today and receive personalized care from one of Pakistan&rsquo;s
               experienced ENT specialists.
@@ -52,7 +46,7 @@ export function AppointmentCta() {
           </Reveal>
 
           <Reveal delay={120} className="min-w-0">
-            <div className="flex flex-col gap-4 sm:flex-row lg:flex-col lg:items-stretch">
+            <div className="flex flex-col gap-5 sm:flex-row lg:flex-col lg:items-stretch">
               <Button
                 asChild
                 className="h-[52px] bg-background px-8 text-primary shadow-lift transition-transform duration-300 hover:-translate-y-0.5 hover:bg-background hover:text-primary-hover"
@@ -78,24 +72,6 @@ export function AppointmentCta() {
             </div>
           </Reveal>
         </div>
-
-        <Reveal delay={200}>
-          <ul className="mt-12 grid gap-5 border-t border-white/20 pt-8 sm:grid-cols-3 sm:gap-8">
-            {trustPoints.map((point) => {
-              const Icon = point.icon;
-              return (
-                <li key={point.label} className="flex min-w-0 items-center gap-3">
-                  <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10">
-                    <Icon size={17} strokeWidth={1.8} aria-hidden="true" />
-                  </span>
-                  <span className="font-heading text-[0.9rem] font-semibold leading-snug">
-                    {point.label}
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-        </Reveal>
       </div>
     </section>
   );
