@@ -36,7 +36,7 @@ export function ServicesIntro() {
       </ul>
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
         <Button asChild>
-          <a href={`tel:${contact.phoneHref ?? contact.phone}`}>Book Appointment</a>
+          <a href={contact.phoneHref}>Book Appointment</a>
         </Button>
         <Button asChild variant="outline">
           <Link to="/contact">Visit the Clinic</Link>
