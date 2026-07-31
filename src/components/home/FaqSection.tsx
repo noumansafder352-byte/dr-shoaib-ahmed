@@ -34,6 +34,7 @@ export function FaqSection() {
   return (
     <CenteredSection
       id="faqs"
+      surface
       label="FAQs"
       title="Frequently Asked Questions"
       description="Answers to the questions patients ask most often before their first ENT consultation."

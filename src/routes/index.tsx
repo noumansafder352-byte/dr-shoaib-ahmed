@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { AppointmentCta } from "@/components/home/AppointmentCta";
-import { FacilitiesSection } from "@/components/home/FacilitiesSection";
 import { FaqSection } from "@/components/home/FaqSection";
 import { HomeHero } from "@/components/home/HomeHero";
 import { MeetDoctorSection } from "@/components/home/MeetDoctorSection";
@@ -33,7 +32,6 @@ function HomePage() {
       <StatsSection />
       <ServicesOverview />
       <TreatmentProcess />
-      <FacilitiesSection />
       <TestimonialsSection />
       <FaqSection />
       <AppointmentCta />
