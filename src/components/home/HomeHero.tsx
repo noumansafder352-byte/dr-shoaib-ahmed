@@ -86,27 +86,38 @@ export function HomeHero() {
         </Reveal>
 
 
-        {/* Right ~52% */}
+        {/* Right ~52% — signature architectural frame */}
         <Reveal variant="scale" delay={80} className="min-w-0">
           <div className="relative mx-auto max-w-md pb-48 sm:pb-36 lg:max-w-none lg:pb-28">
-            <div
-              aria-hidden="true"
-              className="absolute -left-5 -top-5 hidden h-40 w-40 rounded-tl-[2rem] border-l border-t border-primary/20 sm:block"
-            />
-            <div
-              aria-hidden="true"
-              className="absolute right-6 top-8 -z-10 hidden h-[85%] w-[85%] rounded-[26px] bg-surface lg:block"
-            />
-
-            <div className="relative overflow-hidden rounded-[24px] border border-border bg-surface p-2 shadow-lift">
-              <img
-                src={doctorHero}
-                alt="Prof. Dr. Maj. Gen. (R) Shoaib Ahmed, ENT specialist in Rawalpindi"
-                width={1024}
-                height={1280}
-                className="w-full rounded-[18px] object-cover object-top animate-scale-in"
-              />
+            {/* Subtle medical-inspired background detailing */}
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+              <div className="absolute -left-8 bottom-24 hidden size-24 opacity-40 [background-image:radial-gradient(var(--color-primary)_1px,transparent_1px)] [background-size:12px_12px] sm:block" />
+              <div className="absolute -right-6 top-10 hidden size-20 opacity-25 [background-image:radial-gradient(var(--color-muted-foreground)_1px,transparent_1px)] [background-size:12px_12px] lg:block" />
+              <div className="absolute -left-10 top-6 hidden h-[70%] w-24 rounded-l-[9rem] border-b border-l border-t border-primary/15 lg:block" />
+              <div className="absolute right-8 top-4 hidden h-[86%] w-[86%] rounded-tl-[8rem] rounded-br-[8rem] bg-surface lg:block" />
             </div>
+
+            {/* White architectural frame */}
+            <div className="relative rounded-tl-[7rem] rounded-tr-[2rem] rounded-br-[7rem] rounded-bl-[2rem] bg-card p-3 shadow-lift sm:rounded-tl-[9rem] sm:rounded-br-[9rem] sm:p-4">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-2 rounded-tl-[8rem] rounded-tr-[2.5rem] rounded-br-[8rem] rounded-bl-[2.5rem] border-l border-t border-primary/30 sm:-inset-3 sm:rounded-tl-[10rem] sm:rounded-br-[10rem]"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-5 hidden rounded-tl-[10rem] rounded-tr-[3rem] rounded-br-[10rem] rounded-bl-[3rem] border-b border-r border-primary/15 lg:block"
+              />
+              <div className="overflow-hidden rounded-tl-[6rem] rounded-tr-[1.25rem] rounded-br-[6rem] rounded-bl-[1.25rem] bg-surface sm:rounded-tl-[8rem] sm:rounded-br-[8rem]">
+                <img
+                  src={doctorHero}
+                  alt="Prof. Dr. Maj. Gen. (R) Shoaib Ahmed, ENT specialist in Rawalpindi"
+                  width={1024}
+                  height={1280}
+                  className="aspect-[4/5] w-full animate-scale-in object-cover object-top sm:aspect-[4/4.6]"
+                />
+              </div>
+            </div>
+
 
             {/* Floating premium appointment information card */}
             <Reveal
