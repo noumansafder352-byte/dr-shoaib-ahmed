@@ -8,7 +8,7 @@ import {
   Stethoscope,
 } from "lucide-react";
 
-import doctorHero from "@/assets/doctor-hero.jpg";
+import doctorHero from "@/assets/dr-shoaib.jpeg.asset.json";
 import { contact } from "@/config/site";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
@@ -110,10 +110,10 @@ export function HomeHero() {
               />
               <div className="overflow-hidden rounded-tl-[6rem] rounded-tr-[1.25rem] rounded-br-[6rem] rounded-bl-[1.25rem] bg-surface sm:rounded-tl-[8rem] sm:rounded-br-[8rem]">
                 <img
-                  src={doctorHero}
+                  src={doctorHero.url}
                   alt="Prof. Dr. Maj. Gen. (R) Shoaib Ahmed, ENT specialist in Rawalpindi"
-                  width={1024}
-                  height={1280}
+                  width={1183}
+                  height={1345}
                   className="aspect-[4/5] w-full animate-scale-in object-cover object-top sm:aspect-[4/4.6]"
                 />
               </div>
