@@ -1,12 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, Stethoscope, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import { Logo } from "./Logo";
 import { TopBar } from "./TopBar";
 import { Button } from "@/components/ui/button";
-import { navItems, site } from "@/config/site";
+import { navItems } from "@/config/site";
 import { cn } from "@/lib/utils";
 
+/** Sticky white header: logo left, nav center, CTA right. Shrinks on scroll. */
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -17,6 +19,13 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   return (
     <header
@@ -29,48 +38,31 @@ export function Header() {
 
       <div
         className={cn(
-          "container-page grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 transition-[padding] duration-300 ease-[var(--ease-brand)]",
-          scrolled ? "py-3" : "py-4 lg:py-5",
+          "container-page flex items-center justify-between gap-4 transition-[padding] duration-300 ease-[var(--ease-brand)]",
+          scrolled ? "py-2.5" : "py-4 lg:py-5",
         )}
       >
-        <Link
-          to="/"
-          className="flex min-w-0 items-center gap-3"
-          aria-label={`${site.shortName} — home`}
-        >
-          <span
-            aria-hidden="true"
-            className="inline-flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground"
-          >
-            <Stethoscope size={20} strokeWidth={1.7} />
-          </span>
-          <span className="flex min-w-0 flex-col leading-tight">
-            <span className="truncate font-heading text-base font-semibold sm:text-lg">
-              {site.shortName}
-            </span>
-            <span className="truncate text-xs text-muted-foreground">{site.specialty}</span>
-          </span>
-        </Link>
+        <Logo compact={scrolled} />
 
-        <div className="flex items-center gap-2 lg:gap-8">
-          <nav aria-label="Main navigation" className="hidden lg:block">
-            <ul className="flex items-center gap-8">
-              {navItems.map((item) => (
-                <li key={item.to}>
-                  <Link
-                    to={item.to}
-                    activeOptions={{ exact: item.to === "/" }}
-                    activeProps={{ className: "text-primary" }}
-                    inactiveProps={{ className: "text-foreground" }}
-                    className="link-underline py-1 text-sm font-medium transition-colors hover:text-primary"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+        <nav aria-label="Main navigation" className="hidden lg:block">
+          <ul className="flex items-center gap-9">
+            {navItems.map((item) => (
+              <li key={item.to}>
+                <Link
+                  to={item.to}
+                  activeOptions={{ exact: item.to === "/" }}
+                  activeProps={{ className: "text-primary after:scale-x-100" }}
+                  inactiveProps={{ className: "text-foreground" }}
+                  className="relative py-1.5 text-sm font-medium transition-colors duration-300 hover:text-primary after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-[var(--ease-brand)] hover:after:scale-x-100"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
+        <div className="flex items-center gap-2">
           <Button asChild size="sm" className="hidden sm:inline-flex">
             <Link to="/contact">Book Appointment</Link>
           </Button>
@@ -90,17 +82,21 @@ export function Header() {
         </div>
       </div>
 
-      {open ? (
-        <nav
-          id="mobile-nav"
-          aria-label="Mobile navigation"
-          className="animate-fade-in border-t border-border bg-background lg:hidden"
-        >
-          <ul className="container-page flex flex-col py-3">
+      {/* Mobile menu — slides down smoothly */}
+      <div
+        id="mobile-nav"
+        className={cn(
+          "grid overflow-hidden border-border bg-background transition-[grid-template-rows,opacity] duration-300 ease-[var(--ease-brand)] lg:hidden",
+          open ? "grid-rows-[1fr] border-t opacity-100" : "grid-rows-[0fr] opacity-0",
+        )}
+      >
+        <nav aria-label="Mobile navigation" className="min-h-0">
+          <ul className="container-page flex flex-col py-2">
             {navItems.map((item) => (
               <li key={item.to} className="border-b border-border last:border-b-0">
                 <Link
                   to={item.to}
+                  tabIndex={open ? 0 : -1}
                   activeOptions={{ exact: item.to === "/" }}
                   activeProps={{ className: "text-primary" }}
                   inactiveProps={{ className: "text-foreground" }}
@@ -111,16 +107,16 @@ export function Header() {
                 </Link>
               </li>
             ))}
-            <li className="pt-4 sm:hidden">
+            <li className="py-4 sm:hidden">
               <Button asChild className="w-full">
-                <Link to="/contact" onClick={() => setOpen(false)}>
+                <Link to="/contact" tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
                   Book Appointment
                 </Link>
               </Button>
             </li>
           </ul>
         </nav>
-      ) : null}
+      </div>
     </header>
   );
 }
