@@ -1,79 +1,123 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Menu, Stethoscope, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
-import { navItems, site } from "@/config/site";
+import { TopBar } from "./TopBar";
 import { Button } from "@/components/ui/button";
+import { navItems, site } from "@/config/site";
+import { cn } from "@/lib/utils";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/85 backdrop-blur">
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-4 sm:px-6 lg:px-8">
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full bg-background transition-shadow duration-300 ease-[var(--ease-brand)]",
+        scrolled ? "shadow-header" : "border-b border-border",
+      )}
+    >
+      <TopBar />
+
+      <div
+        className={cn(
+          "container-page grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 transition-[padding] duration-300 ease-[var(--ease-brand)]",
+          scrolled ? "py-3" : "py-4 lg:py-5",
+        )}
+      >
         <Link
           to="/"
-          className="flex min-w-0 flex-col leading-tight"
+          className="flex min-w-0 items-center gap-3"
           aria-label={`${site.shortName} — home`}
         >
-          <span className="truncate text-base font-semibold tracking-tight text-foreground sm:text-lg">
-            {site.shortName}
+          <span
+            aria-hidden="true"
+            className="inline-flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground"
+          >
+            <Stethoscope size={20} strokeWidth={1.7} />
           </span>
-          <span className="truncate text-xs text-muted-foreground">
-            {site.specialty}
+          <span className="flex min-w-0 flex-col leading-tight">
+            <span className="truncate font-heading text-base font-semibold sm:text-lg">
+              {site.shortName}
+            </span>
+            <span className="truncate text-xs text-muted-foreground">{site.specialty}</span>
           </span>
         </Link>
 
-        <nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              activeOptions={{ exact: item.to === "/" }}
-              activeProps={{ className: "text-foreground" }}
-              inactiveProps={{ className: "text-muted-foreground" }}
-              className="rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-foreground"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex items-center gap-2 lg:gap-8">
+          <nav aria-label="Main navigation" className="hidden lg:block">
+            <ul className="flex items-center gap-8">
+              {navItems.map((item) => (
+                <li key={item.to}>
+                  <Link
+                    to={item.to}
+                    activeOptions={{ exact: item.to === "/" }}
+                    activeProps={{ className: "text-primary" }}
+                    inactiveProps={{ className: "text-foreground" }}
+                    className="link-underline py-1 text-sm font-medium transition-colors hover:text-primary"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <Button
-          type="button"
-          variant="ghost"
-          size="icon"
-          className="min-h-11 min-w-11 lg:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-        </Button>
+          <Button asChild size="sm" className="hidden sm:inline-flex">
+            <Link to="/contact">Book Appointment</Link>
+          </Button>
+
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            className="lg:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+          </Button>
+        </div>
       </div>
 
       {open ? (
         <nav
           id="mobile-nav"
           aria-label="Mobile navigation"
-          className="border-t border-border bg-background lg:hidden"
+          className="animate-fade-in border-t border-border bg-background lg:hidden"
         >
-          <ul className="mx-auto flex max-w-7xl flex-col px-4 py-2 sm:px-6">
+          <ul className="container-page flex flex-col py-3">
             {navItems.map((item) => (
-              <li key={item.to}>
+              <li key={item.to} className="border-b border-border last:border-b-0">
                 <Link
                   to={item.to}
                   activeOptions={{ exact: item.to === "/" }}
-                  activeProps={{ className: "text-foreground" }}
-                  inactiveProps={{ className: "text-muted-foreground" }}
+                  activeProps={{ className: "text-primary" }}
+                  inactiveProps={{ className: "text-foreground" }}
                   onClick={() => setOpen(false)}
-                  className="block rounded-md px-2 py-3 text-base font-medium transition-colors hover:text-foreground"
+                  className="block py-3.5 text-base font-medium transition-colors hover:text-primary"
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
+            <li className="pt-4 sm:hidden">
+              <Button asChild className="w-full">
+                <Link to="/contact" onClick={() => setOpen(false)}>
+                  Book Appointment
+                </Link>
+              </Button>
+            </li>
           </ul>
         </nav>
       ) : null}
