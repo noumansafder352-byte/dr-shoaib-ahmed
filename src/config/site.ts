@@ -11,6 +11,14 @@ export const site = {
   url: "https://example.com",
 } as const;
 
+/** Placeholder contact details — replaced with finalized content later. */
+export const contact = {
+  phone: "+92 51 000 0000",
+  phoneHref: "tel:+92510000000",
+  hours: "Mon – Sat, 5:00 PM – 9:00 PM",
+  location: "Rawalpindi, Pakistan",
+} as const;
+
 export type NavItem = {
   label: string;
   to: "/" | "/about" | "/services" | "/contact";
@@ -18,7 +26,7 @@ export type NavItem = {
 
 export const navItems: NavItem[] = [
   { label: "Home", to: "/" },
-  { label: "About Us", to: "/about" },
+  { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
-  { label: "Contact Us", to: "/contact" },
+  { label: "Contact", to: "/contact" },
 ];

@@ -7,23 +7,32 @@ type SectionProps = {
   className?: string;
   containerClassName?: string;
   as?: ElementType;
+  id?: string;
+  /** Light gray (#F8F9FA) band instead of white. */
+  surface?: boolean;
   ariaLabelledBy?: string;
 };
 
-/** Reusable vertical rhythm + max-width container for page sections. */
+/**
+ * Page section wrapper: 1280px container + 70/90/120px vertical rhythm.
+ * Use for every section so spacing stays consistent site-wide.
+ */
 export function Section({
   children,
   className,
   containerClassName,
   as: Tag = "section",
+  id,
+  surface = false,
   ariaLabelledBy,
 }: SectionProps) {
   return (
     <Tag
+      id={id}
       aria-labelledby={ariaLabelledBy}
-      className={cn("px-4 py-16 sm:px-6 md:py-20 lg:px-8 lg:py-24", className)}
+      className={cn("section-y", surface && "bg-surface", className)}
     >
-      <div className={cn("mx-auto w-full max-w-7xl", containerClassName)}>{children}</div>
+      <div className={cn("container-page", containerClassName)}>{children}</div>
     </Tag>
   );
 }
