@@ -1,27 +1,51 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { Section } from "@/components/layout/Section";
+import { PageHero } from "@/components/layout/PageHero";
+import { CoreServices } from "@/components/services/CoreServices";
+import { DiagnosticServices } from "@/components/services/DiagnosticServices";
+import { ServiceProcess } from "@/components/services/ServiceProcess";
+import { ServicesFaq } from "@/components/services/ServicesFaq";
+import { ServicesIntro } from "@/components/services/ServicesIntro";
+import { ServicesWhyChoose } from "@/components/services/ServicesWhyChoose";
+import { SurgicalProcedures } from "@/components/services/SurgicalProcedures";
+import { CtaBanner } from "@/components/shared/CtaBanner";
+import { contact } from "@/config/site";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/services")({
   head: () =>
     seo({
-      title: "ENT Services — Prof. Dr. Maj. Gen. (R) Shoaib Ahmed",
+      title: "ENT Services in Rawalpindi | Dr. Shoaib Ahmed",
       description:
-        "Ear, nose, throat, head and neck consultations, diagnostics and surgical care provided in Rawalpindi.",
+        "Ear, nose and throat treatment, cochlear implant and middle ear surgery, endoscopy and hearing evaluation by Prof. Dr. Maj. Gen. (R) Shoaib Ahmed in Rawalpindi.",
     }),
   component: ServicesPage,
 });
 
 function ServicesPage() {
   return (
-    <Section ariaLabelledBy="services-heading">
-      <h1
-        id="services-heading"
-        className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl"
-      >
-        Services
-      </h1>
-    </Section>
+    <>
+      <PageHero
+        label="Services"
+        title="Comprehensive Ear, Nose & Throat Care"
+        description="We provide expert diagnosis, personalized treatment, and advanced surgical care for a wide range of ear, nose, and throat conditions using modern techniques and patient-centered healthcare."
+        crumbs={[{ label: "Services" }]}
+      />
+      <ServicesIntro />
+      <CoreServices />
+      <SurgicalProcedures />
+      <DiagnosticServices />
+      <ServiceProcess />
+      <ServicesWhyChoose />
+      <ServicesFaq />
+      <CtaBanner
+        tone="primary"
+        label="Get Started"
+        title="Take the first step toward better ENT health"
+        description="Whether you're experiencing hearing problems, sinus issues, throat disorders, or need specialized ENT surgery, our clinic is here to provide expert care with compassion and professionalism."
+        primary={{ label: "Book Appointment", href: contact.phoneHref }}
+        secondary={{ label: "Contact Us", to: "/contact" }}
+      />
+    </>
   );
 }
