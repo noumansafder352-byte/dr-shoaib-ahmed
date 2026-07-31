@@ -39,7 +39,7 @@ export function HomeHero() {
         <div className="absolute bottom-0 left-0 h-px w-full bg-border/70" />
       </div>
 
-      <div className="container-page relative grid items-center gap-16 pb-24 pt-14 sm:pt-20 lg:grid-cols-[48fr_52fr] lg:gap-20 lg:pb-[130px] lg:pt-28">
+      <div className="container-page relative grid items-center gap-16 pb-24 pt-10 sm:pt-14 lg:grid-cols-[48fr_52fr] lg:items-start lg:gap-20 lg:pb-[120px] lg:pt-20">
         {/* Left ~48% */}
         <Reveal className="min-w-0">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.06] px-4 py-2 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">
