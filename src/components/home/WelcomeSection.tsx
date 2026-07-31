@@ -15,7 +15,13 @@ const highlights = [
 /** Welcome introduction — minimal editorial two-column layout. */
 export function WelcomeSection() {
   return (
-    <Section id="welcome" surface ariaLabelledBy="welcome-heading" className="relative">
+    <Section
+      id="welcome"
+      surface
+      ariaLabelledBy="welcome-heading"
+      className="relative pt-24 sm:pt-28 lg:pt-36"
+    >
+
       <div className="grid gap-14 lg:grid-cols-[45fr_55fr] lg:items-stretch lg:gap-16 xl:gap-20">
         {/* Image */}
         <Reveal variant="scale" className="min-w-0 lg:flex">
