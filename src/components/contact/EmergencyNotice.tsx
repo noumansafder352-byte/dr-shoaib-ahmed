@@ -6,7 +6,7 @@ import { Reveal } from "@/components/ui/reveal";
 /** Highlighted emergency notice on a soft red surface. */
 export function EmergencyNotice() {
   return (
-    <Section surface ariaLabelledBy="emergency-title" className="py-0! pb-[70px]! md:pb-[90px]! lg:pb-[120px]!">
+    <Section surface ariaLabelledBy="emergency-title">
       <Reveal>
         <div className="flex flex-col gap-5 rounded-xl border border-primary/25 bg-primary/6 p-8 sm:flex-row sm:gap-6 sm:p-10">
           <span

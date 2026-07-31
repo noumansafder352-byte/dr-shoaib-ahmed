@@ -1,27 +1,49 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { Section } from "@/components/layout/Section";
+import { PageHero } from "@/components/layout/PageHero";
+import { AppointmentInfo } from "@/components/contact/AppointmentInfo";
+import { ContactFaq } from "@/components/contact/ContactFaq";
+import { ContactFormMap } from "@/components/contact/ContactFormMap";
+import { ContactInfo } from "@/components/contact/ContactInfo";
+import { ContactWhyVisit } from "@/components/contact/ContactWhyVisit";
+import { EmergencyNotice } from "@/components/contact/EmergencyNotice";
+import { CtaBanner } from "@/components/shared/CtaBanner";
+import { contact } from "@/config/site";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   head: () =>
     seo({
-      title: "Contact & Appointments — Prof. Dr. Maj. Gen. (R) Shoaib Ahmed",
+      title: "Contact ENT Clinic in Rawalpindi | Dr. Shoaib Ahmed",
       description:
-        "Clinic location, timings and appointment details for ENT consultations with Prof. Dr. Maj. Gen. (R) Shoaib Ahmed in Rawalpindi.",
+        "Contact Prof. Dr. Maj. Gen. (R) Shoaib Ahmed — clinic address at IDC Saddar Rawalpindi, phone 0335-0330019, consultation hours 4:00–6:30 PM and an online enquiry form.",
     }),
   component: ContactPage,
 });
 
 function ContactPage() {
   return (
-    <Section ariaLabelledBy="contact-heading">
-      <h1
-        id="contact-heading"
-        className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl"
-      >
-        Contact Us
-      </h1>
-    </Section>
+    <>
+      <PageHero
+        label="Contact Us"
+        title="We're Here to Help You"
+        description="Whether you have questions, need medical advice, or would like to schedule an appointment, our team is here to assist you. We are committed to providing compassionate care and a smooth healthcare experience from your first contact to your follow-up visit."
+        crumbs={[{ label: "Contact" }]}
+      />
+      <ContactInfo />
+      <AppointmentInfo />
+      <ContactFormMap />
+      <ContactWhyVisit />
+      <ContactFaq />
+      <EmergencyNotice />
+      <CtaBanner
+        tone="primary"
+        label="Appointments"
+        title="Your Health Is Our Priority"
+        description="Don't let ear, nose, or throat problems affect your quality of life. Book your consultation today and receive expert ENT care from Prof. Dr. Maj. Gen. (R) Shoaib Ahmed."
+        primary={{ label: "Book Appointment", href: contact.phoneHref }}
+        secondary={{ label: "Call Now", href: contact.phoneHref }}
+      />
+    </>
   );
 }
