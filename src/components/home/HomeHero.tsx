@@ -49,19 +49,20 @@ export function HomeHero() {
 
           <h1
             id="hero-heading"
-            className="mt-7 max-w-[19ch] font-heading text-[2.1rem] font-semibold leading-[1.14] tracking-tight text-foreground sm:text-[2.75rem] lg:text-[3.15rem]"
+            className="mt-8 max-w-[19ch] font-heading text-[2.2rem] font-semibold leading-[1.13] tracking-tight text-foreground sm:text-[2.9rem] lg:text-[3.35rem]"
           >
             Expert ENT Care with{" "}
             <span className="text-primary">Experience, Precision &amp; Compassion</span>
           </h1>
 
-          <p className="mt-7 max-w-[46ch] text-base leading-[1.85] text-muted-foreground">
+          <p className="mt-8 max-w-[46ch] text-base leading-[1.9] text-muted-foreground sm:text-[1.0625rem]">
             Prof. Dr. Maj. Gen. (R) Shoaib Ahmed provides comprehensive diagnosis and treatment for
             ear, nose, and throat conditions — combining three decades of clinical excellence with
             personalised, patient-first care.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          <div className="mt-11 flex flex-wrap items-center gap-4">
+
             <Button asChild className="group px-7 shadow-lift">
               <Link to="/contact">
                 <CalendarCheck aria-hidden="true" />
