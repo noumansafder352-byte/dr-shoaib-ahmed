@@ -122,39 +122,43 @@ export function HomeHero() {
 
             {/* Premium appointment information card */}
             <Reveal delay={220} className="mt-8 lg:mt-10">
-
-              <div className="card-lift rounded-[20px] border border-border bg-card p-5 shadow-lift sm:p-6">
-                <ul className="grid gap-5 sm:grid-cols-3">
-                  {appointmentDetails.map((item) => {
+              <div className="card-lift rounded-[20px] border border-border bg-card p-6 shadow-lift sm:-mx-6 sm:p-7 lg:-mx-10">
+                <ul className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-0">
+                  {appointmentDetails.map((item, index) => {
                     const Icon = item.icon;
                     return (
-                      <li key={item.label} className="flex min-w-0 items-start gap-3">
-                        <span className="mt-0.5 inline-flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/[0.07] text-primary">
-                          <Icon size={16} strokeWidth={1.8} aria-hidden="true" />
-                        </span>
-                        <span className="min-w-0">
-                          <span className="block text-[0.65rem] font-semibold uppercase leading-tight tracking-[0.1em] text-muted-foreground">
+                      <li
+                        key={item.label}
+                        className={`flex min-w-0 flex-col gap-2 sm:px-5 ${
+                          index > 0 ? "sm:border-l sm:border-border/80" : ""
+                        }`}
+                      >
+                        <span className="flex items-center gap-2">
+                          <span className="inline-flex size-7 shrink-0 items-center justify-center rounded-lg bg-primary/[0.07] text-primary">
+                            <Icon size={15} strokeWidth={1.8} aria-hidden="true" />
+                          </span>
+                          <span className="whitespace-nowrap text-[0.6rem] font-semibold uppercase leading-tight tracking-[0.08em] text-muted-foreground">
                             {item.label}
                           </span>
-                          {item.href ? (
-                            <a
-                              href={item.href}
-                              className="mt-1 block font-heading text-sm font-semibold text-foreground transition-colors hover:text-primary"
-                            >
-                              {item.value}
-                            </a>
-                          ) : (
-                            <span className="mt-1 block font-heading text-sm font-semibold text-foreground">
-                              {item.value}
-                            </span>
-                          )}
                         </span>
+                        {item.href ? (
+                          <a
+                            href={item.href}
+                            className="block whitespace-nowrap font-heading text-[0.9rem] font-semibold text-foreground transition-colors hover:text-primary"
+                          >
+                            {item.value}
+                          </a>
+                        ) : (
+                          <span className="block whitespace-nowrap font-heading text-[0.9rem] font-semibold text-foreground">
+                            {item.value}
+                          </span>
+                        )}
                       </li>
                     );
                   })}
                 </ul>
 
-                <div className="mt-5 border-t border-border pt-5">
+                <div className="mt-6 border-t border-border pt-6">
                   <Button asChild className="w-full">
                     <Link to="/contact">
                       <CalendarCheck aria-hidden="true" />
@@ -164,6 +168,7 @@ export function HomeHero() {
                 </div>
               </div>
             </Reveal>
+
           </div>
         </Reveal>
       </div>
