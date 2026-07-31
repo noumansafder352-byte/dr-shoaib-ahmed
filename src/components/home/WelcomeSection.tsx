@@ -76,7 +76,7 @@ export function WelcomeSection() {
         </Reveal>
 
         {/* Content */}
-        <Reveal delay={80} className="min-w-0">
+        <Reveal delay={80} className="flex min-w-0 flex-col justify-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.06] px-4 py-2 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">
             <Sparkles size={15} strokeWidth={1.8} aria-hidden="true" />
             Welcome
