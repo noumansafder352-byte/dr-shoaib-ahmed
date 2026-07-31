@@ -1,27 +1,17 @@
 import { Link } from "@tanstack/react-router";
 import {
   ArrowRight,
-  Award,
   CalendarCheck,
   CalendarDays,
   Clock,
   Phone,
-  ShieldCheck,
   Stethoscope,
-  Users,
 } from "lucide-react";
 
 import doctorHero from "@/assets/doctor-hero.jpg";
 import { contact } from "@/config/site";
 import { Button } from "@/components/ui/button";
-import { Counter } from "@/components/ui/counter";
 import { Reveal } from "@/components/ui/reveal";
-
-const heroStats = [
-  { icon: Award, value: 30, suffix: "+", label: "Years of Experience" },
-  { icon: Users, value: 5000, suffix: "+", label: "Patients Treated" },
-  { icon: ShieldCheck, text: "Advanced", label: "ENT Care & Surgery" },
-] as const;
 
 type AppointmentDetail = {
   icon: typeof CalendarDays;
