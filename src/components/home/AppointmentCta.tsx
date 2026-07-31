@@ -40,7 +40,7 @@ export function AppointmentCta() {
             </span>
             <h2
               id="appointment-cta-heading"
-              className="mt-6 max-w-[22ch] font-heading text-[1.9rem] font-semibold leading-[1.15] tracking-tight sm:text-[2.4rem] lg:text-[2.75rem]"
+              className="mt-6 max-w-[22ch] font-heading text-primary-foreground text-[1.9rem] font-semibold leading-[1.15] tracking-tight sm:text-[2.4rem] lg:text-[2.75rem]"
             >
               Your Health Deserves Expert ENT Care
             </h2>
