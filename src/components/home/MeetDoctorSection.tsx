@@ -16,7 +16,7 @@ const highlights = [
   { icon: Award, label: "30+ Years Experience" },
   { icon: GraduationCap, label: "Army Medical College" },
   { icon: Building2, label: "CMH" },
-  { icon: ShieldCheck, label: "PNS Shifa" },
+  { icon: ShieldCheck, label: "PNS Shifa Hospital" },
   { icon: Ear, label: "Cochlear Implant Surgery" },
   { icon: HeartPulse, label: "Advanced ENT Care" },
 ];
