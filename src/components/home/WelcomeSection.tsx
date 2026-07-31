@@ -106,21 +106,24 @@ export function WelcomeSection() {
             {highlights.map((item, index) => {
               const Icon = item.icon;
               return (
-                <Reveal key={item.title} delay={140 + index * 90} asChild>
-                  <li className="group flex items-start gap-4 py-5">
-                    <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl border border-primary/15 bg-primary/[0.07] text-primary transition-colors duration-300 group-hover:bg-primary/[0.12]">
-                      <Icon size={19} strokeWidth={1.8} aria-hidden="true" />
-                    </span>
-                    <span className="min-w-0">
-                      <span className="block font-heading text-[0.975rem] font-semibold text-foreground">
-                        {item.title}
+                <li key={item.title} className="py-5">
+                  <Reveal delay={140 + index * 90}>
+                    <div className="group flex items-start gap-4">
+                      <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl border border-primary/15 bg-primary/[0.07] text-primary transition-colors duration-300 group-hover:bg-primary/[0.12]">
+                        <Icon size={19} strokeWidth={1.8} aria-hidden="true" />
                       </span>
-                      <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">
-                        {item.description}
-                      </span>
-                    </span>
-                  </li>
-                </Reveal>
+                      <div className="min-w-0">
+                        <span className="block font-heading text-[0.975rem] font-semibold text-foreground">
+                          {item.title}
+                        </span>
+                        <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">
+                          {item.description}
+                        </span>
+                      </div>
+                    </div>
+                  </Reveal>
+                </li>
+
               );
             })}
           </ul>
