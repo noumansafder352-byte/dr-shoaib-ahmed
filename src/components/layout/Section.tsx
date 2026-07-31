@@ -4,13 +4,13 @@ import { cn } from "@/lib/utils";
 
 type SectionProps = {
   children: ReactNode;
-  className?: string;
-  containerClassName?: string;
-  as?: ElementType;
-  id?: string;
+  className?: string | undefined;
+  containerClassName?: string | undefined;
+  as?: ElementType | undefined;
+  id?: string | undefined;
   /** Light gray (#F8F9FA) band instead of white. */
-  surface?: boolean;
-  ariaLabelledBy?: string;
+  surface?: boolean | undefined;
+  ariaLabelledBy?: string | undefined;
 };
 
 /**

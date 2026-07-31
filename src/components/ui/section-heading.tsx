@@ -4,14 +4,14 @@ import { cn } from "@/lib/utils";
 
 type SectionHeadingProps = {
   /** Small uppercase label above the heading. */
-  label?: string;
+  label?: string | undefined;
   title: ReactNode;
-  description?: ReactNode;
+  description?: ReactNode | undefined;
   /** Heading level — keep a correct document hierarchy. */
-  as?: "h1" | "h2" | "h3";
-  id?: string;
-  align?: "left" | "center";
-  className?: string;
+  as?: "h1" | "h2" | "h3" | undefined;
+  id?: string | undefined;
+  align?: "left" | "center" | undefined;
+  className?: string | undefined;
 };
 
 /** Standard section title block: small label + large heading + short paragraph. */

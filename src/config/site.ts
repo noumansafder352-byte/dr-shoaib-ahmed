@@ -1,6 +1,5 @@
 /**
- * Central site configuration. Content-neutral foundation values only —
- * page copy arrives later and should live in src/content/*.
+ * Central site configuration. Shared across layout, SEO and global components.
  */
 
 export const site = {
@@ -9,14 +8,18 @@ export const site = {
   specialty: "ENT Specialist",
   city: "Rawalpindi, Pakistan",
   url: "https://example.com",
+  designedBy: "Designed & Developed by Digital Care",
 } as const;
 
-/** Placeholder contact details — replaced with finalized content later. */
 export const contact = {
-  phone: "+92 51 000 0000",
-  phoneHref: "tel:+92510000000",
-  hours: "Mon – Sat, 5:00 PM – 9:00 PM",
-  location: "Rawalpindi, Pakistan",
+  phone: "0335-0330019",
+  phoneHref: "tel:+923350330019",
+  email: "info@drshoaibahmed.com",
+  emailHref: "mailto:info@drshoaibahmed.com",
+  hours: "Monday – Friday | 4:00 PM – 6:30 PM",
+  hoursShort: "Mon – Fri | 4:00 – 6:30 PM",
+  address: "2nd Floor IDC, Saddar, Rawalpindi",
+  mapHref: "https://maps.google.com/?q=IDC+Saddar+Rawalpindi",
 } as const;
 
 export type NavItem = {
@@ -30,3 +33,12 @@ export const navItems: NavItem[] = [
   { label: "Services", to: "/services" },
   { label: "Contact", to: "/contact" },
 ];
+
+/** ENT care areas used in the footer services column. */
+export const footerServices = [
+  "Ear Care & Hearing",
+  "Nose & Sinus Treatment",
+  "Throat & Voice Care",
+  "Head & Neck Surgery",
+  "Endoscopic Procedures",
+] as const;
