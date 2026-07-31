@@ -39,7 +39,7 @@ export function HomeHero() {
         <div className="absolute bottom-0 left-0 h-px w-full bg-border/70" />
       </div>
 
-      <div className="container-page relative grid items-center gap-16 pb-24 pt-10 sm:pt-14 lg:grid-cols-[48fr_52fr] lg:items-start lg:gap-20 lg:pb-[120px] lg:pt-20">
+      <div className="container-page relative grid items-center gap-12 pb-24 pt-10 sm:pt-14 lg:grid-cols-[53fr_47fr] lg:items-start lg:gap-10 lg:pb-[120px] lg:pt-20 xl:gap-14">
         {/* Left ~48% */}
         <Reveal className="min-w-0">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.06] px-4 py-2 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">
@@ -121,7 +121,7 @@ export function HomeHero() {
 
 
             {/* Premium appointment information card */}
-            <Reveal delay={220} className="mt-8 lg:mt-10">
+            <Reveal delay={220} className="relative z-10 -mt-12 sm:-mt-16 lg:-mt-20">
               <div className="card-lift rounded-[20px] border border-border bg-card p-6 shadow-lift sm:-mx-6 sm:p-7 lg:-mx-10">
                 <ul className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-0">
                   {appointmentDetails.map((item, index) => {
@@ -129,9 +129,9 @@ export function HomeHero() {
                     return (
                       <li
                         key={item.label}
-                        className={`flex min-w-0 flex-col gap-2 sm:px-5 ${
-                          index > 0 ? "sm:border-l sm:border-border/80" : ""
-                        }`}
+                        className={`flex min-w-0 flex-col gap-2 ${
+                          index > 0 ? "sm:border-l sm:border-border/80 sm:pl-5" : ""
+                        } ${index < appointmentDetails.length - 1 ? "sm:pr-5" : ""}`}
                       >
                         <span className="flex items-center gap-2">
                           <span className="inline-flex size-7 shrink-0 items-center justify-center rounded-lg bg-primary/[0.07] text-primary">
