@@ -30,11 +30,10 @@ export function StatsSection() {
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className={`flex min-w-0 flex-col items-center px-4 text-center ${
-                  index > 0
-                    ? "sm:[&:nth-child(2n+1)]:border-l-0 sm:border-l sm:border-border/70 lg:border-l"
-                    : ""
-                }`}
+                className={`flex min-w-0 flex-col items-center border-border/70 px-4 text-center ${
+                  index % 2 === 1 ? "sm:border-l" : ""
+                } ${index > 0 ? "lg:border-l" : "lg:border-l-0"}`}
+
               >
                 <span
                   aria-hidden="true"
