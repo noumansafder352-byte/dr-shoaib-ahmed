@@ -41,10 +41,11 @@ export function WelcomeSection() {
         <div className="absolute left-0 top-0 h-px w-full bg-border/70" />
       </div>
 
-      <div className="relative grid items-center gap-14 lg:grid-cols-[47fr_53fr] lg:gap-16 xl:gap-20">
+      <div className="relative grid items-stretch gap-12 lg:grid-cols-[42fr_58fr] lg:gap-14 xl:gap-16">
         {/* Image — premium layered frame */}
-        <Reveal variant="scale" className="min-w-0">
+        <Reveal variant="scale" className="min-w-0 lg:self-center">
           <div className="relative mx-auto max-w-[27rem] lg:max-w-none">
+
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
               <div className="absolute -left-6 -top-6 hidden size-24 opacity-40 [background-image:radial-gradient(var(--color-primary)_1px,transparent_1px)] [background-size:12px_12px] sm:block" />
               <div className="absolute -bottom-8 -right-6 hidden size-24 opacity-25 [background-image:radial-gradient(var(--color-muted-foreground)_1px,transparent_1px)] [background-size:12px_12px] lg:block" />
