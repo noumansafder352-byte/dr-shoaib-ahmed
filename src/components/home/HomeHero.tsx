@@ -132,7 +132,7 @@ export function HomeHero() {
 
         {/* Right ~52% */}
         <Reveal variant="scale" delay={80} className="min-w-0">
-          <div className="relative mx-auto max-w-md pb-40 sm:pb-32 lg:max-w-none lg:pb-24">
+          <div className="relative mx-auto max-w-md pb-48 sm:pb-36 lg:max-w-none lg:pb-28">
             <div
               aria-hidden="true"
               className="absolute -left-5 -top-5 hidden h-40 w-40 rounded-tl-[2rem] border-l border-t border-primary/20 sm:block"
