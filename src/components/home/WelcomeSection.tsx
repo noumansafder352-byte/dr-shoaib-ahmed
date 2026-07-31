@@ -16,20 +16,21 @@ const highlights = [
 export function WelcomeSection() {
   return (
     <Section id="welcome" surface ariaLabelledBy="welcome-heading" className="relative">
-      <div className="grid gap-14 lg:grid-cols-[45fr_55fr] lg:items-start lg:gap-20 xl:gap-24">
+      <div className="grid gap-14 lg:grid-cols-[45fr_55fr] lg:items-stretch lg:gap-16 xl:gap-20">
         {/* Image */}
-        <Reveal variant="scale" className="min-w-0">
-          <div className="overflow-hidden rounded-[1.75rem] bg-surface shadow-lift">
+        <Reveal variant="scale" className="min-w-0 lg:flex">
+          <div className="w-full overflow-hidden rounded-[1.75rem] bg-surface shadow-lift">
             <img
               src={clinicWelcome}
               alt="Consultation room at the ENT clinic with examination chair and endoscopy equipment"
               loading="lazy"
               width={1280}
               height={1120}
-              className="aspect-[5/4.4] w-full object-cover"
+              className="aspect-[5/4.4] h-full w-full object-cover lg:aspect-auto"
             />
           </div>
         </Reveal>
+
 
         {/* Content */}
         <Reveal delay={80} className="min-w-0">
@@ -58,27 +59,24 @@ export function WelcomeSection() {
             </p>
           </div>
 
-          <ul className="mt-10 flex flex-col gap-5 border-t border-border/80 pt-8 sm:flex-row sm:items-center sm:gap-0 sm:divide-x sm:divide-border">
+          <ul className="mt-10 grid overflow-hidden rounded-[18px] border border-border/70 bg-card shadow-soft transition-shadow duration-300 hover:shadow-lift sm:grid-cols-3 sm:divide-x sm:divide-border/70">
             {highlights.map((item) => {
               const Icon = item.icon;
               return (
-                <li
-                  key={item.title}
-                  className="flex min-w-0 items-center gap-2.5 sm:flex-1 sm:justify-center sm:px-4 sm:first:justify-start sm:first:pl-0 sm:last:justify-end sm:last:pr-0"
-                >
-                  <Icon
-                    size={17}
-                    strokeWidth={1.8}
-                    aria-hidden="true"
-                    className="shrink-0 text-primary"
-                  />
-                  <span className="font-heading text-[0.9rem] font-semibold leading-snug text-foreground">
-                    {item.title}
-                  </span>
+                <li key={item.title} className="min-w-0 border-b border-border/70 last:border-b-0 sm:border-b-0">
+                  <div className="group flex items-center gap-3.5 px-6 py-6 transition-transform duration-300 hover:-translate-y-0.5 sm:flex-col sm:gap-3 sm:px-8 sm:py-8 sm:text-center">
+                    <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-primary/[0.08] text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                      <Icon size={18} strokeWidth={1.8} aria-hidden="true" />
+                    </span>
+                    <span className="font-heading text-[0.9rem] font-semibold leading-snug text-foreground">
+                      {item.title}
+                    </span>
+                  </div>
                 </li>
               );
             })}
           </ul>
+
 
           <div className="mt-10">
             <Button asChild className="group px-7">
