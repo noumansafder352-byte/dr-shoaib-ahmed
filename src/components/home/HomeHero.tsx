@@ -1,27 +1,17 @@
 import { Link } from "@tanstack/react-router";
 import {
   ArrowRight,
-  Award,
   CalendarCheck,
   CalendarDays,
   Clock,
   Phone,
-  ShieldCheck,
   Stethoscope,
-  Users,
 } from "lucide-react";
 
 import doctorHero from "@/assets/doctor-hero.jpg";
 import { contact } from "@/config/site";
 import { Button } from "@/components/ui/button";
-import { Counter } from "@/components/ui/counter";
 import { Reveal } from "@/components/ui/reveal";
-
-const heroStats = [
-  { icon: Award, value: 30, suffix: "+", label: "Years of Experience" },
-  { icon: Users, value: 5000, suffix: "+", label: "Patients Treated" },
-  { icon: ShieldCheck, text: "Advanced", label: "ENT Care & Surgery" },
-] as const;
 
 type AppointmentDetail = {
   icon: typeof CalendarDays;
@@ -49,7 +39,7 @@ export function HomeHero() {
         <div className="absolute bottom-0 left-0 h-px w-full bg-border/70" />
       </div>
 
-      <div className="container-page relative grid items-center gap-14 pb-24 pt-12 sm:pt-16 lg:grid-cols-[48fr_52fr] lg:gap-16 lg:pb-[120px] lg:pt-24">
+      <div className="container-page relative grid items-center gap-16 pb-24 pt-14 sm:pt-20 lg:grid-cols-[48fr_52fr] lg:gap-20 lg:pb-[130px] lg:pt-28">
         {/* Left ~48% */}
         <Reveal className="min-w-0">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.06] px-4 py-2 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">
@@ -59,19 +49,20 @@ export function HomeHero() {
 
           <h1
             id="hero-heading"
-            className="mt-7 max-w-[19ch] font-heading text-[2.1rem] font-semibold leading-[1.14] tracking-tight text-foreground sm:text-[2.75rem] lg:text-[3.15rem]"
+            className="mt-8 max-w-[19ch] font-heading text-[2.2rem] font-semibold leading-[1.13] tracking-tight text-foreground sm:text-[2.9rem] lg:text-[3.35rem]"
           >
             Expert ENT Care with{" "}
             <span className="text-primary">Experience, Precision &amp; Compassion</span>
           </h1>
 
-          <p className="mt-7 max-w-[46ch] text-base leading-[1.85] text-muted-foreground">
+          <p className="mt-8 max-w-[46ch] text-base leading-[1.9] text-muted-foreground sm:text-[1.0625rem]">
             Prof. Dr. Maj. Gen. (R) Shoaib Ahmed provides comprehensive diagnosis and treatment for
             ear, nose, and throat conditions — combining three decades of clinical excellence with
             personalised, patient-first care.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          <div className="mt-11 flex flex-wrap items-center gap-4">
+
             <Button asChild className="group px-7 shadow-lift">
               <Link to="/contact">
                 <CalendarCheck aria-hidden="true" />
@@ -92,43 +83,8 @@ export function HomeHero() {
               </Link>
             </Button>
           </div>
-
-          <dl className="mt-14 grid gap-4 sm:grid-cols-3">
-            {heroStats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <Reveal key={stat.label} delay={140 + index * 90} className="h-full">
-                  <div className="card-lift flex h-full flex-col justify-between gap-4 rounded-[18px] border border-border/80 bg-card p-5 shadow-soft hover:border-primary/30">
-                    <span className="inline-flex size-9 items-center justify-center rounded-xl bg-primary/[0.07] text-primary">
-                      <Icon size={18} strokeWidth={1.8} aria-hidden="true" />
-                    </span>
-                    <div>
-                      <dt className="sr-only">{stat.label}</dt>
-                      <dd>
-                        <span
-                          className={
-                            "value" in stat
-                              ? "block font-heading text-[1.65rem] font-bold leading-none text-foreground"
-                              : "block font-heading text-xl font-bold leading-none text-foreground"
-                          }
-                        >
-                          {"value" in stat ? (
-                            <Counter value={stat.value} suffix={stat.suffix} />
-                          ) : (
-                            stat.text
-                          )}
-                        </span>
-                        <span className="mt-2 block text-[0.8125rem] font-medium leading-snug text-muted-foreground">
-                          {stat.label}
-                        </span>
-                      </dd>
-                    </div>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </dl>
         </Reveal>
+
 
         {/* Right ~52% */}
         <Reveal variant="scale" delay={80} className="min-w-0">
