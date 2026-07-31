@@ -155,10 +155,10 @@ export function HomeHero() {
             {/* Floating premium appointment information card */}
             <Reveal
               delay={220}
-              className="absolute inset-x-2 bottom-0 sm:inset-x-6 lg:-right-4 lg:left-8"
+              className="absolute inset-x-2 bottom-0 sm:inset-x-4 lg:left-0 lg:right-[-2rem]"
             >
               <div className="card-lift rounded-[20px] border border-border bg-card p-5 shadow-lift sm:p-6">
-                <ul className="grid gap-4 sm:grid-cols-3">
+                <ul className="grid gap-5 sm:grid-cols-3">
                   {appointmentDetails.map((item) => {
                     const Icon = item.icon;
                     return (
@@ -167,18 +167,18 @@ export function HomeHero() {
                           <Icon size={16} strokeWidth={1.8} aria-hidden="true" />
                         </span>
                         <span className="min-w-0">
-                          <span className="block text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                          <span className="block text-[0.65rem] font-semibold uppercase leading-tight tracking-[0.1em] text-muted-foreground">
                             {item.label}
                           </span>
                           {item.href ? (
                             <a
                               href={item.href}
-                              className="mt-1 block truncate font-heading text-sm font-semibold text-foreground transition-colors hover:text-primary"
+                              className="mt-1 block font-heading text-sm font-semibold text-foreground transition-colors hover:text-primary"
                             >
                               {item.value}
                             </a>
                           ) : (
-                            <span className="mt-1 block truncate font-heading text-sm font-semibold text-foreground">
+                            <span className="mt-1 block font-heading text-sm font-semibold text-foreground">
                               {item.value}
                             </span>
                           )}
