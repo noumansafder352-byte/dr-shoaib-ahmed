@@ -39,7 +39,7 @@ export function HomeHero() {
         <div className="absolute bottom-0 left-0 h-px w-full bg-border/70" />
       </div>
 
-      <div className="container-page relative grid items-center gap-16 pb-24 pt-14 sm:pt-20 lg:grid-cols-[48fr_52fr] lg:gap-20 lg:pb-[130px] lg:pt-28">
+      <div className="container-page relative grid items-center gap-16 pb-24 pt-10 sm:pt-14 lg:grid-cols-[48fr_52fr] lg:items-start lg:gap-20 lg:pb-[120px] lg:pt-20">
         {/* Left ~48% */}
         <Reveal className="min-w-0">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.06] px-4 py-2 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">
@@ -87,8 +87,9 @@ export function HomeHero() {
 
 
         {/* Right ~52% — signature architectural frame */}
-        <Reveal variant="scale" delay={80} className="min-w-0">
-          <div className="relative mx-auto max-w-md lg:max-w-none">
+        <Reveal variant="scale" delay={80} className="min-w-0 lg:pt-[4.5rem]">
+          <div className="relative mx-auto max-w-[20rem] sm:max-w-sm lg:mr-0 lg:ml-auto lg:max-w-[26rem]">
+
             {/* Subtle medical-inspired background detailing */}
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
               <div className="absolute -left-8 bottom-24 hidden size-24 opacity-40 [background-image:radial-gradient(var(--color-primary)_1px,transparent_1px)] [background-size:12px_12px] sm:block" />
