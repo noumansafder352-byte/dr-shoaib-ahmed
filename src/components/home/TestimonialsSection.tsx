@@ -35,7 +35,6 @@ export function TestimonialsSection() {
   return (
     <CenteredSection
       id="testimonials"
-      surface
       label="Testimonials"
       title="What Our Patients Say"
       description="Experiences shared by patients treated for ear, nose and throat conditions at our Rawalpindi clinic."
