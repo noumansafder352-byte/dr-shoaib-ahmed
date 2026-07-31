@@ -65,7 +65,6 @@ export function FaqAccordion({
               id={panelId}
               role="region"
               aria-labelledby={buttonId}
-              hidden={!isOpen}
               className={cn(
                 "grid transition-[grid-template-rows] duration-300 ease-[var(--ease-brand)]",
                 isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
