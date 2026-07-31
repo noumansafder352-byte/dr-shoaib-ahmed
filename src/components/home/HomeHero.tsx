@@ -82,43 +82,8 @@ export function HomeHero() {
               </Link>
             </Button>
           </div>
-
-          <dl className="mt-14 grid gap-4 sm:grid-cols-3">
-            {heroStats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <Reveal key={stat.label} delay={140 + index * 90} className="h-full">
-                  <div className="card-lift flex h-full flex-col justify-between gap-4 rounded-[18px] border border-border/80 bg-card p-5 shadow-soft hover:border-primary/30">
-                    <span className="inline-flex size-9 items-center justify-center rounded-xl bg-primary/[0.07] text-primary">
-                      <Icon size={18} strokeWidth={1.8} aria-hidden="true" />
-                    </span>
-                    <div>
-                      <dt className="sr-only">{stat.label}</dt>
-                      <dd>
-                        <span
-                          className={
-                            "value" in stat
-                              ? "block font-heading text-[1.65rem] font-bold leading-none text-foreground"
-                              : "block font-heading text-xl font-bold leading-none text-foreground"
-                          }
-                        >
-                          {"value" in stat ? (
-                            <Counter value={stat.value} suffix={stat.suffix} />
-                          ) : (
-                            stat.text
-                          )}
-                        </span>
-                        <span className="mt-2 block text-[0.8125rem] font-medium leading-snug text-muted-foreground">
-                          {stat.label}
-                        </span>
-                      </dd>
-                    </div>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </dl>
         </Reveal>
+
 
         {/* Right ~52% */}
         <Reveal variant="scale" delay={80} className="min-w-0">
