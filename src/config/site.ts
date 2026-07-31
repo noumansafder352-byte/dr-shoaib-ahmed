@@ -37,9 +37,10 @@ export const navItems: NavItem[] = [
 
 /** ENT care areas used in the footer services column. */
 export const footerServices = [
-  "Ear Care & Hearing",
-  "Nose & Sinus Treatment",
-  "Throat & Voice Care",
+  "Ear Care",
+  "Nose Care",
+  "Throat Care",
+  "Cochlear Implant",
   "Head & Neck Surgery",
-  "Endoscopic Procedures",
 ] as const;
+
