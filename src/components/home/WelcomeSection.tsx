@@ -63,7 +63,7 @@ export function WelcomeSection() {
             {highlights.map((item) => {
               const Icon = item.icon;
               return (
-                <li key={item.title} className="min-w-0 not-last:border-b not-last:border-border/70 sm:not-last:border-b-0">
+                <li key={item.title} className="min-w-0 border-b border-border/70 last:border-b-0 sm:border-b-0">
                   <div className="group flex items-center gap-3.5 px-6 py-6 transition-transform duration-300 hover:-translate-y-0.5 sm:flex-col sm:gap-3 sm:px-8 sm:py-8 sm:text-center">
                     <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-primary/[0.08] text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                       <Icon size={18} strokeWidth={1.8} aria-hidden="true" />
