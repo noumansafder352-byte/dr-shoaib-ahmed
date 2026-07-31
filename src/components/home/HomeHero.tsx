@@ -49,9 +49,9 @@ export function HomeHero() {
         <div className="absolute bottom-0 left-0 h-px w-full bg-border/70" />
       </div>
 
-      <div className="container-page relative grid items-center gap-14 pb-24 pt-12 sm:pt-16 lg:grid-cols-25 lg:gap-16 lg:pb-[120px] lg:pt-24">
+      <div className="container-page relative grid items-center gap-14 pb-24 pt-12 sm:pt-16 lg:grid-cols-[48fr_52fr] lg:gap-16 lg:pb-[120px] lg:pt-24">
         {/* Left ~48% */}
-        <Reveal className="min-w-0 lg:col-span-12">
+        <Reveal className="min-w-0">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.06] px-4 py-2 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">
             <Stethoscope size={15} strokeWidth={1.8} aria-hidden="true" />
             Trusted ENT Specialist
@@ -131,7 +131,7 @@ export function HomeHero() {
         </Reveal>
 
         {/* Right ~52% */}
-        <Reveal variant="scale" delay={80} className="min-w-0 lg:col-span-13">
+        <Reveal variant="scale" delay={80} className="min-w-0">
           <div className="relative mx-auto max-w-md pb-40 sm:pb-32 lg:max-w-none lg:pb-24">
             <div
               aria-hidden="true"
