@@ -119,11 +119,9 @@ export function HomeHero() {
             </div>
 
 
-            {/* Floating premium appointment information card */}
-            <Reveal
-              delay={220}
-              className="absolute inset-x-2 bottom-0 sm:inset-x-4 lg:left-0 lg:right-[-2rem]"
-            >
+            {/* Premium appointment information card */}
+            <Reveal delay={220} className="mt-8 lg:mt-10">
+
               <div className="card-lift rounded-[20px] border border-border bg-card p-5 shadow-lift sm:p-6">
                 <ul className="grid gap-5 sm:grid-cols-3">
                   {appointmentDetails.map((item) => {
