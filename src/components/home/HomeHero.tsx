@@ -65,13 +65,20 @@ export function HomeHero() {
                 <div className="card-lift h-full rounded-xl border border-border bg-card p-5 shadow-soft">
                   <dt className="sr-only">{stat.label}</dt>
                   <dd>
-                    <span className="block font-heading text-2xl font-bold text-primary sm:text-3xl">
+                    <span
+                      className={
+                        "value" in stat
+                          ? "block font-heading text-2xl font-bold text-primary sm:text-3xl"
+                          : "block font-heading text-xl font-bold text-primary sm:text-2xl"
+                      }
+                    >
                       {"value" in stat ? (
                         <Counter value={stat.value} suffix={stat.suffix} />
                       ) : (
                         stat.text
                       )}
                     </span>
+
                     <span className="mt-1 block text-sm font-medium text-muted-foreground">
                       {stat.label}
                     </span>
