@@ -26,8 +26,13 @@ function HomePage() {
   return (
     <>
       <HomeHero />
-      <StatsSection />
-      <WelcomeSection />
+      {/* flow-root keeps the stats card's negative margin from pulling this band's
+          background up over the hero, so the card floats across the seam. */}
+      <div className="flow-root bg-surface">
+        <StatsSection />
+        <WelcomeSection />
+      </div>
+
       <MeetDoctorSection />
       <WhyChooseSection />
       <ServicesOverview />
