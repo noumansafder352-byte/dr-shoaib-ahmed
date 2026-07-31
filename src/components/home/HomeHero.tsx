@@ -61,14 +61,7 @@ export function HomeHero() {
             personalised, patient-first care.
           </p>
 
-          <div className="mt-11 flex flex-wrap items-center gap-4">
-
-            <Button asChild className="group px-7 shadow-lift">
-              <Link to="/contact">
-                <CalendarCheck aria-hidden="true" />
-                Book Appointment
-              </Link>
-            </Button>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
             <Button
               asChild
               variant="outline"
@@ -83,6 +76,7 @@ export function HomeHero() {
               </Link>
             </Button>
           </div>
+
         </Reveal>
 
 
