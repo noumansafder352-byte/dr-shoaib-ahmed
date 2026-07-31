@@ -52,28 +52,30 @@ export function MeetDoctorSection() {
         </p>
       </div>
 
-      <ul className="mt-9 grid gap-4 sm:grid-cols-2">
+      <ul className="mt-12 grid gap-x-10 gap-y-7 sm:grid-cols-2">
         {highlights.map(({ icon: Icon, label }) => (
-          <li
-            key={label}
-            className="card-lift flex items-center gap-3 rounded-xl border border-border bg-card px-5 py-4 shadow-soft"
-          >
-            <span
-              aria-hidden="true"
-              className="grid size-10 shrink-0 place-items-center rounded-lg bg-surface text-primary"
-            >
-              <Icon size={18} strokeWidth={1.7} />
-            </span>
-            <span className="font-heading text-sm font-semibold leading-snug">{label}</span>
+          <li key={label}>
+            <div className="group flex items-center gap-4 transition-transform duration-300 ease-out hover:translate-x-1.5">
+              <span
+                aria-hidden="true"
+                className="grid size-11 shrink-0 place-items-center rounded-full bg-primary/[0.08] text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground"
+              >
+                <Icon size={18} strokeWidth={1.8} />
+              </span>
+              <span className="min-w-0 font-heading text-[0.95rem] font-semibold leading-snug text-foreground transition-colors duration-300 group-hover:text-primary">
+                {label}
+              </span>
+            </div>
           </li>
         ))}
       </ul>
 
-      <div className="mt-9">
+      <div className="mt-12">
         <Button asChild>
           <Link to="/about">Read Full Profile</Link>
         </Button>
       </div>
+
     </SplitSection>
   );
 }
