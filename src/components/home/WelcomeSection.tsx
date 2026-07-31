@@ -1,18 +1,27 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, HeartHandshake, ShieldCheck, Sparkles, Stethoscope } from "lucide-react";
+import {
+  ArrowRight,
+  Building2,
+  HeartHandshake,
+  MonitorSmartphone,
+  ShieldCheck,
+  Sofa,
+  Sparkles,
+  Stethoscope,
+} from "lucide-react";
 
 import clinicWelcome from "@/assets/clinic-welcome.jpg";
 import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 
-type Highlight = {
+type Item = {
   icon: typeof HeartHandshake;
   title: string;
   description: string;
 };
 
-const highlights: Highlight[] = [
+const features: Item[] = [
   {
     icon: HeartHandshake,
     title: "Patient-Centered Care",
@@ -30,97 +39,118 @@ const highlights: Highlight[] = [
   },
 ];
 
-/** Welcome introduction — layered premium image frame with highlight rows. */
+const quickHighlights = [
+  { icon: Building2, label: "Modern Clinic" },
+  { icon: MonitorSmartphone, label: "Advanced Equipment" },
+  { icon: Sofa, label: "Comfortable Environment" },
+];
+
+/** Welcome introduction — editorial asymmetric layout with framed image and feature cards. */
 export function WelcomeSection() {
   return (
     <Section id="welcome" surface ariaLabelledBy="welcome-heading" className="relative overflow-hidden">
       {/* Subtle decorative detailing */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_-5%_10%,color-mix(in_oklab,var(--color-primary)_5%,transparent),transparent_60%)]" />
         <div className="absolute inset-0 opacity-[0.3] [background-image:linear-gradient(to_right,var(--color-border)_1px,transparent_1px)] [background-size:140px_100%]" />
         <div className="absolute left-0 top-0 h-px w-full bg-border/70" />
       </div>
 
-      <div className="relative grid items-stretch gap-12 lg:grid-cols-[42fr_58fr] lg:gap-14 xl:gap-16">
-        {/* Image — premium layered frame */}
-        <Reveal variant="scale" className="min-w-0 lg:self-center">
-          <div className="relative mx-auto max-w-[27rem] lg:max-w-none">
-
+      <div className="relative grid gap-20 lg:grid-cols-[40fr_60fr] lg:items-start lg:gap-16 xl:gap-24">
+        {/* ---------- Left: framed image + overlapping highlight card ---------- */}
+        <Reveal variant="scale" className="min-w-0">
+          <div className="relative mx-auto w-full max-w-[24rem] pb-24 sm:pb-20 lg:max-w-[26rem]">
+            {/* medical-inspired decorative accents */}
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-              <div className="absolute -left-6 -top-6 hidden size-24 opacity-40 [background-image:radial-gradient(var(--color-primary)_1px,transparent_1px)] [background-size:12px_12px] sm:block" />
-              <div className="absolute -bottom-8 -right-6 hidden size-24 opacity-25 [background-image:radial-gradient(var(--color-muted-foreground)_1px,transparent_1px)] [background-size:12px_12px] lg:block" />
-              <div className="absolute -bottom-6 right-6 hidden h-[70%] w-[80%] rounded-br-[6rem] rounded-tl-[3rem] bg-card lg:block" />
+              <div className="absolute -left-7 -top-7 size-24 opacity-40 [background-image:radial-gradient(var(--color-primary)_1px,transparent_1px)] [background-size:12px_12px]" />
+              <div className="absolute -right-6 top-24 hidden h-40 w-px bg-gradient-to-b from-transparent via-border to-transparent lg:block" />
+              <div className="absolute -left-10 bottom-28 hidden size-20 rounded-full border border-primary/15 lg:block" />
             </div>
 
-            <div className="relative rounded-tl-[4.5rem] rounded-br-[4.5rem] rounded-bl-[1.5rem] rounded-tr-[1.5rem] bg-card p-3 shadow-lift sm:p-4">
+            <div className="relative rounded-[2rem] bg-card p-3 shadow-lift">
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute -inset-2 rounded-tl-[5.5rem] rounded-br-[5.5rem] rounded-bl-[2rem] rounded-tr-[2rem] border-l border-t border-primary/30 sm:-inset-3"
+                className="pointer-events-none absolute -inset-2 rounded-[2.5rem] border border-primary/25"
               />
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -inset-5 hidden rounded-tl-[6.5rem] rounded-br-[6.5rem] rounded-bl-[2.5rem] rounded-tr-[2.5rem] border-b border-r border-primary/15 lg:block"
-              />
-              <div className="overflow-hidden rounded-tl-[3.75rem] rounded-br-[3.75rem] rounded-bl-[1rem] rounded-tr-[1rem] bg-surface">
+              <div className="overflow-hidden rounded-[1.5rem] bg-surface">
                 <img
                   src={clinicWelcome}
                   alt="Consultation room at the ENT clinic with examination chair and endoscopy equipment"
                   loading="lazy"
                   width={1280}
-                  height={960}
-                  className="aspect-4/3 w-full object-cover"
+                  height={1280}
+                  className="aspect-[4/4.4] w-full object-cover"
                 />
               </div>
+            </div>
+
+            {/* floating highlight card overlapping the image */}
+            <div className="absolute bottom-0 left-1/2 w-[92%] -translate-x-1/2 rounded-[1.25rem] border border-border/70 bg-card p-5 shadow-lift sm:w-[88%] sm:p-6">
+              <ul className="space-y-3.5">
+                {quickHighlights.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <li key={item.label} className="flex items-center gap-3">
+                      <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/[0.08] text-primary">
+                        <Icon size={16} strokeWidth={1.8} aria-hidden="true" />
+                      </span>
+                      <span className="min-w-0 font-heading text-[0.9rem] font-semibold text-foreground">
+                        {item.label}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </div>
         </Reveal>
 
-        {/* Content */}
-        <Reveal delay={80} className="flex min-w-0 flex-col justify-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.06] px-4 py-2 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">
-            <Sparkles size={15} strokeWidth={1.8} aria-hidden="true" />
-            Welcome
-          </span>
+        {/* ---------- Right: editorial content ---------- */}
+        <div className="min-w-0">
+          <Reveal delay={80}>
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.06] px-4 py-2 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-primary">
+              <Sparkles size={15} strokeWidth={1.8} aria-hidden="true" />
+              Welcome
+            </span>
 
-          <h2
-            id="welcome-heading"
-            className="mt-6 max-w-[26ch] font-heading text-[1.9rem] font-semibold leading-[1.18] tracking-tight text-foreground sm:text-[2.35rem] lg:text-[2.6rem]"
-          >
-            Welcome to Dr. Shoaib Ahmed{" "}
-            <span className="text-primary">ENT Clinic</span>
-          </h2>
+            <h2
+              id="welcome-heading"
+              className="mt-7 max-w-[28ch] font-heading text-[1.9rem] font-semibold leading-[1.15] tracking-tight text-foreground sm:text-[2.4rem] lg:text-[2.75rem]"
+            >
+              Welcome to Dr. Shoaib Ahmed{" "}
+              <span className="text-primary">ENT Clinic</span>
+            </h2>
 
-          <div className="mt-5 max-w-[58ch] space-y-4 text-base leading-[1.85] text-muted-foreground sm:text-[1.0625rem]">
-            <p>
-              At our clinic, we provide comprehensive ENT care for patients of all ages. From routine
-              consultations to advanced surgical procedures, our focus is on accurate diagnosis,
-              effective treatment, and compassionate care in a comfortable and professional
-              environment.
-            </p>
-            <p>
-              Whether you&rsquo;re experiencing hearing loss, sinus problems, throat discomfort, or
-              require specialized ENT treatment, our team is here to help you every step of the way.
-            </p>
-          </div>
+            <div className="mt-6 grid gap-6 border-l-2 border-primary/20 pl-6 sm:grid-cols-2 sm:gap-8">
+              <p className="text-base leading-[1.85] text-muted-foreground sm:text-[1.0625rem]">
+                At our clinic, we provide comprehensive ENT care for patients of all ages. From
+                routine consultations to advanced surgical procedures, our focus is on accurate
+                diagnosis, effective treatment, and compassionate care in a comfortable and
+                professional environment.
+              </p>
+              <p className="text-base leading-[1.85] text-muted-foreground sm:text-[1.0625rem]">
+                Whether you&rsquo;re experiencing hearing loss, sinus problems, throat discomfort, or
+                require specialized ENT treatment, our team is here to help you every step of the
+                way.
+              </p>
+            </div>
+          </Reveal>
 
-          <ul className="mt-7 max-w-[38rem] divide-y divide-border/80 border-y border-border/80">
-            {highlights.map((item, index) => {
+          <ul className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-3">
+            {features.map((item, index) => {
               const Icon = item.icon;
               return (
-                <li key={item.title} className="py-4">
-                  <Reveal delay={140 + index * 90}>
-                    <div className="group flex items-center gap-4">
-                      <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl border border-primary/15 bg-primary/[0.07] text-primary transition-colors duration-300 group-hover:bg-primary/[0.12]">
-                        <Icon size={19} strokeWidth={1.8} aria-hidden="true" />
+                <li key={item.title} className="min-w-0">
+                  <Reveal delay={140 + index * 90} className="h-full">
+                    <div className="group flex h-full flex-col rounded-[18px] border border-border/70 bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-lift">
+                      <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/[0.08] text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                        <Icon size={20} strokeWidth={1.8} aria-hidden="true" />
                       </span>
-                      <div className="min-w-0">
-                        <span className="block font-heading text-[0.975rem] font-semibold text-foreground">
-                          {item.title}
-                        </span>
-                        <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">
-                          {item.description}
-                        </span>
-                      </div>
+                      <h3 className="mt-5 font-heading text-[1rem] font-semibold leading-snug text-foreground">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {item.description}
+                      </p>
                     </div>
                   </Reveal>
                 </li>
@@ -128,19 +158,20 @@ export function WelcomeSection() {
             })}
           </ul>
 
-          <div className="mt-7">
-            <Button asChild className="group px-7 shadow-lift">
-              <Link to="/about">
-                Explore More
-                <ArrowRight
-                  aria-hidden="true"
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </Link>
-            </Button>
-          </div>
-
-        </Reveal>
+          <Reveal delay={420}>
+            <div className="mt-10">
+              <Button asChild className="group px-7 shadow-lift">
+                <Link to="/about">
+                  Explore More
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </Link>
+              </Button>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </Section>
   );
