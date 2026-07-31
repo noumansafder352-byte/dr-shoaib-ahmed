@@ -26,11 +26,12 @@ function HomePage() {
   return (
     <>
       <HomeHero />
+      <StatsSection />
       <WelcomeSection />
       <MeetDoctorSection />
       <WhyChooseSection />
-      <StatsSection />
       <ServicesOverview />
+
       <TreatmentProcess />
       <TestimonialsSection />
       <FaqSection />
