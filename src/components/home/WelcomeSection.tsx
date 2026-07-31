@@ -84,13 +84,13 @@ export function WelcomeSection() {
 
           <h2
             id="welcome-heading"
-            className="mt-7 max-w-[22ch] font-heading text-[1.9rem] font-semibold leading-[1.18] tracking-tight text-foreground sm:text-[2.35rem] lg:text-[2.6rem]"
+            className="mt-6 max-w-[26ch] font-heading text-[1.9rem] font-semibold leading-[1.18] tracking-tight text-foreground sm:text-[2.35rem] lg:text-[2.6rem]"
           >
             Welcome to Dr. Shoaib Ahmed{" "}
             <span className="text-primary">ENT Clinic</span>
           </h2>
 
-          <div className="mt-7 max-w-[52ch] space-y-5 text-base leading-[1.9] text-muted-foreground sm:text-[1.0625rem]">
+          <div className="mt-5 max-w-[58ch] space-y-4 text-base leading-[1.85] text-muted-foreground sm:text-[1.0625rem]">
             <p>
               At our clinic, we provide comprehensive ENT care for patients of all ages. From routine
               consultations to advanced surgical procedures, our focus is on accurate diagnosis,
@@ -103,13 +103,13 @@ export function WelcomeSection() {
             </p>
           </div>
 
-          <ul className="mt-10 max-w-[36rem] divide-y divide-border/80 border-y border-border/80">
+          <ul className="mt-7 max-w-[38rem] divide-y divide-border/80 border-y border-border/80">
             {highlights.map((item, index) => {
               const Icon = item.icon;
               return (
-                <li key={item.title} className="py-5">
+                <li key={item.title} className="py-4">
                   <Reveal delay={140 + index * 90}>
-                    <div className="group flex items-start gap-4">
+                    <div className="group flex items-center gap-4">
                       <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl border border-primary/15 bg-primary/[0.07] text-primary transition-colors duration-300 group-hover:bg-primary/[0.12]">
                         <Icon size={19} strokeWidth={1.8} aria-hidden="true" />
                       </span>
@@ -124,12 +124,11 @@ export function WelcomeSection() {
                     </div>
                   </Reveal>
                 </li>
-
               );
             })}
           </ul>
 
-          <div className="mt-10">
+          <div className="mt-7">
             <Button asChild className="group px-7 shadow-lift">
               <Link to="/about">
                 Explore More
@@ -140,6 +139,7 @@ export function WelcomeSection() {
               </Link>
             </Button>
           </div>
+
         </Reveal>
       </div>
     </Section>
