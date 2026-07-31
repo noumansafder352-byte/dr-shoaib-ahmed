@@ -16,20 +16,21 @@ const highlights = [
 export function WelcomeSection() {
   return (
     <Section id="welcome" surface ariaLabelledBy="welcome-heading" className="relative">
-      <div className="grid gap-14 lg:grid-cols-[45fr_55fr] lg:items-start lg:gap-20 xl:gap-24">
+      <div className="grid gap-14 lg:grid-cols-[45fr_55fr] lg:items-stretch lg:gap-16 xl:gap-20">
         {/* Image */}
-        <Reveal variant="scale" className="min-w-0">
-          <div className="overflow-hidden rounded-[1.75rem] bg-surface shadow-lift">
+        <Reveal variant="scale" className="min-w-0 lg:flex">
+          <div className="w-full overflow-hidden rounded-[1.75rem] bg-surface shadow-lift">
             <img
               src={clinicWelcome}
               alt="Consultation room at the ENT clinic with examination chair and endoscopy equipment"
               loading="lazy"
               width={1280}
               height={1120}
-              className="aspect-[5/4.4] w-full object-cover"
+              className="aspect-[5/4.4] h-full w-full object-cover lg:aspect-auto"
             />
           </div>
         </Reveal>
+
 
         {/* Content */}
         <Reveal delay={80} className="min-w-0">
