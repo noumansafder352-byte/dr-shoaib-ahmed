@@ -88,7 +88,7 @@ export function HomeHero() {
 
         {/* Right ~52% — signature architectural frame */}
         <Reveal variant="scale" delay={80} className="min-w-0 lg:pt-[4.5rem]">
-          <div className="relative mx-auto max-w-[20rem] sm:max-w-sm lg:mr-0 lg:ml-auto lg:max-w-[26rem]">
+          <div className="relative mx-auto max-w-[21.75rem] sm:max-w-[26rem] lg:mr-0 lg:ml-auto lg:max-w-[28.5rem]">
 
             {/* Subtle medical-inspired background detailing */}
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
