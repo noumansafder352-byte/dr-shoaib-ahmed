@@ -55,14 +55,14 @@ export function breadcrumbs(items: { name: string; path: string }[]) {
 }
 
 /** FAQPage structured data. */
-export function faqSchema(faqs: readonly { question: string; answer: string }[]) {
+export function faqSchema(faqs: readonly { question: string; answer: unknown }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
-      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      acceptedAnswer: { "@type": "Answer", text: typeof faq.answer === "string" ? faq.answer : "" },
     })),
   };
 }
