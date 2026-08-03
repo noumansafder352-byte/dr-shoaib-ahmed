@@ -30,10 +30,8 @@ function ContactPage() {
       />
       <AppointmentInfo />
       <ContactFormMap />
-
       <ContactFaq />
-      <EmergencyNotice />
-
     </>
+
   );
 }
