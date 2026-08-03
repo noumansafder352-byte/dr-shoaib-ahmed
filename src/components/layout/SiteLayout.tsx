@@ -19,6 +19,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         {children}
       </main>
       <Footer />
+      <FloatingActions />
     </div>
   );
 }

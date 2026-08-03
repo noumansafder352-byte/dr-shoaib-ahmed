@@ -32,7 +32,7 @@ export function FloatingActions() {
         target="_blank"
         rel="noreferrer"
         aria-label="Chat with us on WhatsApp"
-        className="pointer-events-auto grid size-12 place-items-center rounded-full text-white shadow-[0_10px_30px_-8px_rgba(37,211,102,0.7)] transition-all duration-300 ease-[var(--ease-brand)] hover:-translate-y-1 hover:scale-105 hover:shadow-[0_18px_42px_-10px_rgba(37,211,102,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 sm:size-[52px]"
+        className="pointer-events-auto relative grid size-12 place-items-center rounded-full text-white shadow-[0_10px_30px_-8px_rgba(37,211,102,0.7)] transition-all duration-300 ease-[var(--ease-brand)] hover:-translate-y-1 hover:scale-105 hover:shadow-[0_18px_42px_-10px_rgba(37,211,102,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 sm:size-[52px]"
         style={{ backgroundColor: "#25D366" }}
       >
         <span
