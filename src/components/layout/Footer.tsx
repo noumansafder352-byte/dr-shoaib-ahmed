@@ -11,7 +11,7 @@ const socials = [
 ];
 
 const linkClass =
-  "group relative inline-flex items-center gap-2 text-sm text-footer-muted transition-colors duration-300 ease-[var(--ease-brand)] hover:text-primary-foreground";
+  "group relative inline-flex items-center gap-2.5 text-sm text-footer-muted transition-colors duration-300 ease-[var(--ease-brand)] hover:text-primary";
 
 /** Small brand-red dot that scales and glows on hover. */
 function LinkMarker() {
