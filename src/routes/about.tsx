@@ -33,7 +33,7 @@ function AboutPage() {
       <AboutSpecialist />
       <AboutHighlights />
       <AboutExpertise />
-      <AboutWhyChoose />
+      
       <VisionMission />
       <DoctorMessage />
       <PremiumCta
