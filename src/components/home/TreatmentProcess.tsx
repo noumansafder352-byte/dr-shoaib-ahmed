@@ -73,6 +73,7 @@ export function TreatmentProcess() {
               <p className="mt-1.5 max-w-xs text-sm leading-relaxed text-muted-foreground sm:mt-4">
                 {step.description}
               </p>
+              </div>
             </div>
           </Reveal>
         ))}
