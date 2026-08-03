@@ -131,12 +131,12 @@ export function Footer() {
                 </span>
               );
               return (
-                <li key={label} className="group flex min-w-0 items-center gap-3 sm:gap-4">
+                <li key={label} className="group flex min-w-0 items-center gap-3 sm:gap-3.5">
                   <span
                     aria-hidden="true"
-                    className="grid size-11 shrink-0 place-items-center rounded-full border border-primary/30 bg-white text-primary shadow-[0_2px_8px_color-mix(in_oklab,black_25%,transparent)] transition-all duration-300 ease-[var(--ease-brand)] group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground"
+                    className="shrink-0 text-primary transition-all duration-300 ease-[var(--ease-brand)] group-hover:-translate-y-0.5 group-hover:scale-110 group-hover:text-primary/80"
                   >
-                    <Icon size={19} strokeWidth={1.8} />
+                    <Icon size={22} strokeWidth={1.9} />
                   </span>
                   {href ? (
                     <a

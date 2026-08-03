@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 
 import { Footer } from "./Footer";
 import { Header } from "./Header";
+import { FloatingActions } from "@/components/shared/FloatingActions";
+
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
@@ -17,6 +19,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         {children}
       </main>
       <Footer />
+      <FloatingActions />
     </div>
   );
 }
