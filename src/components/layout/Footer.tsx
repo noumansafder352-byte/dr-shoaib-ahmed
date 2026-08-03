@@ -13,12 +13,12 @@ const socials = [
 const linkClass =
   "group relative inline-flex items-center gap-2 text-sm text-footer-muted transition-colors duration-300 ease-[var(--ease-brand)] hover:text-primary-foreground";
 
-/** Bullet that grows into a short red rule on hover. */
+/** Small brand-red dot that scales and glows on hover. */
 function LinkMarker() {
   return (
     <span
       aria-hidden="true"
-      className="h-px w-3 shrink-0 bg-white/25 transition-all duration-300 ease-[var(--ease-brand)] group-hover:w-5 group-hover:bg-primary"
+      className="size-1.5 shrink-0 rounded-full bg-primary transition-all duration-300 ease-[var(--ease-brand)] group-hover:scale-150 group-hover:shadow-[0_0_8px_2px_color-mix(in_oklab,var(--color-primary)_55%,transparent)]"
     />
   );
 }
