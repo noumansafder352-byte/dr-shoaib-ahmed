@@ -222,12 +222,12 @@ export function ContactFormMap() {
                     {detail.href ? (
                       <a
                         href={detail.href}
-                        className="mt-1.5 block text-base font-medium leading-relaxed text-foreground transition-colors hover:text-primary"
+                        className="mt-1.5 block break-words text-[0.95rem] font-medium leading-relaxed text-foreground transition-colors hover:text-primary sm:text-base"
                       >
                         {detail.value}
                       </a>
                     ) : (
-                      <p className="mt-1.5 text-base font-medium leading-relaxed text-foreground">
+                      <p className="mt-1.5 break-words text-[0.95rem] font-medium leading-relaxed text-foreground sm:text-base">
                         {detail.value}
                       </p>
                     )}
