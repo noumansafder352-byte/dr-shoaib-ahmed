@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { AboutExpertise } from "@/components/about/AboutExpertise";
-import { AboutHighlights } from "@/components/about/AboutHighlights";
 import { AboutSpecialist } from "@/components/about/AboutSpecialist";
 import { AboutStory } from "@/components/about/AboutStory";
 import { DoctorMessage } from "@/components/about/DoctorMessage";
@@ -31,9 +30,7 @@ function AboutPage() {
       />
       <AboutStory />
       <AboutSpecialist />
-      <AboutHighlights />
       <AboutExpertise />
-      
       <VisionMission />
       <DoctorMessage />
       <PremiumCta
