@@ -59,8 +59,6 @@ export function CoreServices() {
             icon={service.icon}
             title={service.title}
             description={service.description}
-            to="/contact"
-            linkLabel="Learn more"
           />
         ))}
       />
