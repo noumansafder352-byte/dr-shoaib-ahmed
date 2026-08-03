@@ -61,7 +61,7 @@ export function VisionMission() {
         <span className="eyebrow">Our Purpose</span>
         <h2
           id="vision-mission-heading"
-          className="mt-6 font-heading text-[2.35rem] font-bold leading-[1.08] tracking-tight text-foreground sm:text-[2.9rem] lg:text-[3.35rem]"
+          className="mt-6 font-heading text-[1.95rem] font-bold min-[400px]:text-[2.35rem] leading-[1.08] tracking-tight text-foreground sm:text-[2.9rem] lg:text-[3.35rem]"
         >
           <span className="text-primary">V</span>ision &amp; <span className="text-primary">m</span>ission
         </h2>

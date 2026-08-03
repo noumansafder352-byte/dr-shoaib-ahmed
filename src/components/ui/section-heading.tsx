@@ -38,7 +38,7 @@ export function SectionHeading({
       <Tag
         id={id}
         className={cn(
-          "text-3xl font-semibold sm:text-4xl lg:text-[2.75rem]",
+          "text-[1.75rem] font-semibold min-[400px]:text-3xl sm:text-4xl lg:text-[2.75rem]",
           Tag === "h1" && "lg:text-5xl",
         )}
       >

@@ -49,7 +49,7 @@ export function HomeHero() {
 
           <h1
             id="hero-heading"
-            className="mt-8 max-w-[19ch] font-heading text-[2.2rem] font-semibold leading-[1.13] tracking-tight text-foreground sm:text-[2.9rem] lg:text-[3.35rem]"
+            className="mt-8 max-w-[19ch] font-heading text-[1.95rem] font-semibold min-[400px]:text-[2.2rem] leading-[1.13] tracking-tight text-foreground sm:text-[2.9rem] lg:text-[3.35rem]"
           >
             Expert ENT Care with{" "}
             <span className="text-primary">Experience, Precision &amp; Compassion</span>

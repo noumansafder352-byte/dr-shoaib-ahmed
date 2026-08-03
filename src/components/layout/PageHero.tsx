@@ -36,7 +36,7 @@ export function PageHero({ label, title, description, crumbs = [], className }: 
           <h1
             id="page-hero-title"
             className={cn(
-              "text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[3.15rem] lg:leading-[1.1]",
+              "text-[1.9rem] font-semibold tracking-tight min-[400px]:text-3xl sm:text-4xl lg:text-[3.15rem] lg:leading-[1.1]",
               label && "mt-4",
             )}
           >
