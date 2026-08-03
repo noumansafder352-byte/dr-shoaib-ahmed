@@ -170,7 +170,12 @@ export function Footer() {
               Privacy Policy
             </Link>
             <span aria-hidden="true" className="hidden h-3 w-px bg-white/15 sm:block" />
-            <span>{site.designedBy}</span>
+            <span>
+              {site.designedByPrefix}{" "}
+              <span className="group cursor-default font-semibold text-primary transition-all duration-300 hover:text-primary/80 hover:underline hover:decoration-primary/60 hover:underline-offset-4">
+                {site.designedByBrand}
+              </span>
+            </span>
           </div>
         </div>
       </div>
