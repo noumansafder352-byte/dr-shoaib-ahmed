@@ -37,7 +37,7 @@ export function Footer() {
         <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
       </div>
 
-      <div className="container-page grid gap-14 py-20 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:gap-12 lg:py-24">
+      <div className="container-page grid gap-14 py-20 md:grid-cols-2 lg:grid-cols-[1.25fr_0.85fr_0.9fr_1.5fr] lg:gap-12 lg:py-24">
         {/* Clinic */}
         <div className="min-w-0">
           <div className="inline-flex rounded-xl bg-white px-4 py-3">
