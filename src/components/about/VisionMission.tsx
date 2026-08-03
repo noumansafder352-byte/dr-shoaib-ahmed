@@ -59,7 +59,7 @@ export function VisionMission() {
 
       <Reveal className="mx-auto max-w-3xl text-center">
         {/* Decorative layered ring crown */}
-        <div aria-hidden="true" className="mx-auto mb-10 grid size-40 place-items-center sm:size-48">
+        <div aria-hidden="true" className="relative mx-auto mb-10 grid size-40 place-items-center sm:size-48">
           <span className="absolute size-40 rounded-full border border-primary/10 sm:size-48" />
           <span className="absolute size-32 rounded-full border border-primary/15 sm:size-36" />
           <span className="absolute size-24 rounded-full bg-[radial-gradient(circle_at_35%_25%,color-mix(in_oklab,var(--color-primary)_18%,white)_0%,color-mix(in_oklab,var(--color-primary)_6%,white)_60%,white_100%)] shadow-[0_18px_40px_-20px_color-mix(in_oklab,var(--color-primary)_45%,transparent)] sm:size-28" />
