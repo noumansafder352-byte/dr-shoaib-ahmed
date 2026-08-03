@@ -6,7 +6,6 @@ import { DiagnosticServices } from "@/components/services/DiagnosticServices";
 import { ServiceProcess } from "@/components/services/ServiceProcess";
 import { ServicesFaq } from "@/components/services/ServicesFaq";
 import { ServicesIntro } from "@/components/services/ServicesIntro";
-import { ServicesWhyChoose } from "@/components/services/ServicesWhyChoose";
 import { SurgicalProcedures } from "@/components/services/SurgicalProcedures";
 import { PremiumCta } from "@/components/shared/PremiumCta";
 import { contact } from "@/config/site";
@@ -36,7 +35,7 @@ function ServicesPage() {
       <SurgicalProcedures />
       <DiagnosticServices />
       <ServiceProcess />
-      <ServicesWhyChoose />
+      
       <ServicesFaq />
       <PremiumCta
         id="services-cta-heading"

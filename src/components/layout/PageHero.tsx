@@ -30,27 +30,28 @@ export function PageHero({ label, title, description, crumbs = [], className }: 
       )}
     >
       <span aria-hidden="true" className="hero-pattern absolute inset-0 -z-10" />
-      <div className="container-page flex min-h-[350px] flex-col justify-center py-16 md:min-h-[400px] lg:min-h-[450px] lg:py-20">
-        <div className="max-w-3xl animate-fade-in">
+      <div className="container-page flex min-h-[350px] flex-col justify-center py-16 md:min-h-[400px] lg:min-h-[430px] lg:py-20">
+        <div className="mx-auto flex w-full max-w-4xl animate-fade-in flex-col items-center text-center">
           {label ? <span className="eyebrow">{label}</span> : null}
           <h1
             id="page-hero-title"
             className={cn(
-              "text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl",
+              "text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[3.15rem] lg:leading-[1.1]",
               label && "mt-4",
             )}
           >
             {title}
           </h1>
           {description ? (
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p className="mt-5 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
               {description}
             </p>
           ) : null}
 
           {crumbs.length > 0 ? (
             <nav aria-label="Breadcrumb" className="mt-7">
-              <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+              <ol className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+
                 <li>
                   <Link to="/" className="transition-colors hover:text-primary">
                     Home
