@@ -30,8 +30,10 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full bg-background transition-shadow duration-300 ease-[var(--ease-brand)]",
-        scrolled ? "shadow-header" : "border-b border-border",
+        "sticky top-0 z-50 w-full backdrop-blur-xl transition-all duration-300 ease-[var(--ease-brand)]",
+        scrolled
+          ? "bg-background/92 shadow-header"
+          : "border-b border-border/70 bg-background/85",
       )}
     >
       <TopBar />
