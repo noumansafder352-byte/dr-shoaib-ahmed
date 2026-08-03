@@ -18,6 +18,14 @@ export const Route = createFileRoute("/services")({
       title: "ENT Services in Rawalpindi | Dr. Shoaib Ahmed",
       description:
         "Ear, nose and throat treatment, cochlear implant and middle ear surgery, endoscopy and hearing evaluation by Prof. Dr. Maj. Gen. (R) Shoaib Ahmed in Rawalpindi.",
+      path: "/services",
+      jsonLd: [
+        breadcrumbs([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+        ]),
+        faqSchema(faqs),
+      ],
     }),
   component: ServicesPage,
 });
