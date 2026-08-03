@@ -1,53 +1,66 @@
-import { Clock, MapPin, Phone } from "lucide-react";
+import { Facebook, Linkedin, MapPin, Phone, Youtube } from "lucide-react";
 
 import { contact } from "@/config/site";
 
+const socials = [
+  { label: "Facebook", href: "https://facebook.com", icon: Facebook },
+  { label: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
+  { label: "YouTube", href: "https://youtube.com", icon: Youtube },
+];
+
 /**
- * Slim top information bar: location (left), hours (center), phone (right).
- * On mobile it collapses to a compact two-item row so it stays readable.
+ * Slim top information bar: phone + location on the left, socials on the right.
+ * Fully transparent so it reads as one unit with the main navigation.
  */
 export function TopBar() {
   return (
-    <div className="border-b border-border bg-surface">
-      <div className="container-page grid grid-cols-1 items-center gap-1.5 py-2 text-[0.8125rem] sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:py-2.5 lg:text-sm">
-        <p className="flex min-w-0 items-center justify-center gap-2 text-muted-foreground sm:justify-start">
-          <MapPin
-            size={15}
-            strokeWidth={1.8}
-            className="shrink-0 text-primary"
-            aria-hidden="true"
-          />
-          <a href={contact.mapHref} target="_blank" rel="noreferrer" className="truncate hover:text-primary transition-colors">
-            {contact.address}
-          </a>
-        </p>
-
-        <p className="hidden min-w-0 items-center justify-center gap-2 text-muted-foreground lg:flex">
-          <Clock size={15} strokeWidth={1.8} className="shrink-0 text-primary" aria-hidden="true" />
-          <span className="truncate">{contact.hours}</span>
-        </p>
-
-        <p className="flex min-w-0 items-center justify-center gap-2 text-muted-foreground sm:justify-end">
-          <Clock
-            size={15}
-            strokeWidth={1.8}
-            className="shrink-0 text-primary lg:hidden"
-            aria-hidden="true"
-          />
-          <span className="truncate lg:hidden">{contact.hoursShort}</span>
-          <Phone
-            size={15}
-            strokeWidth={1.8}
-            className="ml-3 hidden shrink-0 text-primary sm:inline lg:ml-0"
-            aria-hidden="true"
-          />
+    <div className="border-b border-border/40">
+      <div className="container-page flex flex-wrap items-center justify-between gap-x-6 gap-y-1.5 py-2 text-[0.8125rem] lg:py-2.5 lg:text-sm">
+        <div className="flex min-w-0 flex-1 items-center gap-x-6 gap-y-1">
           <a
             href={contact.phoneHref}
-            className="hidden font-medium transition-colors hover:text-primary sm:inline"
+            className="flex min-w-0 items-center gap-2 font-medium text-muted-foreground transition-colors hover:text-primary"
           >
-            {contact.phone}
+            <Phone
+              size={15}
+              strokeWidth={1.8}
+              className="shrink-0 text-primary"
+              aria-hidden="true"
+            />
+            <span className="truncate">{contact.phone}</span>
           </a>
-        </p>
+
+          <a
+            href={contact.mapHref}
+            target="_blank"
+            rel="noreferrer"
+            className="hidden min-w-0 items-center gap-2 text-muted-foreground transition-colors hover:text-primary sm:flex"
+          >
+            <MapPin
+              size={15}
+              strokeWidth={1.8}
+              className="shrink-0 text-primary"
+              aria-hidden="true"
+            />
+            <span className="truncate">{contact.address}</span>
+          </a>
+        </div>
+
+        <ul className="flex shrink-0 items-center gap-2">
+          {socials.map(({ label, href, icon: Icon }) => (
+            <li key={label}>
+              <a
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={label}
+                className="grid size-8 place-items-center rounded-full border border-border/70 text-muted-foreground transition-all duration-300 ease-[var(--ease-brand)] hover:-translate-y-0.5 hover:border-transparent hover:bg-primary hover:text-primary-foreground hover:shadow-soft"
+              >
+                <Icon size={14} strokeWidth={1.9} aria-hidden="true" />
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
