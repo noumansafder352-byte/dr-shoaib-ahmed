@@ -11,39 +11,48 @@ export function ServiceCard({
   title,
   description,
   to = "/services",
-  linkLabel = "Learn more",
+  linkLabel,
 }: {
   icon: ElementType;
   title: string;
   description: string;
   to?: "/" | "/about" | "/services" | "/contact";
+  /** When omitted, the card renders without a call-to-action link. */
   linkLabel?: string;
 }) {
   return (
-    <SurfaceCard interactive className="group flex h-full flex-col gap-4">
+    <SurfaceCard
+      interactive
+      className="group flex h-full flex-col gap-5 p-8 transition-all duration-300 ease-[var(--ease-brand)] hover:border-primary/45 hover:shadow-[0_26px_56px_-26px_rgba(66,66,67,0.28)] sm:p-9"
+    >
       <span
         aria-hidden="true"
-        className="grid size-12 shrink-0 place-items-center rounded-lg bg-surface text-primary transition-colors duration-300 ease-[var(--ease-brand)] group-hover:bg-primary group-hover:text-primary-foreground"
+        className="grid size-14 shrink-0 place-items-center rounded-[14px] bg-surface text-primary transition-all duration-300 ease-[var(--ease-brand)] group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground"
       >
-        <Icon size={22} strokeWidth={1.6} />
+        <Icon size={26} strokeWidth={1.6} />
       </span>
-      <h3 className="text-xl font-semibold">{title}</h3>
+      <h3 className="text-xl font-semibold transition-colors duration-300 group-hover:text-primary">
+        {title}
+      </h3>
       <p className="text-base leading-relaxed text-muted-foreground">{description}</p>
-      <Link
-        to={to}
-        className="mt-auto inline-flex items-center gap-2 pt-2 text-sm font-medium text-primary"
-      >
-        {linkLabel}
-        <ArrowRight
-          size={16}
-          strokeWidth={2}
-          aria-hidden="true"
-          className="transition-transform duration-300 ease-[var(--ease-brand)] group-hover:translate-x-1"
-        />
-      </Link>
+      {linkLabel ? (
+        <Link
+          to={to}
+          className="mt-auto inline-flex items-center gap-2 pt-2 text-sm font-medium text-primary"
+        >
+          {linkLabel}
+          <ArrowRight
+            size={16}
+            strokeWidth={2}
+            aria-hidden="true"
+            className="transition-transform duration-300 ease-[var(--ease-brand)] group-hover:translate-x-1"
+          />
+        </Link>
+      ) : null}
     </SurfaceCard>
   );
 }
+
 
 /** Feature card — compact icon + text, used in 4-up feature rows. */
 export function FeatureCard({
