@@ -73,7 +73,7 @@ export function Header() {
             type="button"
             variant="ghost"
             size="icon"
-            className="lg:hidden"
+            className="min-h-11 min-w-11 lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="mobile-nav"

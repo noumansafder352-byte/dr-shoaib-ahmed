@@ -98,7 +98,7 @@ export function ContactFormMap() {
           <form
             noValidate
             onSubmit={onSubmit}
-            className="flex h-full flex-col rounded-[22px] border border-border bg-card p-7 shadow-soft transition-shadow duration-300 hover:shadow-lift sm:p-9"
+            className="flex h-full flex-col rounded-[22px] border border-border bg-card p-6 shadow-soft transition-shadow duration-300 hover:shadow-lift sm:p-8 lg:p-9"
           >
 
             <div className="grid gap-6 sm:grid-cols-2">
@@ -206,9 +206,9 @@ export function ContactFormMap() {
                 className="h-60 w-full rounded-[16px] border-0 sm:h-64"
               />
             </div>
-            <ul className="flex flex-1 flex-col justify-center gap-6 rounded-[22px] border border-border bg-card p-8 shadow-soft transition-all duration-300 hover:border-primary/25 hover:shadow-lift">
+            <ul className="flex flex-1 flex-col justify-center gap-6 rounded-[22px] border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:border-primary/25 hover:shadow-lift sm:p-8">
               {details.map((detail) => (
-                <li key={detail.label} className="group flex items-start gap-4">
+                <li key={detail.label} className="group flex min-w-0 items-start gap-4">
                   <span
                     aria-hidden="true"
                     className="grid size-11 shrink-0 place-items-center rounded-full border border-primary/20 bg-[linear-gradient(140deg,color-mix(in_oklab,var(--primary)_12%,transparent),color-mix(in_oklab,var(--primary)_4%,transparent))] text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] transition-all duration-300 group-hover:scale-105 group-hover:border-transparent group-hover:bg-[linear-gradient(140deg,var(--primary),var(--secondary))] group-hover:text-primary-foreground"
@@ -222,12 +222,12 @@ export function ContactFormMap() {
                     {detail.href ? (
                       <a
                         href={detail.href}
-                        className="mt-1.5 block text-base font-medium leading-relaxed text-foreground transition-colors hover:text-primary"
+                        className="mt-1.5 block break-words text-[0.95rem] font-medium leading-relaxed text-foreground transition-colors hover:text-primary sm:text-base"
                       >
                         {detail.value}
                       </a>
                     ) : (
-                      <p className="mt-1.5 text-base font-medium leading-relaxed text-foreground">
+                      <p className="mt-1.5 break-words text-[0.95rem] font-medium leading-relaxed text-foreground sm:text-base">
                         {detail.value}
                       </p>
                     )}

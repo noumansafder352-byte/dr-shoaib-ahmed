@@ -4,7 +4,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { contact } from "@/config/site";
 
-const items = [
+export const items = [
   {
     question: "Do I need an appointment before visiting?",
     answer:

@@ -8,7 +8,7 @@ import { DoctorMessage } from "@/components/about/DoctorMessage";
 import { VisionMission } from "@/components/about/VisionMission";
 import { PageHero } from "@/components/layout/PageHero";
 import { PremiumCta } from "@/components/shared/PremiumCta";
-import { seo } from "@/lib/seo";
+import { breadcrumbs, seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
   head: () =>
@@ -16,6 +16,14 @@ export const Route = createFileRoute("/about")({
       title: "About Prof. Dr. Shoaib Ahmed | ENT Specialist Rawalpindi",
       description:
         "30+ years of ENT practice at Army Medical College, CMH and PNS Shifa. Learn about Prof. Dr. Maj. Gen. (R) Shoaib Ahmed's expertise in cochlear implant and advanced ear surgery.",
+      path: "/about",
+      type: "profile",
+      jsonLd: [
+        breadcrumbs([
+          { name: "Home", path: "/" },
+          { name: "About Us", path: "/about" },
+        ]),
+      ],
     }),
   component: AboutPage,
 });

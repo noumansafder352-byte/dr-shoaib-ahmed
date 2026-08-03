@@ -2,7 +2,7 @@ import { CenteredSection } from "@/components/layout/sections";
 import { FaqAccordion, type FaqItem } from "@/components/shared/FaqAccordion";
 import { contact } from "@/config/site";
 
-const faqs: FaqItem[] = [
+export const faqs: FaqItem[] = [
   {
     question: "Do all ENT conditions require surgery?",
     answer:

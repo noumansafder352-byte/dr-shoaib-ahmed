@@ -97,6 +97,46 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              name: "Prof. Dr. Maj. Gen. (R) Shoaib Ahmed — ENT Specialist",
+              inLanguage: "en",
+            },
+            {
+              "@type": ["Physician", "MedicalClinic", "LocalBusiness"],
+              name: "Prof. Dr. Maj. Gen. (R) Shoaib Ahmed",
+              medicalSpecialty: "Otolaryngologic",
+              description:
+                "Senior ENT specialist in Rawalpindi with over 30 years of experience in ear, nose, throat, cochlear implant and head & neck surgery.",
+              telephone: "+92 335 0330019",
+              email: "official.drshoaibahmed@gmail.com",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "2nd Floor, Islamabad Diagnostic Centre, Saddar",
+                addressLocality: "Rawalpindi",
+                addressRegion: "Punjab",
+                addressCountry: "PK",
+              },
+              areaServed: "Rawalpindi, Islamabad, Pakistan",
+              openingHoursSpecification: [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                  opens: "16:00",
+                  closes: "18:30",
+                },
+              ],
+            },
+          ],
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,

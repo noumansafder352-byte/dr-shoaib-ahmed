@@ -31,6 +31,8 @@ export function Logo({
         alt={`${site.shortName} logo`}
         width={250}
         height={100}
+        loading="eager"
+        decoding="async"
         className={cn(
           "w-auto object-contain transition-all duration-300 ease-[var(--ease-brand)]",
           compact ? "h-11" : "h-14 sm:h-16",

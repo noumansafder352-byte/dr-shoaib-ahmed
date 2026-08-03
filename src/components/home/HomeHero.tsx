@@ -49,7 +49,7 @@ export function HomeHero() {
 
           <h1
             id="hero-heading"
-            className="mt-8 max-w-[19ch] font-heading text-[2.2rem] font-semibold leading-[1.13] tracking-tight text-foreground sm:text-[2.9rem] lg:text-[3.35rem]"
+            className="mt-8 max-w-[19ch] font-heading text-[1.95rem] font-semibold min-[400px]:text-[2.2rem] leading-[1.13] tracking-tight text-foreground sm:text-[2.9rem] lg:text-[3.35rem]"
           >
             Expert ENT Care with{" "}
             <span className="text-primary">Experience, Precision &amp; Compassion</span>
@@ -108,6 +108,9 @@ export function HomeHero() {
                   alt="Prof. Dr. Maj. Gen. (R) Shoaib Ahmed, ENT specialist in Rawalpindi"
                   width={1183}
                   height={1345}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   className="aspect-[4/5] w-full animate-scale-in object-cover object-top sm:aspect-[4/4.6]"
                 />
               </div>
