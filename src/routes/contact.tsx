@@ -5,11 +5,9 @@ import { AppointmentInfo } from "@/components/contact/AppointmentInfo";
 import { ContactFaq } from "@/components/contact/ContactFaq";
 import { ContactFormMap } from "@/components/contact/ContactFormMap";
 import { ContactInfo } from "@/components/contact/ContactInfo";
-import { ContactWhyVisit } from "@/components/contact/ContactWhyVisit";
 import { EmergencyNotice } from "@/components/contact/EmergencyNotice";
-import { CtaBanner } from "@/components/shared/CtaBanner";
-import { contact } from "@/config/site";
 import { seo } from "@/lib/seo";
+
 
 export const Route = createFileRoute("/contact")({
   head: () =>
