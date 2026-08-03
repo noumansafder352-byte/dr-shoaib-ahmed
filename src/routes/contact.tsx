@@ -6,7 +6,8 @@ import { ContactFaq } from "@/components/contact/ContactFaq";
 import { ContactFormMap } from "@/components/contact/ContactFormMap";
 
 
-import { seo } from "@/lib/seo";
+import { items as contactFaqs } from "@/components/contact/ContactFaq";
+import { breadcrumbs, faqSchema, seo } from "@/lib/seo";
 
 
 export const Route = createFileRoute("/contact")({
@@ -15,6 +16,14 @@ export const Route = createFileRoute("/contact")({
       title: "Contact ENT Clinic in Rawalpindi | Dr. Shoaib Ahmed",
       description:
         "Contact Prof. Dr. Maj. Gen. (R) Shoaib Ahmed — clinic address at IDC Saddar Rawalpindi, phone 0335-0330019, consultation hours 4:00–6:30 PM and an online enquiry form.",
+      path: "/contact",
+      jsonLd: [
+        breadcrumbs([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ]),
+        faqSchema(contactFaqs),
+      ],
     }),
   component: ContactPage,
 });

@@ -9,7 +9,8 @@ import { ServicesIntro } from "@/components/services/ServicesIntro";
 import { SurgicalProcedures } from "@/components/services/SurgicalProcedures";
 import { PremiumCta } from "@/components/shared/PremiumCta";
 import { contact } from "@/config/site";
-import { seo } from "@/lib/seo";
+import { faqs } from "@/components/services/ServicesFaq";
+import { breadcrumbs, faqSchema, seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/services")({
   head: () =>
