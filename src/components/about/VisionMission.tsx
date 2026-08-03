@@ -24,7 +24,6 @@ export function VisionMission() {
   return (
     <CenteredSection
       id="vision-mission"
-      surface
       label="Our Purpose"
       title="Vision & mission"
       description="The two commitments that guide how every consultation, diagnosis and procedure at the clinic is carried out."

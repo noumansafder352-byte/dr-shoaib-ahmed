@@ -4,11 +4,10 @@ import { AboutExpertise } from "@/components/about/AboutExpertise";
 import { AboutHighlights } from "@/components/about/AboutHighlights";
 import { AboutSpecialist } from "@/components/about/AboutSpecialist";
 import { AboutStory } from "@/components/about/AboutStory";
-import { AboutWhyChoose } from "@/components/about/AboutWhyChoose";
 import { DoctorMessage } from "@/components/about/DoctorMessage";
 import { VisionMission } from "@/components/about/VisionMission";
 import { PageHero } from "@/components/layout/PageHero";
-import { CtaBanner } from "@/components/shared/CtaBanner";
+import { PremiumCta } from "@/components/shared/PremiumCta";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
@@ -34,11 +33,11 @@ function AboutPage() {
       <AboutSpecialist />
       <AboutHighlights />
       <AboutExpertise />
-      <AboutWhyChoose />
+      
       <VisionMission />
       <DoctorMessage />
-      <CtaBanner
-        tone="primary"
+      <PremiumCta
+        id="about-cta-heading"
         label="Book a Consultation"
         title="Experience expert ENT care"
         description="Whether you need treatment for a common ENT condition or specialized surgical care, we are committed to providing expert medical care with compassion and professionalism."

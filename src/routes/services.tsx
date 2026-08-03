@@ -8,7 +8,7 @@ import { ServicesFaq } from "@/components/services/ServicesFaq";
 import { ServicesIntro } from "@/components/services/ServicesIntro";
 import { ServicesWhyChoose } from "@/components/services/ServicesWhyChoose";
 import { SurgicalProcedures } from "@/components/services/SurgicalProcedures";
-import { CtaBanner } from "@/components/shared/CtaBanner";
+import { PremiumCta } from "@/components/shared/PremiumCta";
 import { contact } from "@/config/site";
 import { seo } from "@/lib/seo";
 
@@ -38,8 +38,8 @@ function ServicesPage() {
       <ServiceProcess />
       <ServicesWhyChoose />
       <ServicesFaq />
-      <CtaBanner
-        tone="primary"
+      <PremiumCta
+        id="services-cta-heading"
         label="Get Started"
         title="Take the first step toward better ENT health"
         description="Whether you're experiencing hearing problems, sinus issues, throat disorders, or need specialized ENT surgery, our clinic is here to provide expert care with compassion and professionalism."
