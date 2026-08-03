@@ -108,6 +108,9 @@ export function HomeHero() {
                   alt="Prof. Dr. Maj. Gen. (R) Shoaib Ahmed, ENT specialist in Rawalpindi"
                   width={1183}
                   height={1345}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   className="aspect-[4/5] w-full animate-scale-in object-cover object-top sm:aspect-[4/4.6]"
                 />
               </div>
