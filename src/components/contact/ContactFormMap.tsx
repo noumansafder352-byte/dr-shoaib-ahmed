@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Lock, Mail, MapPin, Phone, ShieldCheck, Stethoscope, Timer } from "lucide-react";
 import { toast } from "sonner";
 import { z } from "zod";
 
@@ -155,9 +155,37 @@ export function ContactFormMap() {
                 ) : null}
               </div>
             </div>
-            <Button type="submit" className="mt-8 w-full sm:mt-auto sm:w-auto">
-              Send Message
-            </Button>
+
+            <div className="mt-auto pt-8">
+              <div className="flex items-start gap-3 rounded-[16px] border border-primary/15 bg-[linear-gradient(140deg,color-mix(in_oklab,var(--primary)_7%,transparent),color-mix(in_oklab,var(--primary)_2%,transparent))] p-4">
+                <span
+                  aria-hidden="true"
+                  className="grid size-9 shrink-0 place-items-center rounded-full border border-primary/20 bg-card text-primary"
+                >
+                  <ShieldCheck size={17} strokeWidth={1.8} />
+                </span>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  Your details stay strictly confidential and are used only to respond to your
+                  enquiry. We typically reply within 24 hours on working days.
+                </p>
+              </div>
+
+              <ul className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">
+                {badges.map((badge) => (
+                  <li
+                    key={badge.label}
+                    className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 text-[0.78rem] font-medium text-foreground transition-colors duration-300 hover:border-primary/30 hover:text-primary"
+                  >
+                    <badge.icon size={14} strokeWidth={1.9} className="text-primary" />
+                    {badge.label}
+                  </li>
+                ))}
+              </ul>
+
+              <Button type="submit" className="mt-7 w-full sm:w-auto">
+                Send Message
+              </Button>
+            </div>
           </form>
         </Reveal>
 
