@@ -11,14 +11,14 @@ const socials = [
 ];
 
 const linkClass =
-  "group relative inline-flex items-center gap-2 text-sm text-footer-muted transition-colors duration-300 ease-[var(--ease-brand)] hover:text-primary-foreground";
+  "group relative inline-flex items-center gap-2.5 text-sm text-footer-muted transition-colors duration-300 ease-[var(--ease-brand)] hover:text-primary";
 
-/** Bullet that grows into a short red rule on hover. */
+/** Small brand-red dot that scales and glows on hover. */
 function LinkMarker() {
   return (
     <span
       aria-hidden="true"
-      className="h-px w-3 shrink-0 bg-white/25 transition-all duration-300 ease-[var(--ease-brand)] group-hover:w-5 group-hover:bg-primary"
+      className="size-1.5 shrink-0 rounded-full bg-primary transition-all duration-300 ease-[var(--ease-brand)] group-hover:scale-150 group-hover:shadow-[0_0_8px_2px_color-mix(in_oklab,var(--color-primary)_55%,transparent)]"
     />
   );
 }
@@ -37,7 +37,7 @@ export function Footer() {
         <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
       </div>
 
-      <div className="container-page grid gap-14 py-20 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:gap-12 lg:py-24">
+      <div className="container-page grid gap-14 py-20 md:grid-cols-2 lg:grid-cols-[1.25fr_0.85fr_0.9fr_1.5fr] lg:gap-12 lg:py-24">
         {/* Clinic */}
         <div className="min-w-0">
           <div className="inline-flex rounded-xl bg-white px-4 py-3">
@@ -113,62 +113,48 @@ export function Footer() {
             Contact Information
           </h2>
           <span aria-hidden="true" className="mt-4 block h-px w-10 bg-primary" />
-          <ul className="mt-5 space-y-4 text-sm text-footer-muted">
-            <li className="flex items-start gap-3">
-              <span
-                aria-hidden="true"
-                className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-full border border-white/15 text-primary"
-              >
-                <MapPin size={15} strokeWidth={1.8} />
-              </span>
-              <a
-                href={contact.mapHref}
-                target="_blank"
-                rel="noreferrer"
-                className="leading-relaxed transition-colors duration-300 hover:text-primary-foreground"
-              >
-                {contact.address}
-              </a>
-            </li>
-            <li className="flex items-start gap-3">
-              <span
-                aria-hidden="true"
-                className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-full border border-white/15 text-primary"
-              >
-                <Phone size={15} strokeWidth={1.8} />
-              </span>
-              <a
-                href={contact.phoneHref}
-                className="leading-relaxed transition-colors duration-300 hover:text-primary-foreground"
-              >
-                {contact.phone}
-              </a>
-            </li>
-            <li className="flex items-start gap-3">
-              <span
-                aria-hidden="true"
-                className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-full border border-white/15 text-primary"
-              >
-                <Mail size={15} strokeWidth={1.8} />
-              </span>
-              <a
-                href={contact.emailHref}
-                className="break-all leading-relaxed transition-colors duration-300 hover:text-primary-foreground"
-              >
-                {contact.email}
-              </a>
-            </li>
-            <li className="flex items-start gap-3">
-              <span
-                aria-hidden="true"
-                className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-full border border-white/15 text-primary"
-              >
-                <Clock size={15} strokeWidth={1.8} />
-              </span>
-              <span className="leading-relaxed">{contact.hours}</span>
-            </li>
+          <ul className="mt-6 space-y-5 text-sm text-footer-muted">
+            {[
+              {
+                icon: MapPin,
+                label: contact.address,
+                href: contact.mapHref,
+                external: true,
+              },
+              { icon: Phone, label: contact.phone, href: contact.phoneHref },
+              { icon: Mail, label: contact.email, href: contact.emailHref },
+              { icon: Clock, label: contact.hours },
+            ].map(({ icon: Icon, label, href, external }) => {
+              const content = (
+                <span className="leading-relaxed transition-colors duration-300 group-hover:text-primary">
+                  {label}
+                </span>
+              );
+              return (
+                <li key={label} className="group flex items-center gap-4">
+                  <span
+                    aria-hidden="true"
+                    className="grid size-11 shrink-0 place-items-center rounded-full border border-primary/25 bg-primary/10 text-primary shadow-soft transition-all duration-300 ease-[var(--ease-brand)] group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground"
+                  >
+                    <Icon size={19} strokeWidth={1.8} />
+                  </span>
+                  {href ? (
+                    <a
+                      href={href}
+                      {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+                      className="min-w-0"
+                    >
+                      {content}
+                    </a>
+                  ) : (
+                    content
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
+
       </div>
 
       <div className="border-t border-white/10">
@@ -184,7 +170,12 @@ export function Footer() {
               Privacy Policy
             </Link>
             <span aria-hidden="true" className="hidden h-3 w-px bg-white/15 sm:block" />
-            <span>{site.designedBy}</span>
+            <span>
+              {site.designedByPrefix}{" "}
+              <span className="group cursor-default font-semibold text-primary transition-all duration-300 hover:text-primary/80 hover:underline hover:decoration-primary/60 hover:underline-offset-4">
+                {site.designedByBrand}
+              </span>
+            </span>
           </div>
         </div>
       </div>

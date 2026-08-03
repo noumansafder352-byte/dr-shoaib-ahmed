@@ -5,7 +5,7 @@ import { AppointmentInfo } from "@/components/contact/AppointmentInfo";
 import { ContactFaq } from "@/components/contact/ContactFaq";
 import { ContactFormMap } from "@/components/contact/ContactFormMap";
 
-import { EmergencyNotice } from "@/components/contact/EmergencyNotice";
+
 import { seo } from "@/lib/seo";
 
 
@@ -30,10 +30,8 @@ function ContactPage() {
       />
       <AppointmentInfo />
       <ContactFormMap />
-
       <ContactFaq />
-      <EmergencyNotice />
-
     </>
+
   );
 }
