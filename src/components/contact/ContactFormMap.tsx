@@ -41,6 +41,12 @@ const details = [
   { icon: Clock, label: "Working Hours", value: "Monday – Friday | 4:00 PM – 6:30 PM" },
 ];
 
+const badges = [
+  { icon: Lock, label: "Confidential" },
+  { icon: Timer, label: "Quick Response" },
+  { icon: Stethoscope, label: "Expert ENT Care" },
+];
+
 const mapSrc =
   "https://www.google.com/maps?q=Islamabad%20Diagnostic%20Centre%20Saddar%20Rawalpindi&output=embed";
 
