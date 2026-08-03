@@ -146,29 +146,30 @@ export function ContactCard({
   href?: string;
 }) {
   return (
-    <SurfaceCard interactive className="flex h-full flex-col items-start gap-4 p-7">
+    <div className="group relative flex h-full flex-col items-start gap-5 rounded-[22px] border border-border bg-card p-8 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/35 hover:shadow-lift">
       <span
         aria-hidden="true"
-        className="grid size-12 shrink-0 place-items-center rounded-lg bg-surface text-primary"
+        className="relative grid size-14 shrink-0 place-items-center rounded-full border border-primary/20 bg-[linear-gradient(140deg,color-mix(in_oklab,var(--primary)_12%,transparent),color-mix(in_oklab,var(--primary)_4%,transparent))] text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] transition-all duration-300 group-hover:scale-105 group-hover:border-transparent group-hover:bg-[linear-gradient(140deg,var(--primary),var(--secondary))] group-hover:text-primary-foreground group-hover:shadow-[0_10px_24px_-10px_color-mix(in_oklab,var(--primary)_60%,transparent)]"
       >
-        <Icon size={22} strokeWidth={1.6} />
+        <Icon size={24} strokeWidth={1.6} className="transition-transform duration-300 group-hover:-rotate-6" />
       </span>
       <div className="min-w-0">
-        <h3 className="text-base font-semibold uppercase tracking-[0.1em] text-foreground">
+        <h3 className="text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-primary">
           {label}
         </h3>
         {href ? (
           <a
             href={href}
-            className="mt-2 block text-base leading-relaxed text-muted-foreground transition-colors hover:text-primary"
+            className="mt-3 block text-base font-medium leading-relaxed text-foreground transition-colors hover:text-primary"
           >
             {value}
           </a>
         ) : (
-          <p className="mt-2 text-base leading-relaxed text-muted-foreground">{value}</p>
+          <p className="mt-3 text-base font-medium leading-relaxed text-foreground">{value}</p>
         )}
       </div>
-    </SurfaceCard>
+    </div>
+
   );
 }
 
