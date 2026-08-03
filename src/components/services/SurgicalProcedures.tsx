@@ -124,8 +124,8 @@ export function SurgicalProcedures() {
                   </span>
                 </div>
               </Link>
-            </li>
-          </Reveal>
+            </Reveal>
+          </li>
         ))}
       </ul>
     </Section>
