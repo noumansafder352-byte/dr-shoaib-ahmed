@@ -23,13 +23,13 @@ const highlights = [
   { icon: HeartPulse, label: "Advanced ENT Care" },
 ];
 
-/** Doctor introduction — framed portrait left, executive profile and qualifications right. */
+/** Doctor introduction — executive profile and qualifications left, framed portrait right. */
 export function MeetDoctorSection() {
   return (
     <Section id="meet-the-doctor" ariaLabelledBy="meet-the-doctor-heading">
-      <div className="grid gap-10 lg:grid-cols-[38fr_62fr] lg:items-stretch lg:gap-12">
+      <div className="grid gap-10 lg:grid-cols-[55fr_45fr] lg:items-stretch lg:gap-14">
         {/* Portrait — premium frame matching the hero treatment */}
-        <Reveal variant="scale" className="min-w-0">
+        <Reveal variant="scale" className="min-w-0 lg:order-2">
           <div className="relative h-full">
             <div
               aria-hidden="true"
@@ -51,7 +51,8 @@ export function MeetDoctorSection() {
         </Reveal>
 
         {/* Content */}
-        <Reveal delay={80} className="flex min-w-0 flex-col justify-center">
+        <Reveal delay={80} className="flex min-w-0 flex-col justify-center lg:order-1">
+
           <span className="eyebrow">Meet the Specialist</span>
 
           <h2
