@@ -54,7 +54,7 @@ export function TopBar() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={label}
-                className="grid size-8 place-items-center rounded-full border border-border/70 text-muted-foreground transition-all duration-300 ease-[var(--ease-brand)] hover:-translate-y-0.5 hover:border-transparent hover:bg-primary hover:text-primary-foreground hover:shadow-soft"
+                className="grid size-8 place-items-center rounded-full border border-primary/40 bg-white text-primary shadow-soft transition-all duration-300 ease-[var(--ease-brand)] hover:-translate-y-0.5 hover:border-primary hover:bg-primary hover:text-primary-foreground hover:shadow-soft"
               >
                 <Icon size={14} strokeWidth={1.9} aria-hidden="true" />
               </a>
