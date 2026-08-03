@@ -134,7 +134,7 @@ export function Footer() {
                 <li key={label} className="group flex min-w-0 items-center gap-3 sm:gap-4">
                   <span
                     aria-hidden="true"
-                    className="grid size-11 shrink-0 place-items-center rounded-full border border-primary/25 bg-primary/10 text-primary shadow-soft transition-all duration-300 ease-[var(--ease-brand)] group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground"
+                    className="grid size-11 shrink-0 place-items-center rounded-full border border-primary/30 bg-white text-primary shadow-[0_2px_8px_color-mix(in_oklab,black_25%,transparent)] transition-all duration-300 ease-[var(--ease-brand)] group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground"
                   >
                     <Icon size={19} strokeWidth={1.8} />
                   </span>

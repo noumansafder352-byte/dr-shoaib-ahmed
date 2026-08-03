@@ -26,29 +26,31 @@ export function StatsSection() {
       </h2>
       <div className="container-page">
         <Reveal variant="scale">
-          <dl className="grid grid-cols-1 gap-y-7 rounded-[24px] border border-border/60 bg-card/95 px-4 py-7 backdrop-blur-xl shadow-[0_1px_2px_color-mix(in_oklab,var(--color-foreground)_5%,transparent),0_30px_60px_-24px_color-mix(in_oklab,var(--color-foreground)_28%,transparent)] sm:grid-cols-2 sm:gap-y-7 sm:px-9 sm:py-8 lg:grid-cols-4 lg:gap-y-0 lg:px-8 lg:py-9">
+          <dl className="grid grid-cols-1 gap-y-6 rounded-[24px] border border-border/60 bg-card/95 px-4 py-6 backdrop-blur-xl shadow-[0_1px_2px_color-mix(in_oklab,var(--color-foreground)_5%,transparent),0_30px_60px_-24px_color-mix(in_oklab,var(--color-foreground)_28%,transparent)] sm:grid-cols-2 sm:gap-y-7 sm:px-9 sm:py-8 lg:grid-cols-4 lg:gap-y-0 lg:px-8 lg:py-9">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className={`group flex min-w-0 items-center justify-center gap-3.5 border-border/60 px-2 sm:gap-4 transition-transform duration-300 ease-[var(--ease-brand)] hover:-translate-y-1 sm:px-6 lg:px-7 ${
+                className={`group flex min-w-0 items-center gap-3.5 border-border/60 px-0 sm:justify-center sm:gap-4 transition-transform duration-300 ease-[var(--ease-brand)] hover:-translate-y-1 sm:px-6 lg:px-7 ${
                   index % 2 === 1 ? "sm:border-l" : ""
-                } ${index > 0 ? "lg:border-l" : "lg:border-l-0"}`}
+                } ${index > 0 ? "lg:border-l" : "lg:border-l-0"} ${
+                  index > 0 ? "border-t border-border/50 pt-6 sm:border-t-0 sm:pt-0" : ""
+                }`}
               >
                 <span
                   aria-hidden="true"
-                  className="grid size-12 shrink-0 place-items-center rounded-[14px] border border-primary/15 bg-primary/[0.07] text-primary shadow-[inset_0_1px_2px_color-mix(in_oklab,var(--color-primary)_12%,transparent)] transition-colors duration-300 ease-[var(--ease-brand)] group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground"
+                  className="grid size-11 shrink-0 place-items-center rounded-[14px] border border-primary/15 bg-primary/[0.07] text-primary shadow-[inset_0_1px_2px_color-mix(in_oklab,var(--color-primary)_12%,transparent)] transition-colors duration-300 ease-[var(--ease-brand)] group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground sm:size-12"
                 >
                   <stat.icon size={20} strokeWidth={1.8} />
                 </span>
                 <div className="min-w-0">
-                  <dd className="font-heading text-[1.6rem] font-bold leading-none tracking-tight text-foreground transition-colors duration-300 ease-[var(--ease-brand)] group-hover:text-primary sm:text-[1.85rem] lg:text-[1.95rem]">
+                  <dd className="font-heading text-[1.45rem] font-bold leading-none tracking-tight text-foreground transition-colors duration-300 ease-[var(--ease-brand)] group-hover:text-primary sm:text-[1.85rem] lg:text-[1.95rem]">
                     {"value" in stat ? (
                       <Counter value={stat.value} suffix={stat.suffix} />
                     ) : (
                       stat.text
                     )}
                   </dd>
-                  <dt className="mt-2 text-[0.66rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                  <dt className="mt-2 whitespace-nowrap text-[0.66rem] font-medium uppercase tracking-[0.18em] text-muted-foreground">
                     {stat.label}
                   </dt>
                 </div>
