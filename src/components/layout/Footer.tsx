@@ -113,62 +113,48 @@ export function Footer() {
             Contact Information
           </h2>
           <span aria-hidden="true" className="mt-4 block h-px w-10 bg-primary" />
-          <ul className="mt-5 space-y-4 text-sm text-footer-muted">
-            <li className="flex items-start gap-3">
-              <span
-                aria-hidden="true"
-                className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-full border border-white/15 text-primary"
-              >
-                <MapPin size={15} strokeWidth={1.8} />
-              </span>
-              <a
-                href={contact.mapHref}
-                target="_blank"
-                rel="noreferrer"
-                className="leading-relaxed transition-colors duration-300 hover:text-primary-foreground"
-              >
-                {contact.address}
-              </a>
-            </li>
-            <li className="flex items-start gap-3">
-              <span
-                aria-hidden="true"
-                className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-full border border-white/15 text-primary"
-              >
-                <Phone size={15} strokeWidth={1.8} />
-              </span>
-              <a
-                href={contact.phoneHref}
-                className="leading-relaxed transition-colors duration-300 hover:text-primary-foreground"
-              >
-                {contact.phone}
-              </a>
-            </li>
-            <li className="flex items-start gap-3">
-              <span
-                aria-hidden="true"
-                className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-full border border-white/15 text-primary"
-              >
-                <Mail size={15} strokeWidth={1.8} />
-              </span>
-              <a
-                href={contact.emailHref}
-                className="break-all leading-relaxed transition-colors duration-300 hover:text-primary-foreground"
-              >
-                {contact.email}
-              </a>
-            </li>
-            <li className="flex items-start gap-3">
-              <span
-                aria-hidden="true"
-                className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-full border border-white/15 text-primary"
-              >
-                <Clock size={15} strokeWidth={1.8} />
-              </span>
-              <span className="leading-relaxed">{contact.hours}</span>
-            </li>
+          <ul className="mt-6 space-y-5 text-sm text-footer-muted">
+            {[
+              {
+                icon: MapPin,
+                label: contact.address,
+                href: contact.mapHref,
+                external: true,
+              },
+              { icon: Phone, label: contact.phone, href: contact.phoneHref },
+              { icon: Mail, label: contact.email, href: contact.emailHref },
+              { icon: Clock, label: contact.hours },
+            ].map(({ icon: Icon, label, href, external }) => {
+              const content = (
+                <span className="leading-relaxed transition-colors duration-300 group-hover:text-primary">
+                  {label}
+                </span>
+              );
+              return (
+                <li key={label} className="group flex items-center gap-4">
+                  <span
+                    aria-hidden="true"
+                    className="grid size-11 shrink-0 place-items-center rounded-full border border-primary/25 bg-primary/10 text-primary shadow-soft transition-all duration-300 ease-[var(--ease-brand)] group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground"
+                  >
+                    <Icon size={19} strokeWidth={1.8} />
+                  </span>
+                  {href ? (
+                    <a
+                      href={href}
+                      {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+                      className="min-w-0"
+                    >
+                      {content}
+                    </a>
+                  ) : (
+                    content
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
+
       </div>
 
       <div className="border-t border-white/10">
