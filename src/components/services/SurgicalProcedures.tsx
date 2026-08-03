@@ -1,6 +1,8 @@
-import { Activity, Ear, Scissors, Stethoscope, Waves } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { ArrowUpRight, Ear, HeartPulse, Hospital, Microscope, ShieldCheck } from "lucide-react";
 
 import clinicStory from "@/assets/clinic-story.jpg";
+import facilityConsultation from "@/assets/facility-consultation.jpg";
 import facilityEquipment from "@/assets/facility-equipment.jpg";
 import procedureMicroscopy from "@/assets/procedure-microscopy.jpg";
 import procedureTheatre from "@/assets/procedure-theatre.jpg";
@@ -11,13 +13,14 @@ import { cn } from "@/lib/utils";
 
 const procedures = [
   {
-    icon: Waves,
+    icon: HeartPulse,
     title: "Cochlear Implant Surgery",
     description:
       "Candidacy assessment, implantation and structured rehabilitation for severe to profound hearing loss in children and adults.",
     image: procedureTheatre,
     alt: "Operating theatre prepared for ear surgery",
-    points: ["Pre-surgical audiological workup", "Post-operative mapping & therapy"],
+    span: "lg:col-span-2",
+    imageHeight: "h-64 sm:h-72",
   },
   {
     icon: Ear,
@@ -26,38 +29,42 @@ const procedures = [
       "Tympanoplasty and ossicular reconstruction to repair perforated eardrums, stop recurring discharge and restore hearing.",
     image: procedureMicroscopy,
     alt: "ENT examination microscope and audiometry headphones",
-    points: ["Microscopic technique", "Day-case where suitable"],
+    span: "lg:col-span-2",
+    imageHeight: "h-56 sm:h-64",
   },
   {
-    icon: Activity,
+    icon: Microscope,
     title: "Mastoid Surgery",
     description:
-      "Mastoidectomy for chronic ear infection and cholesteatoma, clearing disease safely while protecting hearing and facial nerve.",
+      "Mastoidectomy for chronic ear infection and cholesteatoma, clearing disease safely while protecting hearing and the facial nerve.",
     image: facilityEquipment,
     alt: "ENT surgical instruments and equipment",
-    points: ["Disease clearance", "Long-term ear health"],
+    span: "lg:col-span-2",
+    imageHeight: "h-72 sm:h-80",
   },
   {
-    icon: Scissors,
+    icon: ShieldCheck,
     title: "Parotid Gland Surgery",
     description:
-      "Careful removal of parotid tumours and swellings with meticulous facial nerve preservation and follow-up review.",
-    image: procedureTheatre,
-    alt: "Sterile surgical field in a modern operating theatre",
-    points: ["Facial nerve monitoring", "Histopathology guidance"],
+      "Careful removal of parotid tumours and swellings with meticulous facial nerve preservation and structured follow-up review.",
+    image: facilityConsultation,
+    alt: "Consultation room at the ENT clinic",
+    span: "lg:col-span-3",
+    imageHeight: "h-64 sm:h-72",
   },
   {
-    icon: Stethoscope,
+    icon: Hospital,
     title: "Head & Neck Surgery",
     description:
-      "Surgical management of selected neck swellings, salivary gland and thyroid-related ENT conditions with clear pre-op counselling.",
+      "Surgical management of selected neck swellings, salivary gland and thyroid-related ENT conditions with clear pre-operative counselling.",
     image: clinicStory,
     alt: "Consultation area at the ENT clinic",
-    points: ["Multidisciplinary input", "Staged recovery plan"],
+    span: "lg:col-span-3",
+    imageHeight: "h-56 sm:h-64",
   },
 ];
 
-/** Specialized surgical procedures — five horizontal cards, alternating image side. */
+/** Specialized surgical procedures — image-led premium service cards. */
 export function SurgicalProcedures() {
   return (
     <Section id="surgical-procedures" surface ariaLabelledBy="surgical-heading">
@@ -71,60 +78,60 @@ export function SurgicalProcedures() {
         />
       </Reveal>
 
-      <ul className="mt-14 flex flex-col gap-6 lg:gap-8">
-        {procedures.map((procedure, index) => {
-          const reverse = index % 2 === 1;
-          return (
-            <Reveal key={procedure.title} delay={index * 70}>
-              <li className="card-lift overflow-hidden rounded-xl border border-border bg-card shadow-soft">
-                <div className="grid lg:grid-cols-12">
-                  <div
-                    className={cn(
-                      "lg:col-span-5",
-                      reverse ? "lg:order-2" : "lg:order-1",
-                    )}
+      <ul className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-6">
+        {procedures.map((procedure, index) => (
+          <Reveal
+            key={procedure.title}
+            delay={index * 80}
+            className={cn("h-full", procedure.span)}
+            asChild
+          >
+            <li className="h-full">
+              <Link
+                to="/contact"
+                className="group flex h-full flex-col overflow-hidden rounded-[26px] border border-border bg-card shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <div className={cn("relative overflow-hidden", procedure.imageHeight)}>
+                  <img
+                    src={procedure.image}
+                    alt={procedure.alt}
+                    loading="lazy"
+                    width={1280}
+                    height={960}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-gradient-to-t from-foreground/55 via-foreground/10 to-transparent transition-opacity duration-300 group-hover:from-foreground/70"
+                  />
+                  <span
+                    aria-hidden="true"
+                    className="absolute -bottom-7 left-7 grid size-16 place-items-center rounded-full bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lg ring-4 ring-card transition-transform duration-300 group-hover:scale-110"
                   >
-                    <img
-                      src={procedure.image}
-                      alt={procedure.alt}
-                      loading="lazy"
-                      width={1280}
-                      height={960}
-                      className="aspect-16/10 h-full w-full object-cover lg:aspect-auto"
-                    />
-                  </div>
-                  <div
-                    className={cn(
-                      "flex min-w-0 flex-col gap-4 p-7 sm:p-9 lg:col-span-7 lg:justify-center",
-                      reverse ? "lg:order-1" : "lg:order-2",
-                    )}
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="grid size-12 shrink-0 place-items-center rounded-lg bg-primary/8 text-primary"
-                    >
-                      <procedure.icon size={22} strokeWidth={1.6} />
-                    </span>
-                    <h3 className="text-xl font-semibold sm:text-2xl">{procedure.title}</h3>
-                    <p className="text-base leading-relaxed text-muted-foreground">
-                      {procedure.description}
-                    </p>
-                    <ul className="flex flex-wrap gap-2">
-                      {procedure.points.map((point) => (
-                        <li
-                          key={point}
-                          className="rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-medium tracking-wide text-muted-foreground"
-                        >
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                    <procedure.icon size={26} strokeWidth={1.7} />
+                  </span>
                 </div>
-              </li>
-            </Reveal>
-          );
-        })}
+
+                <div className="flex min-w-0 flex-1 flex-col gap-3 px-7 pb-8 pt-12">
+                  <h3 className="text-xl font-semibold leading-snug transition-colors duration-300 group-hover:text-primary sm:text-[1.375rem]">
+                    {procedure.title}
+                  </h3>
+                  <p className="text-[0.95rem] leading-relaxed text-muted-foreground">
+                    {procedure.description}
+                  </p>
+                  <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-medium text-primary">
+                    Explore
+                    <ArrowUpRight
+                      size={16}
+                      strokeWidth={2}
+                      className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
+                  </span>
+                </div>
+              </Link>
+            </li>
+          </Reveal>
+        ))}
       </ul>
     </Section>
   );
