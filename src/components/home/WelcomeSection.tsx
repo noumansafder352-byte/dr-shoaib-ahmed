@@ -18,7 +18,7 @@ export function WelcomeSection() {
     <Section
       id="welcome"
       ariaLabelledBy="welcome-heading"
-      className="relative pt-20 sm:pt-24 lg:pt-28"
+      className="relative pt-16 sm:pt-20 lg:pt-24"
     >
 
 
