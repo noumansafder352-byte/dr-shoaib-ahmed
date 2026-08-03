@@ -87,13 +87,14 @@ export function ContactFormMap() {
         />
       </Reveal>
 
-      <div className="mt-12 grid gap-8 lg:mt-14 lg:grid-cols-12 lg:gap-10">
+      <div className="mt-12 grid items-stretch gap-8 lg:mt-14 lg:grid-cols-12 lg:gap-12">
         <Reveal className="min-w-0 lg:col-span-7">
           <form
             noValidate
             onSubmit={onSubmit}
-            className="rounded-xl border border-border bg-card p-7 shadow-soft sm:p-9"
+            className="flex h-full flex-col rounded-[22px] border border-border bg-card p-7 shadow-soft transition-shadow duration-300 hover:shadow-lift sm:p-9"
           >
+
             <div className="grid gap-6 sm:grid-cols-2">
               <FormField
                 id="name"
