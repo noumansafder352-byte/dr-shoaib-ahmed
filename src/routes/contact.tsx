@@ -5,11 +5,9 @@ import { AppointmentInfo } from "@/components/contact/AppointmentInfo";
 import { ContactFaq } from "@/components/contact/ContactFaq";
 import { ContactFormMap } from "@/components/contact/ContactFormMap";
 import { ContactInfo } from "@/components/contact/ContactInfo";
-import { ContactWhyVisit } from "@/components/contact/ContactWhyVisit";
 import { EmergencyNotice } from "@/components/contact/EmergencyNotice";
-import { CtaBanner } from "@/components/shared/CtaBanner";
-import { contact } from "@/config/site";
 import { seo } from "@/lib/seo";
+
 
 export const Route = createFileRoute("/contact")({
   head: () =>
@@ -33,17 +31,9 @@ function ContactPage() {
       <ContactInfo />
       <AppointmentInfo />
       <ContactFormMap />
-      <ContactWhyVisit />
       <ContactFaq />
       <EmergencyNotice />
-      <CtaBanner
-        tone="primary"
-        label="Appointments"
-        title="Your Health Is Our Priority"
-        description="Don't let ear, nose, or throat problems affect your quality of life. Book your consultation today and receive expert ENT care from Prof. Dr. Maj. Gen. (R) Shoaib Ahmed."
-        primary={{ label: "Book Appointment", href: contact.phoneHref }}
-        secondary={{ label: "Call Now", href: contact.phoneHref }}
-      />
+
     </>
   );
 }

@@ -87,13 +87,14 @@ export function ContactFormMap() {
         />
       </Reveal>
 
-      <div className="mt-12 grid gap-8 lg:mt-14 lg:grid-cols-12 lg:gap-10">
+      <div className="mt-12 grid items-stretch gap-8 lg:mt-14 lg:grid-cols-12 lg:gap-12">
         <Reveal className="min-w-0 lg:col-span-7">
           <form
             noValidate
             onSubmit={onSubmit}
-            className="rounded-xl border border-border bg-card p-7 shadow-soft sm:p-9"
+            className="flex h-full flex-col rounded-[22px] border border-border bg-card p-7 shadow-soft transition-shadow duration-300 hover:shadow-lift sm:p-9"
           >
+
             <div className="grid gap-6 sm:grid-cols-2">
               <FormField
                 id="name"
@@ -154,45 +155,45 @@ export function ContactFormMap() {
                 ) : null}
               </div>
             </div>
-            <Button type="submit" className="mt-8 w-full sm:w-auto">
+            <Button type="submit" className="mt-8 w-full sm:mt-auto sm:w-auto">
               Send Message
             </Button>
           </form>
         </Reveal>
 
         <Reveal delay={120} className="min-w-0 lg:col-span-5">
-          <div className="flex h-full flex-col gap-6">
-            <div className="overflow-hidden rounded-xl border border-border bg-card shadow-soft">
+          <div className="flex h-full flex-col gap-8">
+            <div className="overflow-hidden rounded-[22px] border border-border bg-card p-2 shadow-soft transition-shadow duration-300 hover:shadow-lift">
               <iframe
                 src={mapSrc}
                 title="Map showing the clinic location at IDC, Saddar, Rawalpindi"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="h-64 w-full border-0 sm:h-72"
+                className="h-60 w-full rounded-[16px] border-0 sm:h-64"
               />
             </div>
-            <ul className="flex flex-col gap-5 rounded-xl border border-border bg-card p-7 shadow-soft">
+            <ul className="flex flex-1 flex-col justify-center gap-6 rounded-[22px] border border-border bg-card p-8 shadow-soft transition-all duration-300 hover:border-primary/25 hover:shadow-lift">
               {details.map((detail) => (
-                <li key={detail.label} className="flex items-start gap-4">
+                <li key={detail.label} className="group flex items-start gap-4">
                   <span
                     aria-hidden="true"
-                    className="grid size-10 shrink-0 place-items-center rounded-lg bg-surface text-primary"
+                    className="grid size-11 shrink-0 place-items-center rounded-full border border-primary/20 bg-[linear-gradient(140deg,color-mix(in_oklab,var(--primary)_12%,transparent),color-mix(in_oklab,var(--primary)_4%,transparent))] text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] transition-all duration-300 group-hover:scale-105 group-hover:border-transparent group-hover:bg-[linear-gradient(140deg,var(--primary),var(--secondary))] group-hover:text-primary-foreground"
                   >
                     <detail.icon size={18} strokeWidth={1.7} />
                   </span>
                   <div className="min-w-0">
-                    <p className="text-xs font-semibold uppercase tracking-[0.12em] text-foreground">
+                    <p className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-primary">
                       {detail.label}
                     </p>
                     {detail.href ? (
                       <a
                         href={detail.href}
-                        className="mt-1 block text-base text-muted-foreground transition-colors hover:text-primary"
+                        className="mt-1.5 block text-base font-medium leading-relaxed text-foreground transition-colors hover:text-primary"
                       >
                         {detail.value}
                       </a>
                     ) : (
-                      <p className="mt-1 text-base leading-relaxed text-muted-foreground">
+                      <p className="mt-1.5 text-base font-medium leading-relaxed text-foreground">
                         {detail.value}
                       </p>
                     )}
@@ -202,6 +203,7 @@ export function ContactFormMap() {
             </ul>
           </div>
         </Reveal>
+
       </div>
     </Section>
   );
