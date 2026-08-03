@@ -36,7 +36,7 @@ function ServicesPage() {
       <SurgicalProcedures />
       <DiagnosticServices />
       <ServiceProcess />
-      <ServicesWhyChoose />
+      
       <ServicesFaq />
       <PremiumCta
         id="services-cta-heading"
