@@ -86,7 +86,7 @@ export function SurgicalProcedures() {
                     className="pointer-events-none absolute inset-0 opacity-[0.05]"
                     style={{
                       backgroundImage:
-                        "radial-gradient(circle at 1px 1px, hsl(var(--primary-raw, 0 0% 40%)) 1px, transparent 0)",
+                        "radial-gradient(circle at 1px 1px, var(--primary) 1px, transparent 0)",
                       backgroundSize: "22px 22px",
                     }}
                   />
@@ -128,7 +128,7 @@ export function SurgicalProcedures() {
                     <div className="flex min-w-0 flex-col gap-6 px-2 py-2 lg:px-6">
                       <span
                         aria-hidden="true"
-                        className="grid size-16 place-items-center rounded-full bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-[0_12px_30px_-12px_hsl(var(--shadow-primary,0_0%_0%)/0.45)] ring-1 ring-primary/25 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-105"
+                        className="grid size-16 place-items-center rounded-full bg-gradient-to-br from-primary to-secondary text-primary-foreground shadow-lift ring-1 ring-primary/25 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-105"
                       >
                         <procedure.icon size={28} strokeWidth={1.6} />
                       </span>
