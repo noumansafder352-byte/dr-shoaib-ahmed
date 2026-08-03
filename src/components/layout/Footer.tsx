@@ -126,12 +126,12 @@ export function Footer() {
               { icon: Clock, label: contact.hours },
             ].map(({ icon: Icon, label, href, external }) => {
               const content = (
-                <span className="leading-relaxed transition-colors duration-300 group-hover:text-primary">
+                <span className="block break-words leading-relaxed transition-colors duration-300 group-hover:text-primary">
                   {label}
                 </span>
               );
               return (
-                <li key={label} className="group flex items-center gap-4">
+                <li key={label} className="group flex min-w-0 items-center gap-3 sm:gap-4">
                   <span
                     aria-hidden="true"
                     className="grid size-11 shrink-0 place-items-center rounded-full border border-primary/25 bg-primary/10 text-primary shadow-soft transition-all duration-300 ease-[var(--ease-brand)] group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground"
