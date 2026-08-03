@@ -98,7 +98,7 @@ export function ContactFormMap() {
           <form
             noValidate
             onSubmit={onSubmit}
-            className="flex h-full flex-col rounded-[22px] border border-border bg-card p-7 shadow-soft transition-shadow duration-300 hover:shadow-lift sm:p-9"
+            className="flex h-full flex-col rounded-[22px] border border-border bg-card p-6 shadow-soft transition-shadow duration-300 hover:shadow-lift sm:p-8 lg:p-9"
           >
 
             <div className="grid gap-6 sm:grid-cols-2">
