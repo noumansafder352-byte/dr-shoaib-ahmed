@@ -28,8 +28,9 @@ function ContactPage() {
         description="Whether you have questions, need medical advice, or would like to schedule an appointment, our team is here to assist you. We are committed to providing compassionate care and a smooth healthcare experience from your first contact to your follow-up visit."
         crumbs={[{ label: "Contact" }]}
       />
-      <ContactFormMap />
       <AppointmentInfo />
+      <ContactFormMap />
+
       <ContactFaq />
       <EmergencyNotice />
 
