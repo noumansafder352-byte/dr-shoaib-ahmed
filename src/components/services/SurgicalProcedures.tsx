@@ -80,13 +80,8 @@ export function SurgicalProcedures() {
 
       <ul className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-6">
         {procedures.map((procedure, index) => (
-          <Reveal
-            key={procedure.title}
-            delay={index * 80}
-            className={cn("h-full", procedure.span)}
-            asChild
-          >
-            <li className="h-full">
+          <li key={procedure.title} className={cn("h-full", procedure.span)}>
+            <Reveal delay={index * 80} className="h-full">
               <Link
                 to="/contact"
                 className="group flex h-full flex-col overflow-hidden rounded-[26px] border border-border bg-card shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
