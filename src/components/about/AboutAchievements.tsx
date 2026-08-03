@@ -75,7 +75,7 @@ export function AboutAchievements() {
   return (
     <Section
       id="professional-milestones"
-      surface
+
       ariaLabelledBy="professional-milestones-heading"
       className="relative isolate overflow-hidden"
     >
