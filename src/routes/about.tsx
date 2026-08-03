@@ -31,9 +31,7 @@ function AboutPage() {
       />
       <AboutStory />
       <AboutSpecialist />
-      <AboutHighlights />
       <AboutExpertise />
-      
       <VisionMission />
       <DoctorMessage />
       <PremiumCta
