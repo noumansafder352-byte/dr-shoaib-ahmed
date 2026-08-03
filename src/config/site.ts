@@ -8,7 +8,8 @@ export const site = {
   specialty: "ENT Specialist",
   city: "Rawalpindi, Pakistan",
   url: "https://example.com",
-  designedBy: "Designed & Developed by Digital Care",
+  designedByPrefix: "Designed & Developed by",
+  designedByBrand: "Nexen Strategy",
 } as const;
 
 export const contact = {
