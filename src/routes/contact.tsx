@@ -33,17 +33,9 @@ function ContactPage() {
       <ContactInfo />
       <AppointmentInfo />
       <ContactFormMap />
-      <ContactWhyVisit />
       <ContactFaq />
       <EmergencyNotice />
-      <CtaBanner
-        tone="primary"
-        label="Appointments"
-        title="Your Health Is Our Priority"
-        description="Don't let ear, nose, or throat problems affect your quality of life. Book your consultation today and receive expert ENT care from Prof. Dr. Maj. Gen. (R) Shoaib Ahmed."
-        primary={{ label: "Book Appointment", href: contact.phoneHref }}
-        secondary={{ label: "Call Now", href: contact.phoneHref }}
-      />
+
     </>
   );
 }
