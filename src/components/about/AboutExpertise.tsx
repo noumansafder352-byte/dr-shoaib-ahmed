@@ -47,7 +47,6 @@ export function AboutExpertise() {
   return (
     <CenteredSection
       id="areas-of-expertise"
-      surface
       label="Expertise"
       title="Comprehensive ENT care"
       description="A single specialist opinion covering the full range of ear, nose, throat, head and neck conditions for children and adults."
