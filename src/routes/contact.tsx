@@ -4,7 +4,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { AppointmentInfo } from "@/components/contact/AppointmentInfo";
 import { ContactFaq } from "@/components/contact/ContactFaq";
 import { ContactFormMap } from "@/components/contact/ContactFormMap";
-import { ContactInfo } from "@/components/contact/ContactInfo";
+
 import { EmergencyNotice } from "@/components/contact/EmergencyNotice";
 import { seo } from "@/lib/seo";
 
@@ -28,9 +28,8 @@ function ContactPage() {
         description="Whether you have questions, need medical advice, or would like to schedule an appointment, our team is here to assist you. We are committed to providing compassionate care and a smooth healthcare experience from your first contact to your follow-up visit."
         crumbs={[{ label: "Contact" }]}
       />
-      <ContactInfo />
-      <AppointmentInfo />
       <ContactFormMap />
+      <AppointmentInfo />
       <ContactFaq />
       <EmergencyNotice />
 
