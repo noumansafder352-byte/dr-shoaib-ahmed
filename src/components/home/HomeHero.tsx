@@ -1,12 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import {
-  ArrowRight,
-  CalendarCheck,
-  CalendarDays,
-  Clock,
-  Phone,
-  Stethoscope,
-} from "lucide-react";
+import { ArrowRight, CalendarCheck, CalendarDays, Clock, Phone, Stethoscope } from "lucide-react";
 
 import doctorHero from "@/assets/dr-shoaib.jpeg.asset.json";
 import { contact } from "@/config/site";
@@ -76,14 +69,11 @@ export function HomeHero() {
               </Link>
             </Button>
           </div>
-
         </Reveal>
-
 
         {/* Right ~52% — signature architectural frame */}
         <Reveal variant="scale" delay={80} className="min-w-0 lg:pt-4">
           <div className="relative mx-auto max-w-[21.75rem] sm:max-w-[26rem] lg:mr-0 lg:ml-auto lg:max-w-[28.5rem]">
-
             {/* Subtle medical-inspired background detailing */}
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
               <div className="absolute -left-8 bottom-24 hidden size-24 opacity-40 [background-image:radial-gradient(var(--color-primary)_1px,transparent_1px)] [background-size:12px_12px] sm:block" />
@@ -104,7 +94,7 @@ export function HomeHero() {
               />
               <div className="overflow-hidden rounded-tl-[6rem] rounded-tr-[1.25rem] rounded-br-[6rem] rounded-bl-[1.25rem] bg-surface sm:rounded-tl-[8rem] sm:rounded-br-[8rem]">
                 <img
-                  src="/image/dr-shoaib.jpeg"
+                  src="/image/Hero-Section.jpg"
                   alt="Prof. Dr. Maj. Gen. (R) Shoaib Ahmed, ENT specialist in Rawalpindi"
                   width={1183}
                   height={1345}
@@ -115,7 +105,6 @@ export function HomeHero() {
                 />
               </div>
             </div>
-
 
             {/* Premium appointment information card */}
             <Reveal delay={220} className="relative z-10 -mt-12 sm:-mt-16 lg:-mt-20">
@@ -165,7 +154,6 @@ export function HomeHero() {
                 </div>
               </div>
             </Reveal>
-
           </div>
         </Reveal>
       </div>

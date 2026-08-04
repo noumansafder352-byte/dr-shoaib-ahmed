@@ -16,7 +16,7 @@ const procedures = [
     title: "Cochlear Implant Surgery",
     description:
       "Candidacy assessment, implantation and structured rehabilitation for severe to profound hearing loss in children and adults.",
-    image: procedureTheatre,
+    image: "/image/cochlear-implant-surgery.jpg",
     alt: "Operating theatre prepared for ear surgery",
     tags: ["Children & adults", "Rehabilitation support", "Long-term follow-up"],
   },
@@ -25,7 +25,7 @@ const procedures = [
     title: "Middle Ear Surgery",
     description:
       "Tympanoplasty and ossicular reconstruction to repair perforated eardrums, stop recurring discharge and restore hearing.",
-    image: procedureMicroscopy,
+    image: "/image/middle-ear-surgery.jpg",
     alt: "ENT examination microscope and audiometry headphones",
     tags: ["Tympanoplasty", "Ossicular reconstruction", "Hearing restoration"],
   },
@@ -34,7 +34,7 @@ const procedures = [
     title: "Mastoid Surgery",
     description:
       "Mastoidectomy for chronic ear infection and cholesteatoma, clearing disease safely while protecting hearing and the facial nerve.",
-    image: facilityEquipment,
+    image: "/image/mastoid.jpg",
     alt: "ENT surgical instruments and equipment",
     tags: ["Chronic ear disease", "Cholesteatoma", "Nerve protection"],
   },
@@ -43,7 +43,7 @@ const procedures = [
     title: "Parotid Gland Surgery",
     description:
       "Careful removal of parotid tumours and swellings with meticulous facial nerve preservation and structured follow-up review.",
-    image: facilityConsultation,
+    image: "/image/parotid-gland.jpg",
     alt: "Consultation room at the ENT clinic",
     tags: ["Tumour removal", "Facial nerve care", "Post-op review"],
   },
@@ -52,7 +52,7 @@ const procedures = [
     title: "Head & Neck Surgery",
     description:
       "Surgical management of selected neck swellings, salivary gland and thyroid-related ENT conditions with clear pre-operative counselling.",
-    image: clinicStory,
+    image: "/image/head-neck-surgery.jpg",
     alt: "Consultation area at the ENT clinic",
     tags: ["Neck swellings", "Salivary gland", "Pre-op counselling"],
   },
