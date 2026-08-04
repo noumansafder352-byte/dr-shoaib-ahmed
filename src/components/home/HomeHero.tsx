@@ -104,7 +104,7 @@ export function HomeHero() {
               />
               <div className="overflow-hidden rounded-tl-[6rem] rounded-tr-[1.25rem] rounded-br-[6rem] rounded-bl-[1.25rem] bg-surface sm:rounded-tl-[8rem] sm:rounded-br-[8rem]">
                 <img
-                  src={doctorHero.url}
+                  src="/image/dr-shoaib.jpeg"
                   alt="Prof. Dr. Maj. Gen. (R) Shoaib Ahmed, ENT specialist in Rawalpindi"
                   width={1183}
                   height={1345}

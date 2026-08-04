@@ -28,7 +28,7 @@ export function AboutSpecialist() {
             <div className="relative flex h-full rounded-[1.5rem] border border-border bg-card p-2.5 shadow-lift">
               <div className="w-full overflow-hidden rounded-[1.1rem] bg-surface">
                 <img
-                  src={doctorProfile}
+                  src="/image/specialist-section-img.png"
                   alt="Portrait of Prof. Dr. Maj. Gen. (R) Shoaib Ahmed, ENT specialist"
                   loading="lazy"
                   width={1024}

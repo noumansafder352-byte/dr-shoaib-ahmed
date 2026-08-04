@@ -18,7 +18,7 @@ export function Logo({
   compact?: boolean;
   variant?: "dark" | "light";
 }) {
-  const src = variant === "light" ? logoLight.url : logoDark.url;
+  const src = variant === "light" ? "/image/ent-logo.svg" : "/image/ent-logo.svg";
 
   return (
     <Link
