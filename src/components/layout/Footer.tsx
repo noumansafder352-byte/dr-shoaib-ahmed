@@ -154,7 +154,6 @@ export function Footer() {
             })}
           </ul>
         </div>
-
       </div>
 
       <div className="border-t border-white/10">
@@ -163,12 +162,12 @@ export function Footer() {
             © {new Date().getFullYear()} {site.doctorName}. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-5">
-            <Link
+            {/* <Link
               to="/contact"
               className="transition-colors duration-300 hover:text-primary-foreground"
             >
               Privacy Policy
-            </Link>
+            </Link> */}
             <span aria-hidden="true" className="hidden h-3 w-px bg-white/15 sm:block" />
             <span>
               {site.designedByPrefix}{" "}

@@ -7,7 +7,7 @@ export const site = {
   shortName: "Dr. Shoaib Ahmed",
   specialty: "ENT Specialist",
   city: "Rawalpindi, Pakistan",
-  url: "https://example.com",
+  url: "https://nexenstrategy.com/",
   designedByPrefix: "Designed & Developed by",
   designedByBrand: "Nexen Strategy",
 } as const;
@@ -44,4 +44,3 @@ export const footerServices = [
   "Cochlear Implant",
   "Head & Neck Surgery",
 ] as const;
-
