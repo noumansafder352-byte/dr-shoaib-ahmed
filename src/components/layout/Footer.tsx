@@ -1,13 +1,25 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Clock, Linkedin, Mail, MapPin, Phone, Youtube } from "lucide-react";
+import { Facebook, Instagram, Clock, Linkedin, Mail, MapPin, Phone, Youtube } from "lucide-react";
 
 import { Logo } from "./Logo";
 import { contact, footerServices, navItems, site } from "@/config/site";
 
 const socials = [
-  { label: "Facebook", href: "https://facebook.com", icon: Facebook },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
-  { label: "YouTube", href: "https://youtube.com", icon: Youtube },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/drshoaibahmedrwp",
+    icon: Facebook,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/drshoaibahmedrwp/",
+    icon: Instagram,
+  },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/@DrShoaibAhmedENT/",
+    icon: Youtube,
+  },
 ];
 
 const linkClass =
@@ -37,7 +49,7 @@ export function Footer() {
         <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
       </div>
 
-      <div className="container-page grid gap-14 py-20 md:grid-cols-2 lg:grid-cols-[1.25fr_0.85fr_0.9fr_1.5fr] lg:gap-12 lg:py-24">
+      <div className="container-page grid gap-14 pt-20 pb-10 md:grid-cols-2 lg:grid-cols-[1.25fr_0.85fr_0.9fr_1.5fr] lg:gap-12 lg:pt-24 lg:pb-12">
         {/* Clinic */}
         <div className="min-w-0">
           <div className="inline-flex rounded-xl bg-white px-4 py-3">
@@ -157,7 +169,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-page flex flex-col items-center justify-between gap-3 py-7 text-xs text-footer-muted sm:flex-row">
+        <div className="container-page flex flex-col items-center justify-between gap-3 py-4 text-xs text-footer-muted sm:flex-row">
           <p>
             © {new Date().getFullYear()} {site.doctorName}. All rights reserved.
           </p>

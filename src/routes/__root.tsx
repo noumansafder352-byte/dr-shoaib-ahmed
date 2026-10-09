@@ -9,7 +9,6 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
-import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteLayout } from "../components/layout/SiteLayout";
 import { Toaster } from "../components/ui/sonner";
@@ -79,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "author", content: "Prof. Dr. Maj. Gen. (R) Shoaib Ahmed" },
+      { name: "author", content: "Prof. Maj. Gen. (R) Dr. Shoaib Ahmed" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -90,10 +89,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap",
       },
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      // {
+      //   rel: "stylesheet",
+      //   href: appCss,
+      // },
       { rel: "icon", href: "/favicon.png", type: "image/svg+xml" },
     ],
     scripts: [
@@ -104,12 +103,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@graph": [
             {
               "@type": "WebSite",
-              name: "Prof. Dr. Maj. Gen. (R) Shoaib Ahmed — ENT Specialist",
+              name: "Prof. Maj. Gen. (R) Dr. Shoaib Ahmed — ENT Specialist",
               inLanguage: "en",
             },
             {
               "@type": ["Physician", "MedicalClinic", "LocalBusiness"],
-              name: "Prof. Dr. Maj. Gen. (R) Shoaib Ahmed",
+              name: "Prof. Maj. Gen. (R) Dr. Shoaib Ahmed",
               medicalSpecialty: "Otolaryngologic",
               description:
                 "Senior ENT specialist in Rawalpindi with over 30 years of experience in ear, nose, throat, cochlear implant and head & neck surgery.",
@@ -137,7 +136,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
   }),
-  shellComponent: RootShell,
+  // shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
@@ -157,16 +156,34 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+// function RootComponent() {
+//   const { queryClient } = Route.useRouteContext();
+
+//   return (
+//     <QueryClientProvider client={queryClient}>
+//       <SiteLayout>
+//         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+//         <Outlet />
+//       </SiteLayout>
+//       <Toaster />
+//     </QueryClientProvider>
+//   );
+// }
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <SiteLayout>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <Outlet />
-      </SiteLayout>
-      <Toaster />
-    </QueryClientProvider>
+    <>
+      <HeadContent />
+
+      <QueryClientProvider client={queryClient}>
+        <SiteLayout>
+          <Outlet />
+        </SiteLayout>
+
+        <Toaster />
+      </QueryClientProvider>
+    </>
   );
 }

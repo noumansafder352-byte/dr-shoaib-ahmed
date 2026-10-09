@@ -1,11 +1,11 @@
-import { Facebook, Linkedin, MapPin, Phone, Youtube } from "lucide-react";
+import { Facebook, Instagram, Linkedin, MapPin, Phone, Youtube } from "lucide-react";
 
 import { contact } from "@/config/site";
 
 const socials = [
-  { label: "Facebook", href: "https://facebook.com", icon: Facebook },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
-  { label: "YouTube", href: "https://youtube.com", icon: Youtube },
+  { label: "Facebook", href: "https://www.facebook.com/drshoaibahmedrwp", icon: Facebook },
+  { label: "Instagram", href: "https://www.instagram.com/drshoaibahmedrwp/", icon: Instagram },
+  { label: "YouTube", href: "https://www.youtube.com/@DrShoaibAhmedENT/", icon: Youtube },
 ];
 
 /**
@@ -19,14 +19,11 @@ export function TopBar() {
         <div className="flex min-w-0 flex-1 items-center gap-x-6 gap-y-1">
           <a
             href={contact.phoneHref}
-            className="flex min-w-0 items-center gap-2 font-medium text-muted-foreground transition-colors hover:text-primary"
+            className="group flex min-w-0 items-center gap-2 font-medium text-muted-foreground transition-colors hover:text-primary"
           >
-            <Phone
-              size={15}
-              strokeWidth={1.8}
-              className="shrink-0 text-primary"
-              aria-hidden="true"
-            />
+            <span className="grid size-8 shrink-0 place-items-center rounded-full border border-primary/40 bg-white text-primary shadow-soft transition-all duration-300 ease-[var(--ease-brand)] group-hover:-translate-y-0.5 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-soft">
+              <Phone size={14} strokeWidth={1.9} aria-hidden="true" />
+            </span>
             <span className="truncate">{contact.phone}</span>
           </a>
 
@@ -34,14 +31,11 @@ export function TopBar() {
             href={contact.mapHref}
             target="_blank"
             rel="noreferrer"
-            className="hidden min-w-0 items-center gap-2 text-muted-foreground transition-colors hover:text-primary sm:flex"
+            className="group hidden min-w-0 items-center gap-2 text-muted-foreground transition-colors hover:text-primary sm:flex"
           >
-            <MapPin
-              size={15}
-              strokeWidth={1.8}
-              className="shrink-0 text-primary"
-              aria-hidden="true"
-            />
+            <span className="grid size-8 shrink-0 place-items-center rounded-full border border-primary/40 bg-white text-primary shadow-soft transition-all duration-300 ease-[var(--ease-brand)] group-hover:-translate-y-0.5 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-soft">
+              <MapPin size={14} strokeWidth={1.9} aria-hidden="true" />
+            </span>
             <span className="truncate">{contact.address}</span>
           </a>
         </div>

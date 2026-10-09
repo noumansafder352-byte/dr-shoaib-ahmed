@@ -42,14 +42,14 @@ export function HomeHero() {
 
           <h1
             id="hero-heading"
-            className="mt-8 max-w-[19ch] font-heading text-[1.95rem] font-semibold min-[400px]:text-[2.2rem] leading-[1.13] tracking-tight text-foreground sm:text-[2.9rem] lg:text-[3.35rem]"
+            className="mt-8 max-w-[19ch] font-heading text-[1.95rem] font-semibold min-[400px]:text-[2.2rem] leading-[1.13] tracking-tight text-foreground sm:text-[2.9rem] lg:text-[3.95rem]"
           >
             Expert ENT Care with{" "}
             <span className="text-primary">Experience, Precision &amp; Compassion</span>
           </h1>
 
           <p className="mt-8 max-w-[46ch] text-base leading-[1.9] text-muted-foreground sm:text-[1.0625rem]">
-            Prof. Dr. Maj. Gen. (R) Shoaib Ahmed provides comprehensive diagnosis and treatment for
+            Prof. Maj. Gen. (R) Dr. Shoaib Ahmed provides comprehensive diagnosis and treatment for
             ear, nose, and throat conditions — combining three decades of clinical excellence with
             personalised, patient-first care.
           </p>
@@ -58,7 +58,7 @@ export function HomeHero() {
             <Button
               asChild
               variant="outline"
-              className="group border-border px-7 text-foreground hover:border-primary"
+              className="group border-primary bg-primary px-7 text-primary-foreground hover:border-primary hover:bg-background hover:text-primary"
             >
               <Link to="/services">
                 Explore Services
@@ -73,7 +73,7 @@ export function HomeHero() {
 
         {/* Right ~52% — signature architectural frame */}
         <Reveal variant="scale" delay={80} className="min-w-0 lg:pt-4">
-          <div className="relative mx-auto max-w-[21.75rem] sm:max-w-[26rem] lg:mr-0 lg:ml-auto lg:max-w-[28.5rem]">
+          <div className="relative mx-auto max-w-[21.75rem] sm:max-w-[26rem] lg:mr-0 lg:ml-auto lg:max-w-[31rem]">
             {/* Subtle medical-inspired background detailing */}
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
               <div className="absolute -left-8 bottom-24 hidden size-24 opacity-40 [background-image:radial-gradient(var(--color-primary)_1px,transparent_1px)] [background-size:12px_12px] sm:block" />
@@ -95,7 +95,7 @@ export function HomeHero() {
               <div className="overflow-hidden rounded-tl-[6rem] rounded-tr-[1.25rem] rounded-br-[6rem] rounded-bl-[1.25rem] bg-surface sm:rounded-tl-[8rem] sm:rounded-br-[8rem]">
                 <img
                   src="/image/Hero-Section.jpg"
-                  alt="Prof. Dr. Maj. Gen. (R) Shoaib Ahmed, ENT specialist in Rawalpindi"
+                  alt="Prof. Maj. Gen. (R) Dr. Shoaib Ahmed, ENT specialist in Rawalpindi"
                   width={1183}
                   height={1345}
                   loading="eager"

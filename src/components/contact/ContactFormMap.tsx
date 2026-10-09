@@ -14,13 +14,17 @@ import { contact } from "@/config/site";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Please enter your full name").max(100),
+
   phone: z
     .string()
     .trim()
     .min(7, "Please enter a valid phone number")
     .max(20, "Phone number is too long"),
+
   email: z.string().trim().email("Please enter a valid email address").max(255),
+
   subject: z.string().trim().min(3, "Please add a short subject").max(120),
+
   message: z.string().trim().min(10, "Please describe your enquiry").max(1000),
 });
 
@@ -35,10 +39,28 @@ const empty: Record<Field, string> = {
 };
 
 const details = [
-  { icon: MapPin, label: "Clinic Address", value: "2nd Floor IDC, Saddar, Rawalpindi, Pakistan" },
-  { icon: Phone, label: "Phone", value: contact.phone, href: contact.phoneHref },
-  { icon: Mail, label: "Email", value: contact.email, href: contact.emailHref },
-  { icon: Clock, label: "Working Hours", value: "Monday – Friday | 4:00 PM – 6:30 PM" },
+  {
+    icon: MapPin,
+    label: "Clinic Address",
+    value: "2nd Floor IDC, Saddar, Rawalpindi, Pakistan",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: contact.phone,
+    href: contact.phoneHref,
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    value: contact.email,
+    href: contact.emailHref,
+  },
+  {
+    icon: Clock,
+    label: "Working Hours",
+    value: "Monday – Friday | 4:00 PM – 6:30 PM",
+  },
 ];
 
 const badges = [
@@ -50,35 +72,99 @@ const badges = [
 const mapSrc =
   "https://www.google.com/maps?q=Islamabad%20Diagnostic%20Centre%20Saddar%20Rawalpindi&output=embed";
 
+/*
+ * WhatsApp number.
+ *
+ * IMPORTANT:
+ * Use the country code without +, spaces or dashes.
+ *
+ * +92 335 0330019
+ * ↓
+ * 923350330019
+ */
+const WHATSAPP_NUMBER = "923350330019";
+
+function buildWhatsAppUrl(message: string) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
 /** Contact form + map, side by side. */
 export function ContactFormMap() {
   const [values, setValues] = useState(empty);
+
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
 
   const update = (field: Field) => (value: string) => {
-    setValues((prev) => ({ ...prev, [field]: value }));
-    setErrors((prev) => ({ ...prev, [field]: undefined }));
+    setValues((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [field]: undefined,
+    }));
   };
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     const result = contactSchema.safeParse(values);
 
+    /*
+     * Validate the form.
+     */
     if (!result.success) {
       const fieldErrors: Partial<Record<Field, string>> = {};
+
       for (const issue of result.error.issues) {
         const key = issue.path[0] as Field;
-        if (!fieldErrors[key]) fieldErrors[key] = issue.message;
+
+        if (!fieldErrors[key]) {
+          fieldErrors[key] = issue.message;
+        }
       }
+
       setErrors(fieldErrors);
+
       toast.error("Please check the highlighted fields and try again.");
+
       return;
     }
 
+    /*
+     * Create the WhatsApp message.
+     */
+    const message = [
+      "New Contact Enquiry",
+      "",
+      `Name: ${values.name}`,
+      `Phone: ${values.phone}`,
+      `Email: ${values.email}`,
+      `Subject: ${values.subject}`,
+      "",
+      "Message:",
+      values.message,
+    ].join("\n");
+
+    /*
+     * Build WhatsApp URL.
+     */
+    const whatsappUrl = buildWhatsAppUrl(message);
+
+    /*
+     * Open WhatsApp with the enquiry pre-filled.
+     */
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
+    /*
+     * Clear form.
+     */
     setValues(empty);
     setErrors({});
-    toast.success("Thank you — your message has been noted.", {
-      description: `For an immediate response, please call ${contact.phone} during clinic hours.`,
+
+    toast.success("Your enquiry is ready to send on WhatsApp.", {
+      description: "WhatsApp has been opened with your enquiry details.",
     });
   };
 
@@ -94,13 +180,13 @@ export function ContactFormMap() {
       </Reveal>
 
       <div className="mt-12 grid items-stretch gap-8 lg:mt-14 lg:grid-cols-12 lg:gap-12">
+        {/* Contact Form */}
         <Reveal className="min-w-0 lg:col-span-7">
           <form
             noValidate
             onSubmit={onSubmit}
             className="flex h-full flex-col rounded-[22px] border border-border bg-card p-6 shadow-soft transition-shadow duration-300 hover:shadow-lift sm:p-8 lg:p-9"
           >
-
             <div className="grid gap-6 sm:grid-cols-2">
               <FormField
                 id="name"
@@ -111,6 +197,7 @@ export function ContactFormMap() {
                 onChange={update("name")}
                 error={errors.name}
               />
+
               <FormField
                 id="phone"
                 label="Phone Number"
@@ -121,6 +208,7 @@ export function ContactFormMap() {
                 onChange={update("phone")}
                 error={errors.phone}
               />
+
               <FormField
                 id="email"
                 label="Email Address"
@@ -131,6 +219,7 @@ export function ContactFormMap() {
                 onChange={update("email")}
                 error={errors.email}
               />
+
               <FormField
                 id="subject"
                 label="Subject"
@@ -139,10 +228,12 @@ export function ContactFormMap() {
                 onChange={update("subject")}
                 error={errors.subject}
               />
+
               <div className="sm:col-span-2">
                 <Label htmlFor="message" className="text-sm font-medium">
                   Message
                 </Label>
+
                 <Textarea
                   id="message"
                   rows={5}
@@ -154,6 +245,7 @@ export function ContactFormMap() {
                   aria-describedby={errors.message ? "message-error" : undefined}
                   className="mt-2 rounded-lg"
                 />
+
                 {errors.message ? (
                   <p id="message-error" role="alert" className="mt-2 text-sm text-primary">
                     {errors.message}
@@ -170,6 +262,7 @@ export function ContactFormMap() {
                 >
                   <ShieldCheck size={17} strokeWidth={1.8} />
                 </span>
+
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   Your details stay strictly confidential and are used only to respond to your
                   enquiry. We typically reply within 24 hours on working days.
@@ -183,6 +276,7 @@ export function ContactFormMap() {
                     className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 text-[0.78rem] font-medium text-foreground transition-colors duration-300 hover:border-primary/30 hover:text-primary"
                   >
                     <badge.icon size={14} strokeWidth={1.9} className="text-primary" />
+
                     {badge.label}
                   </li>
                 ))}
@@ -195,6 +289,7 @@ export function ContactFormMap() {
           </form>
         </Reveal>
 
+        {/* Map + Contact Details */}
         <Reveal delay={120} className="min-w-0 lg:col-span-5">
           <div className="flex h-full flex-col gap-8">
             <div className="overflow-hidden rounded-[22px] border border-border bg-card p-2 shadow-soft transition-shadow duration-300 hover:shadow-lift">
@@ -206,6 +301,7 @@ export function ContactFormMap() {
                 className="h-60 w-full rounded-[16px] border-0 sm:h-64"
               />
             </div>
+
             <ul className="flex flex-1 flex-col justify-center gap-6 rounded-[22px] border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:border-primary/25 hover:shadow-lift sm:p-8">
               {details.map((detail) => (
                 <li key={detail.label} className="group flex min-w-0 items-start gap-4">
@@ -215,10 +311,12 @@ export function ContactFormMap() {
                   >
                     <detail.icon size={18} strokeWidth={1.7} />
                   </span>
+
                   <div className="min-w-0">
                     <p className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-primary">
                       {detail.label}
                     </p>
+
                     {detail.href ? (
                       <a
                         href={detail.href}
@@ -237,7 +335,6 @@ export function ContactFormMap() {
             </ul>
           </div>
         </Reveal>
-
       </div>
     </Section>
   );
@@ -267,6 +364,7 @@ function FormField({
       <Label htmlFor={id} className="text-sm font-medium">
         {label}
       </Label>
+
       <Input
         id={id}
         type={type}
@@ -278,6 +376,7 @@ function FormField({
         aria-describedby={error ? `${id}-error` : undefined}
         className="mt-2 h-12 rounded-lg"
       />
+
       {error ? (
         <p id={`${id}-error`} role="alert" className="mt-2 text-sm text-primary">
           {error}

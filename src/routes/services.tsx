@@ -17,7 +17,7 @@ export const Route = createFileRoute("/services")({
     seo({
       title: "ENT Services in Rawalpindi | Dr. Shoaib Ahmed",
       description:
-        "Ear, nose and throat treatment, cochlear implant and middle ear surgery, endoscopy and hearing evaluation by Prof. Dr. Maj. Gen. (R) Shoaib Ahmed in Rawalpindi.",
+        "Ear, nose and throat treatment, cochlear implant and middle ear surgery, endoscopy and hearing evaluation by Prof. Maj. Gen. (R) Dr. Shoaib Ahmed in Rawalpindi.",
       path: "/services",
       jsonLd: [
         breadcrumbs([
@@ -44,7 +44,7 @@ function ServicesPage() {
       <SurgicalProcedures />
       <DiagnosticServices />
       <ServiceProcess />
-      
+
       <ServicesFaq />
       <PremiumCta
         id="services-cta-heading"

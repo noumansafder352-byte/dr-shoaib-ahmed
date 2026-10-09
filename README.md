@@ -1,6 +1,6 @@
 # Shoaib Ahmed ENT
 
-Create a premium, modern, fully responsive healthcare website for **Prof. Dr. Maj. Gen. (R) Shoaib Ahmed**, a highly experienced Ear, Nose & Throat (ENT) Specialist based in Rawalpindi, Pakistan.
+Create a premium, modern, fully responsive healthcare website for **Prof. Maj. Gen. (R) Dr. Shoaib Ahmed**, a highly experienced Ear, Nose & Throat (ENT) Specialist based in Rawalpindi, Pakistan.
 
 This is a complete redesign of the existing website. Do not reuse the current layout or design. The goal is to create a world-class healthcare website that reflects professionalism, trust, expertise, and compassionate patient care.
 

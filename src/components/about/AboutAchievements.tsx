@@ -100,7 +100,7 @@ export function AboutAchievements() {
           Professional Milestones
         </h2>
         <p className="mt-5 text-base leading-[1.85] text-muted-foreground sm:text-[1.0625rem]">
-          These milestones reflect Prof. Dr. Maj. Gen. (R) Shoaib Ahmed&rsquo;s contributions to ENT
+          These milestones reflect Prof. Maj. Gen. (R) Dr. Shoaib Ahmed&rsquo;s contributions to ENT
           surgery, medical education, research, and clinical leadership across three decades of
           practice.
         </p>

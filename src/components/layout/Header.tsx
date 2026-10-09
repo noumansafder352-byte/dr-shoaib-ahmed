@@ -31,9 +31,7 @@ export function Header() {
     <header
       className={cn(
         "sticky top-0 z-50 w-full backdrop-blur-xl transition-all duration-300 ease-[var(--ease-brand)]",
-        scrolled
-          ? "bg-background/92 shadow-header"
-          : "border-b border-border/70 bg-background/85",
+        scrolled ? "bg-background/85 shadow-header" : "border-b border-border/70 bg-background/75",
       )}
     >
       <TopBar />
@@ -47,15 +45,17 @@ export function Header() {
         <Logo compact={scrolled} />
 
         <nav aria-label="Main navigation" className="hidden lg:block">
-          <ul className="flex items-center gap-9">
+          <ul className="flex items-center gap-2">
             {navItems.map((item) => (
               <li key={item.to}>
                 <Link
                   to={item.to}
                   activeOptions={{ exact: item.to === "/" }}
-                  activeProps={{ className: "text-primary after:scale-x-100" }}
+                  activeProps={{
+                    className: "bg-primary font-semibold text-primary-foreground shadow-soft",
+                  }}
                   inactiveProps={{ className: "text-foreground" }}
-                  className="relative py-1.5 text-sm font-medium transition-colors duration-300 hover:text-primary after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-[var(--ease-brand)] hover:after:scale-x-100"
+                  className="rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 hover:bg-surface hover:text-primary"
                 >
                   {item.label}
                 </Link>
@@ -100,10 +100,12 @@ export function Header() {
                   to={item.to}
                   tabIndex={open ? 0 : -1}
                   activeOptions={{ exact: item.to === "/" }}
-                  activeProps={{ className: "text-primary" }}
+                  activeProps={{
+                    className: "border-l-primary bg-primary/[0.05] font-semibold text-primary",
+                  }}
                   inactiveProps={{ className: "text-foreground" }}
                   onClick={() => setOpen(false)}
-                  className="block py-3.5 text-base font-medium transition-colors hover:text-primary"
+                  className="block rounded-md border-l-2 border-l-transparent px-3 py-3.5 text-base font-medium transition-colors duration-300 hover:bg-surface hover:text-primary"
                 >
                   {item.label}
                 </Link>

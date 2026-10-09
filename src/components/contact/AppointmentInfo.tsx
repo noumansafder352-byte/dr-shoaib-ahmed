@@ -12,6 +12,9 @@ const checklist = [
   "Hearing aids or medical devices (if applicable)",
 ];
 
+const whatsappAppointmentHref =
+  "https://web.whatsapp.com/send/?phone=923350330019&text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20with%20Prof.%20Dr.%20Shoaib%20Ahmed.";
+
 /** Appointment guidance — content left, clinic image right. */
 export function AppointmentInfo() {
   return (
@@ -41,7 +44,9 @@ export function AppointmentInfo() {
         </ul>
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
           <Button asChild className="w-full sm:w-auto">
-            <a href={contact.phoneHref}>Book Appointment</a>
+            <a href={whatsappAppointmentHref} target="_blank" rel="noreferrer">
+              Book Appointment
+            </a>
           </Button>
           <Button asChild variant="outline" className="w-full sm:w-auto">
             <a href={contact.phoneHref}>Call Now</a>

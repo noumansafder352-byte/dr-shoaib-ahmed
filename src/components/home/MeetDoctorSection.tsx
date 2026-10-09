@@ -39,7 +39,7 @@ export function MeetDoctorSection() {
               <div className="w-full overflow-hidden rounded-[1.1rem] bg-surface">
                 <img
                   src="/image/specialist-section-img.png"
-                  alt="Prof. Dr. Maj. Gen. (R) Shoaib Ahmed reviewing an ear endoscopy image in his clinic"
+                  alt="Prof. Maj. Gen. (R) Dr. Shoaib Ahmed reviewing an ear endoscopy image in his clinic"
                   loading="lazy"
                   width={1024}
                   height={1152}
@@ -52,26 +52,29 @@ export function MeetDoctorSection() {
 
         {/* Content */}
         <Reveal delay={80} className="flex min-w-0 flex-col justify-center lg:order-1">
-
           <span className="eyebrow">Meet the Specialist</span>
 
           <h2
             id="meet-the-doctor-heading"
             className="mt-4 font-heading text-[2rem] font-semibold leading-[1.15] tracking-tight text-foreground sm:text-[2.5rem] lg:text-[2.6rem]"
           >
-            Prof. Dr. Maj. Gen. (R) Shoaib Ahmed
+            Prof. Maj. Gen. (R) Dr. Shoaib Ahmed
           </h2>
 
           <div className="mt-5 max-w-[62ch] space-y-4 text-base leading-[1.85] text-muted-foreground sm:text-[1.0625rem]">
             <p>
-              With over three decades of experience, Prof. Dr. Maj. Gen. (R) Shoaib Ahmed is a
-              trusted ENT specialist known for his expertise in diagnosing and treating complex ear,
-              nose, and throat conditions.
+              With more than three decades of rich clinical experience Professor Major General
+              (Retd) Dr Shoaib Ahmed is a highly eminent, renowned and respected ENT Specialist. He
+              is known for his diligent and empathetic care and expertise in treating complex and
+              difficult ear, nose , throat & neck conditions.
             </p>
             <p>
-              He has served at renowned institutions including Army Medical College, CMH, and PNS
-              Shifa Hospital, with special expertise in cochlear implant surgery, advanced ear
-              surgery, and comprehensive ENT care.
+              He has served at several major medical institutions. These include: Army Medical
+              College CMHs Rawalpindi, Quetta, Lahore, Peshawar & PNS Shifa Karachi.
+            </p>
+            <p>
+              His special expertise includes cochlear implant surgery, advanced ear & mastoid
+              surgeries and all Head & Neck conditions.
             </p>
           </div>
 
@@ -114,6 +117,5 @@ export function MeetDoctorSection() {
         </Reveal>
       </div>
     </Section>
-
   );
 }

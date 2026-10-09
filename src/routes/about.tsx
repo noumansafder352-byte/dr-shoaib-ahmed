@@ -13,9 +13,9 @@ import { breadcrumbs, seo } from "@/lib/seo";
 export const Route = createFileRoute("/about")({
   head: () =>
     seo({
-      title: "About Prof. Dr. Shoaib Ahmed | ENT Specialist Rawalpindi",
+      title: "About Prof. Maj. Gen. (R) Dr. Shoaib Ahmed | ENT Specialist Rawalpindi",
       description:
-        "30+ years of ENT practice at Army Medical College, CMH and PNS Shifa. Learn about Prof. Dr. Maj. Gen. (R) Shoaib Ahmed's expertise in cochlear implant and advanced ear surgery.",
+        "30+ years of ENT practice at Army Medical College, CMH and PNS Shifa. Learn about Prof. Maj. Gen. (R) Dr. Shoaib Ahmed's expertise in cochlear implant and advanced ear surgery.",
       path: "/about",
       type: "profile",
       jsonLd: [
@@ -33,7 +33,7 @@ function AboutPage() {
     <>
       <PageHero
         label="About Us"
-        title="About Prof. Dr. Maj. Gen. (R) Shoaib Ahmed"
+        title="About Prof. Maj. Gen. (R) Dr. Shoaib Ahmed"
         description="Learn more about our commitment to providing exceptional Ear, Nose, and Throat care through decades of experience, clinical excellence, and compassionate patient care."
         crumbs={[{ label: "About Us" }]}
       />

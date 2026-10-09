@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system — Prof. Dr. Maj. Gen. (R) Shoaib Ahmed, ENT Specialist.
+ * Design system — Prof. Maj. Gen. (R) Dr. Shoaib Ahmed, ENT Specialist.
  *
  * Brand palette (do not introduce new brand colors):
  *   Primary red     #ED1E24  -> --primary
@@ -79,12 +79,12 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   /* elevation — very soft only */
-  --shadow-soft: 0 1px 2px oklch(0.3795 0.0017 286.32 / 0.04), 0 8px 24px
-    oklch(0.3795 0.0017 286.32 / 0.06);
-  --shadow-lift: 0 2px 4px oklch(0.3795 0.0017 286.32 / 0.05), 0 18px 40px
-    oklch(0.3795 0.0017 286.32 / 0.1);
-  --shadow-header: 0 1px 0 oklch(0.9417 0.0052 247.88 / 1), 0 6px 20px
-    oklch(0.3795 0.0017 286.32 / 0.06);
+  --shadow-soft:
+    0 1px 2px oklch(0.3795 0.0017 286.32 / 0.04), 0 8px 24px oklch(0.3795 0.0017 286.32 / 0.06);
+  --shadow-lift:
+    0 2px 4px oklch(0.3795 0.0017 286.32 / 0.05), 0 18px 40px oklch(0.3795 0.0017 286.32 / 0.1);
+  --shadow-header:
+    0 1px 0 oklch(0.9417 0.0052 247.88 / 1), 0 6px 20px oklch(0.3795 0.0017 286.32 / 0.06);
 
   /* section rhythm: 120 / 90 / 70 */
   --spacing-section: 4.375rem;
@@ -98,7 +98,6 @@
   --animate-slide-up: slide-up 0.7s var(--ease-brand) both;
   --animate-scale-in: scale-in 0.5s var(--ease-brand) both;
   --animate-grow-x: grow-x 1.1s var(--ease-brand) 0.15s both;
-
 }
 
 :root {
@@ -194,8 +193,6 @@
   }
 }
 
-
-
 @layer base {
   * {
     border-color: var(--color-border);
@@ -256,7 +253,7 @@
 @utility container-page {
   margin-inline: auto;
   width: 100%;
-  max-width: 80rem;
+  max-width: 88rem;
   padding-inline: 1.25rem;
 
   @media (min-width: 768px) {
@@ -264,7 +261,7 @@
   }
 
   @media (min-width: 1024px) {
-    padding-inline: 2.5rem;
+    padding-inline: 2rem;
   }
 }
 

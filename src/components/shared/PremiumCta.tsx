@@ -51,7 +51,7 @@ export function PremiumCta({
         <div className="absolute inset-x-0 top-0 h-px bg-white/25" />
       </div>
 
-      <div className="container-page py-20 sm:py-24 lg:py-28">
+      <div className="container-page py-14 sm:py-16 lg:py-20">
         <div className="grid items-center gap-12 lg:grid-cols-[1.3fr_1fr] lg:gap-20">
           <Reveal className="min-w-0">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.18em]">

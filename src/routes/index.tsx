@@ -16,9 +16,9 @@ import { faqSchema, seo } from "@/lib/seo";
 export const Route = createFileRoute("/")({
   head: () =>
     seo({
-      title: "ENT Specialist Rawalpindi | Prof. Dr. Shoaib Ahmed",
+      title: "ENT Specialist Rawalpindi | Prof. Maj. Gen. (R) Dr. Shoaib Ahmed",
       description:
-        "Prof. Dr. Maj. Gen. (R) Shoaib Ahmed — senior ENT specialist in Rawalpindi with 30+ years of experience in ear, nose, throat and cochlear implant surgery. Book an appointment.",
+        "Prof. Maj. Gen. (R) Dr. Shoaib Ahmed — senior ENT specialist in Rawalpindi with 30+ years of experience in ear, nose, throat and cochlear implant surgery. Book an appointment.",
       path: "/",
       jsonLd: [faqSchema(faqs)],
     }),

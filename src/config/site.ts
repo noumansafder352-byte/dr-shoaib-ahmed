@@ -3,7 +3,7 @@
  */
 
 export const site = {
-  doctorName: "Prof. Dr. Maj. Gen. (R) Shoaib Ahmed",
+  doctorName: "Prof. Maj. Gen. (R) Dr. Shoaib Ahmed",
   shortName: "Dr. Shoaib Ahmed",
   specialty: "ENT Specialist",
   city: "Rawalpindi, Pakistan",

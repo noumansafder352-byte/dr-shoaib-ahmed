@@ -29,7 +29,7 @@ export function AboutSpecialist() {
               <div className="w-full overflow-hidden rounded-[1.1rem] bg-surface">
                 <img
                   src="/image/specialist-section-img.png"
-                  alt="Portrait of Prof. Dr. Maj. Gen. (R) Shoaib Ahmed, ENT specialist"
+                  alt="Portrait of Prof. Maj. Gen. (R) Dr. Shoaib Ahmed, ENT specialist"
                   loading="lazy"
                   width={1024}
                   height={1152}
@@ -48,24 +48,23 @@ export function AboutSpecialist() {
             id="meet-the-specialist-heading"
             className="mt-4 font-heading text-[2rem] font-semibold leading-[1.15] tracking-tight text-foreground sm:text-[2.5rem] lg:text-[2.6rem]"
           >
-            Prof. Dr. Maj. Gen. (R) Shoaib Ahmed
+            Prof. Maj. Gen. (R) Dr. Shoaib Ahmed
           </h2>
 
           <div className="mt-5 max-w-[62ch] space-y-4 text-base leading-[1.85] text-muted-foreground sm:text-[1.0625rem]">
             <p>
-              Prof. Dr. Maj. Gen. (R) Shoaib Ahmed is one of Pakistan&rsquo;s experienced ENT
-              specialists with more than 30 years of clinical practice, medical education, and
-              advanced ENT surgery.
+              With more than three decades of rich clinical experience Professor Major General
+              (Retd) Dr Shoaib Ahmed is a highly eminent, renowned and respected ENT Specialist. He
+              is known for his diligent and empathetic care and expertise in treating complex and
+              difficult ear, nose , throat & neck conditions .
             </p>
             <p>
-              Throughout his career, he has served at renowned institutions including Army Medical
-              College, Combined Military Hospital (CMH), and PNS Shifa Hospital, where he gained
-              extensive expertise in diagnosing and treating both routine and complex ENT
-              conditions.
+              He has served at several major medical institutions. These include: Army Medical
+              College CMHs Rawalpindi, Quetta, Lahore, Peshawar & PNS Shifa Karachi.
             </p>
             <p>
-              His areas of expertise include cochlear implant surgery, advanced ear surgery, head
-              &amp; neck surgery, and comprehensive ENT care for adults and children.
+              His special expertise includes cochlear implant surgery, advanced ear &amp; mastoid
+              surgeries and all Head & Neck conditions.
             </p>
           </div>
 
