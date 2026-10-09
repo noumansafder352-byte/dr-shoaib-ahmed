@@ -202,23 +202,23 @@ export type Testimonial = {
 /** Testimonial card — patient photo, name, rating and review. */
 export function TestimonialCard({ name, detail, image, rating, review }: Testimonial) {
   return (
-    <SurfaceCard interactive className="flex h-full flex-col gap-5">
+    <SurfaceCard interactive className="flex h-full flex-col gap-4 p-6 sm:p-7">
       <Rating value={rating} />
-      <blockquote className="flex-1 text-base leading-relaxed text-muted-foreground">
+      <blockquote className="flex-1 text-[0.9375rem] leading-relaxed text-muted-foreground">
         “{review}”
       </blockquote>
-      <figcaption className="flex items-center gap-3 border-t border-border pt-5">
+      <figcaption className="flex items-center gap-3 border-t border-border pt-4">
         {image ? (
           <img
             src={image}
             alt={name}
             loading="lazy"
-            className="size-11 shrink-0 rounded-full object-cover"
+            className="size-10 shrink-0 rounded-full object-cover"
           />
         ) : (
           <span
             aria-hidden="true"
-            className="grid size-11 shrink-0 place-items-center rounded-full bg-surface font-heading text-sm font-semibold text-primary"
+            className="grid size-10 shrink-0 place-items-center rounded-full bg-surface font-heading text-sm font-semibold text-primary"
           >
             {name.slice(0, 1)}
           </span>

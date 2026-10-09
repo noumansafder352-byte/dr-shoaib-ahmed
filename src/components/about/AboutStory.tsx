@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 
-import clinicStory from "@/assets/clinic-story.jpg";
 import { SplitSection } from "@/components/layout/sections";
 import { Button } from "@/components/ui/button";
 
@@ -11,8 +10,8 @@ export function AboutStory() {
       id="our-story"
       label="Our Story"
       title="Committed to better ENT healthcare"
-      imageSrc={clinicStory}
-      imageAlt="Consultation desk and corridor at Dr. Shoaib Ahmed ENT Clinic"
+      imageSrc="/image/clinic-waiting-area.webp"
+      imageAlt="Patient waiting area at Dr. Shoaib Ahmed ENT Clinic, IDC Saddar, Rawalpindi"
     >
       <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
         <p>

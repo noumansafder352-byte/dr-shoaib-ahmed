@@ -15,6 +15,8 @@ export const site = {
 export const contact = {
   phone: "0335-0330019",
   phoneHref: "tel:+923350330019",
+  phoneAlt: "0331-8880019",
+  phoneAltHref: "tel:+923318880019",
   email: "official.drshoaibahmed@gmail.com",
   emailHref: "mailto:official.drshoaibahmed@gmail.com",
 

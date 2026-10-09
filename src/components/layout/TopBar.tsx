@@ -1,11 +1,13 @@
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Youtube } from "lucide-react";
 
+import { TikTokIcon } from "./TikTokIcon";
 import { contact } from "@/config/site";
 
 const socials = [
   { label: "Facebook", href: "https://www.facebook.com/drshoaibahmedrwp", icon: Facebook },
   { label: "Instagram", href: "https://www.instagram.com/drshoaibahmedrwp/", icon: Instagram },
   { label: "YouTube", href: "https://www.youtube.com/@DrShoaibAhmedENT/", icon: Youtube },
+  { label: "TikTok", href: "https://www.tiktok.com/@drshoaibahmedrwp", icon: TikTokIcon },
 ];
 
 /**

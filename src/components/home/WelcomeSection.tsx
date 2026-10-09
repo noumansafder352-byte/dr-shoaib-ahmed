@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Award, HeartHandshake, Stethoscope } from "lucide-react";
 
-import clinicWelcome from "@/assets/clinic-welcome.jpg";
 import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
@@ -25,14 +24,15 @@ export function WelcomeSection() {
       <div className="grid gap-14 lg:grid-cols-[45fr_55fr] lg:items-stretch lg:gap-16 xl:gap-20">
         {/* Image */}
         <Reveal variant="scale" className="min-w-0 lg:flex">
-          <div className="w-full overflow-hidden rounded-[1.75rem] bg-surface shadow-lift">
+          {/* On desktop the image is absolutely positioned so the text column sets the height */}
+          <div className="relative w-full overflow-hidden rounded-[1.75rem] bg-surface shadow-lift">
             <img
-              src={clinicWelcome}
-              alt="Consultation room at the ENT clinic with examination chair and endoscopy equipment"
+              src="/image/clinic-reception-waiting.jpg"
+              alt="Reception and patient waiting area at Dr. Shoaib Ahmed's ENT clinic, IDC Saddar, Rawalpindi"
               loading="lazy"
-              width={1280}
-              height={1120}
-              className="aspect-[5/4.4] h-full w-full object-cover lg:aspect-auto"
+              width={1024}
+              height={1536}
+              className="aspect-[5/4.4] h-full w-full object-cover object-[center_45%] lg:absolute lg:inset-0 lg:aspect-auto"
             />
           </div>
         </Reveal>

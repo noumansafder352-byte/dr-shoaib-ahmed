@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Clock, Lock, Mail, MapPin, Phone, ShieldCheck, Stethoscope, Timer } from "lucide-react";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -38,28 +38,33 @@ const empty: Record<Field, string> = {
   message: "",
 };
 
-const details = [
+const details: {
+  icon: typeof MapPin;
+  label: string;
+  values: { text: string; href?: string }[];
+}[] = [
   {
     icon: MapPin,
     label: "Clinic Address",
-    value: "2nd Floor IDC, Saddar, Rawalpindi, Pakistan",
+    values: [{ text: "2nd Floor IDC, Saddar, Rawalpindi, Pakistan" }],
   },
   {
     icon: Phone,
     label: "Phone",
-    value: contact.phone,
-    href: contact.phoneHref,
+    values: [
+      { text: contact.phone, href: contact.phoneHref },
+      { text: contact.phoneAlt, href: contact.phoneAltHref },
+    ],
   },
   {
     icon: Mail,
     label: "Email",
-    value: contact.email,
-    href: contact.emailHref,
+    values: [{ text: contact.email, href: contact.emailHref }],
   },
   {
     icon: Clock,
     label: "Working Hours",
-    value: "Monday – Friday | 4:00 PM – 6:30 PM",
+    values: [{ text: "Monday – Friday | 4:00 PM – 6:30 PM" }],
   },
 ];
 
@@ -289,20 +294,10 @@ export function ContactFormMap() {
           </form>
         </Reveal>
 
-        {/* Map + Contact Details */}
+        {/* Contact Details + Map */}
         <Reveal delay={120} className="min-w-0 lg:col-span-5">
           <div className="flex h-full flex-col gap-8">
-            <div className="overflow-hidden rounded-[22px] border border-border bg-card p-2 shadow-soft transition-shadow duration-300 hover:shadow-lift">
-              <iframe
-                src={mapSrc}
-                title="Map showing the clinic location at IDC, Saddar, Rawalpindi"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="h-60 w-full rounded-[16px] border-0 sm:h-64"
-              />
-            </div>
-
-            <ul className="flex flex-1 flex-col justify-center gap-6 rounded-[22px] border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:border-primary/25 hover:shadow-lift sm:p-8">
+            <ul className="flex flex-col justify-center gap-6 rounded-[22px] border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:border-primary/25 hover:shadow-lift sm:p-8">
               {details.map((detail) => (
                 <li key={detail.label} className="group flex min-w-0 items-start gap-4">
                   <span
@@ -317,22 +312,41 @@ export function ContactFormMap() {
                       {detail.label}
                     </p>
 
-                    {detail.href ? (
-                      <a
-                        href={detail.href}
-                        className="mt-1.5 block break-words text-[0.95rem] font-medium leading-relaxed text-foreground transition-colors hover:text-primary sm:text-base"
-                      >
-                        {detail.value}
-                      </a>
-                    ) : (
-                      <p className="mt-1.5 break-words text-[0.95rem] font-medium leading-relaxed text-foreground sm:text-base">
-                        {detail.value}
-                      </p>
-                    )}
+                    <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-0.5">
+                      {detail.values.map(({ text, href }, index) => (
+                        <Fragment key={text}>
+                          {index > 0 ? (
+                            <span aria-hidden="true" className="h-4 w-px bg-border" />
+                          ) : null}
+                          {href ? (
+                            <a
+                              href={href}
+                              className="block break-words text-[0.95rem] font-medium leading-relaxed text-foreground transition-colors hover:text-primary sm:text-base"
+                            >
+                              {text}
+                            </a>
+                          ) : (
+                            <p className="break-words text-[0.95rem] font-medium leading-relaxed text-foreground sm:text-base">
+                              {text}
+                            </p>
+                          )}
+                        </Fragment>
+                      ))}
+                    </div>
                   </div>
                 </li>
               ))}
             </ul>
+
+            <div className="flex flex-1 flex-col overflow-hidden rounded-[22px] border border-border bg-card p-2 shadow-soft transition-shadow duration-300 hover:shadow-lift">
+              <iframe
+                src={mapSrc}
+                title="Map showing the clinic location at IDC, Saddar, Rawalpindi"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="min-h-60 w-full flex-1 rounded-[16px] border-0 sm:min-h-64"
+              />
+            </div>
           </div>
         </Reveal>
       </div>

@@ -184,6 +184,16 @@
   }
 }
 
+/* Infinite marquee: the track holds two identical sets, so -50% lands seamlessly on the copy. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes grow-x {
   from {
     transform: scaleX(0);

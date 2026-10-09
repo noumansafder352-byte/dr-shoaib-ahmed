@@ -1,7 +1,9 @@
 import { Link } from "@tanstack/react-router";
+import { Fragment } from "react";
 import { Facebook, Instagram, Clock, Linkedin, Mail, MapPin, Phone, Youtube } from "lucide-react";
 
 import { Logo } from "./Logo";
+import { TikTokIcon } from "./TikTokIcon";
 import { contact, footerServices, navItems, site } from "@/config/site";
 
 const socials = [
@@ -19,6 +21,11 @@ const socials = [
     label: "YouTube",
     href: "https://www.youtube.com/@DrShoaibAhmedENT/",
     icon: Youtube,
+  },
+  {
+    label: "TikTok",
+    href: "https://www.tiktok.com/@drshoaibahmedrwp",
+    icon: TikTokIcon,
   },
 ];
 
@@ -57,7 +64,7 @@ export function Footer() {
           </div>
 
           <p className="mt-6 max-w-sm text-sm leading-[1.85] text-footer-muted">
-            Specialist care for ear, nose, throat, head and neck conditions in Rawalpindi —
+            Specialist care for ear, nose, throat, head and neck conditions in Rawalpindi Pakistan,
             combining decades of surgical experience with attentive, patient-focused treatment.
           </p>
           <ul className="mt-7 flex items-center gap-3">
@@ -133,10 +140,17 @@ export function Footer() {
                 href: contact.mapHref,
                 external: true,
               },
-              { icon: Phone, label: contact.phone, href: contact.phoneHref },
+              {
+                icon: Phone,
+                label: contact.phone,
+                links: [
+                  { label: contact.phone, href: contact.phoneHref },
+                  { label: contact.phoneAlt, href: contact.phoneAltHref },
+                ],
+              },
               { icon: Mail, label: contact.email, href: contact.emailHref },
               { icon: Clock, label: contact.hours },
-            ].map(({ icon: Icon, label, href, external }) => {
+            ].map(({ icon: Icon, label, href, external, links }) => {
               const content = (
                 <span className="block break-words leading-relaxed transition-colors duration-300 group-hover:text-primary">
                   {label}
@@ -150,7 +164,23 @@ export function Footer() {
                   >
                     <Icon size={22} strokeWidth={1.9} />
                   </span>
-                  {href ? (
+                  {links ? (
+                    <span className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1">
+                      {links.map((link, index) => (
+                        <Fragment key={link.href}>
+                          {index > 0 ? (
+                            <span aria-hidden="true" className="h-4 w-px bg-white/20" />
+                          ) : null}
+                          <a
+                            href={link.href}
+                            className="leading-relaxed transition-colors duration-300 hover:text-primary"
+                          >
+                            {link.label}
+                          </a>
+                        </Fragment>
+                      ))}
+                    </span>
+                  ) : href ? (
                     <a
                       href={href}
                       {...(external ? { target: "_blank", rel: "noreferrer" } : {})}

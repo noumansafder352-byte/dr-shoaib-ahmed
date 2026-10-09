@@ -1,12 +1,14 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
-
 import { TestimonialCard, type Testimonial } from "./cards";
 import { cn } from "@/lib/utils";
 
+/** Seconds each card takes to scroll past — lower is faster. */
+const SECONDS_PER_CARD = 8;
+
 /**
- * Testimonial slider: 3 cards on desktop, 2 on tablet, 1 on mobile.
- * Uses native scroll-snap so it stays accessible and touch friendly.
+ * Testimonial marquee: 4 cards on wide screens, 3 on desktop, 2 on tablet, 1 on mobile.
+ * Scrolls continuously to the left in a seamless loop — the set is rendered
+ * twice so the first card follows straight after the last. Pauses on hover
+ * or focus, and becomes a manually scrollable row for reduced-motion users.
  */
 export function TestimonialSlider({
   testimonials,
@@ -15,74 +17,33 @@ export function TestimonialSlider({
   testimonials: Testimonial[];
   className?: string;
 }) {
-  const trackRef = useRef<HTMLUListElement>(null);
-  const [atStart, setAtStart] = useState(true);
-  const [atEnd, setAtEnd] = useState(false);
-
-  const sync = useCallback(() => {
-    const el = trackRef.current;
-    if (!el) return;
-    setAtStart(el.scrollLeft <= 4);
-    setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 4);
-  }, []);
-
-  useEffect(() => {
-    sync();
-    const el = trackRef.current;
-    if (!el) return;
-    el.addEventListener("scroll", sync, { passive: true });
-    window.addEventListener("resize", sync);
-    return () => {
-      el.removeEventListener("scroll", sync);
-      window.removeEventListener("resize", sync);
-    };
-  }, [sync]);
-
-  const scrollBy = (direction: -1 | 1) => {
-    const el = trackRef.current;
-    if (!el) return;
-    el.scrollBy({ left: direction * (el.clientWidth / 1.05), behavior: "smooth" });
-  };
-
-  const arrow =
-    "grid size-11 place-items-center rounded-full border border-border bg-card text-foreground shadow-soft transition-all duration-300 ease-[var(--ease-brand)] hover:border-primary hover:bg-primary hover:text-primary-foreground disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border disabled:hover:bg-card disabled:hover:text-foreground";
+  // Each item carries its trailing gap as padding so the two sets are exactly
+  // half the track, keeping the loop seamless.
+  const item =
+    "shrink-0 pr-6 w-[calc(100cqw+1.5rem)] sm:w-[calc((100cqw+1.5rem)/2)] lg:w-[calc((100cqw+1.5rem)/3)] xl:w-[calc((100cqw+1.5rem)/4)]";
 
   return (
-    <div className={cn("relative", className)}>
+    <div
+      className={cn(
+        "relative [container-type:inline-size] overflow-hidden motion-reduce:overflow-x-auto",
+        className,
+      )}
+    >
       <ul
-        ref={trackRef}
-        className="-mx-1 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-1 pb-2 lg:gap-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex w-max animate-[marquee_linear_infinite] pb-2 hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] motion-reduce:animate-none"
+        style={{ animationDuration: `${testimonials.length * SECONDS_PER_CARD}s` }}
       >
         {testimonials.map((testimonial) => (
-          <li
-            key={testimonial.name}
-            className="w-full shrink-0 snap-start sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4rem)/3)]"
-          >
+          <li key={testimonial.name} className={item}>
+            <TestimonialCard {...testimonial} />
+          </li>
+        ))}
+        {testimonials.map((testimonial) => (
+          <li key={`${testimonial.name}-copy`} className={item} aria-hidden="true">
             <TestimonialCard {...testimonial} />
           </li>
         ))}
       </ul>
-
-      <div className="mt-8 flex items-center justify-center gap-3">
-        <button
-          type="button"
-          className={cn(arrow, "cursor-pointer")}
-          onClick={() => scrollBy(-1)}
-          disabled={atStart}
-          aria-label="Previous testimonials"
-        >
-          <ChevronLeft size={18} strokeWidth={2} aria-hidden="true" />
-        </button>
-        <button
-          type="button"
-          className={cn(arrow, "cursor-pointer")}
-          onClick={() => scrollBy(1)}
-          disabled={atEnd}
-          aria-label="Next testimonials"
-        >
-          <ChevronRight size={18} strokeWidth={2} aria-hidden="true" />
-        </button>
-      </div>
     </div>
   );
 }
